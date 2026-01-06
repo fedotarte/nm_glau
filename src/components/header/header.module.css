@@ -1,0 +1,54 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  height: 56px;
+  background: linear-gradient(90deg, rgba(19, 93, 108, 0.70) 0%, rgba(10, 153, 166, 0.70) 100%);
+  box-shadow: 0 4px 6px 0 rgba(3, 20, 23, 0.30);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: clamp(24px, 4vw, 48px);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 var(--container-padding);
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 40px);
+}
+
+.navLink {
+  font-size: clamp(14px, 1.1vw, 18px);
+  font-weight: 400;
+  color: var(--color-text-light);
+  transition: opacity 0.2s ease;
+}
+
+.navLink:hover {
+  opacity: 0.8;
+}
+
+.loginButton {
+  padding: 8px 24px;
+  font-size: clamp(14px, 1.1vw, 16px);
+  font-weight: 600;
+  color: var(--color-text-light);
+  background-color: var(--color-primary);
+  border-radius: var(--radius-button);
+  transition: background-color 0.2s ease;
+}
+
+.loginButton:hover {
+  background-color: var(--color-primary-dark);
+}
