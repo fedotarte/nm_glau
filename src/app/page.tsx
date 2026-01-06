@@ -1,27 +1,10 @@
 import styles from "./page.module.css";
-import { Header, Footer, Hero, ArticleSlider, ArticleCard } from "@/components";
-
-const articles: ArticleCard[] = [
-  {
-    slug: "clinical-recommendations",
-    title: "Клинические рекомендации<br/>по терапии ПОУГ",
-  },
-  {
-    slug: "neuroprotection",
-    title: "Нейропротекция<br/>при глаукоме",
-  },
-  {
-    slug: "apg-difference",
-    title: "АПГ: В чем разница<br/>между молекулами?",
-  },
-  {
-    slug: "lumistart",
-    title: "ЛЮМИСТАРТ — <span>новый</span><br/>старт в терапии ПОУГ",
-    highlighted: true,
-  },
-];
+import { Header, Footer, Hero, ArticleSlider } from "@/components";
+import { getAllArticles } from "@/content";
 
 export default function Home() {
+  const articles = getAllArticles();
+
   return (
     <div className={styles.page}>
       <Header />

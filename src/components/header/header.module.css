@@ -15,11 +15,11 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: clamp(24px, 4vw, 48px);
+  gap: 24px;
   max-width: var(--container-max-width);
   margin: 0 auto;
   height: 100%;
-  padding: 0 var(--container-padding);
+  padding: 0 24px;
 }
 
 .navList {
@@ -43,6 +43,7 @@
   padding: 8px 24px;
   font-size: clamp(14px, 1.1vw, 16px);
   font-weight: 600;
+  width: 155px;
   color: var(--color-text-light);
   background-color: var(--color-primary);
   border-radius: var(--radius-button);

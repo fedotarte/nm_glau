@@ -1,10 +1,14 @@
 .footer {
-  flex-shrink: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
   background: var(--footer-gradient);
   box-shadow: var(--footer-shadow);
   backdrop-filter: var(--footer-blur);
   -webkit-backdrop-filter: var(--footer-blur);
-  padding: clamp(16px, 2vw, 28px) var(--container-padding);
+  padding: 10px var(--container-padding);
 }
 
 .container {
