@@ -1,20 +1,16 @@
+import { ARTICLES } from "@/content";
+
 export default async function ArticlePage(
   props: PageProps<"/articles/[slug]">,
 ) {
-  const posts = [
-    { id: "1", title: "beb" },
-    { id: "2", title: " bob" },
-  ];
   const { slug } = await props.params;
 
+  const found = ARTICLES.find((article) => article.slug === slug);
+
   return (
-    <>
-      <p>{slug}</p>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>{post.title}</li>
-        ))}
-      </ul>
-    </>
+    <div>
+      <h3>{slug}</h3>
+      <p>{found?.title}</p>
+    </div>
   );
 }

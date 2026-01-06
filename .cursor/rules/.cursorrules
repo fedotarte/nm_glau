@@ -38,7 +38,7 @@
   - глобальные стили внутри modules (кроме `:global(...)` при необходимости)
 - Layout-подход:
   - desktop-first: базовые стили — для десктопа
-  - адаптив через `clamp()`, `min()`, `max()`, `auto-fit/minmax`, `flex-wrap`, `gap`
+  - адаптив через `min()`, `max()`, `auto-fit/minmax`, `flex-wrap`, `gap`
   - media queries допускаются точечно (когда без них нельзя)
 
 ## Дизайн-токены / переменные
