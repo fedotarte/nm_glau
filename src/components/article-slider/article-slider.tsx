@@ -6,7 +6,9 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
+
 import type { ArticleConfig } from "@/content";
+
 import styles from "./article-slider.module.css";
 
 import "swiper/css";
@@ -27,10 +29,8 @@ export const ArticleSlider = ({ articles }: ArticleSliderProps) => {
 
   return (
     <section className={styles.slider}>
-      {/* Desktop Swiper */}
       <div className={styles.desktopSlider}>
         <div className={styles.swiperContainer}>
-          {/* Fade indicators */}
           <div
             className={`${styles.fadeLeft} ${isBeginning ? styles.fadeHidden : ""}`}
             onClick={() => swiper?.slidePrev()}
@@ -71,7 +71,12 @@ export const ArticleSlider = ({ articles }: ArticleSliderProps) => {
               onClick={() => swiper?.slidePrev()}
               aria-label="Предыдущий слайд"
             >
-              <Image src="/base_arrow_right.svg" alt="" width={20} height={20} />
+              <Image
+                src="/base_arrow_right.svg"
+                alt=""
+                width={20}
+                height={20}
+              />
             </button>
           )}
           {!isEnd && (
@@ -80,13 +85,17 @@ export const ArticleSlider = ({ articles }: ArticleSliderProps) => {
               onClick={() => swiper?.slideNext()}
               aria-label="Следующий слайд"
             >
-              <Image src="/base_arrow_right.svg" alt="" width={20} height={20} />
+              <Image
+                src="/base_arrow_right.svg"
+                alt=""
+                width={20}
+                height={20}
+              />
             </button>
           )}
         </div>
       </div>
 
-      {/* Mobile List */}
       <div className={styles.mobileList}>
         {articles.map((article) => (
           <MobileArticleCard key={article.id} article={article} />
@@ -96,7 +105,6 @@ export const ArticleSlider = ({ articles }: ArticleSliderProps) => {
   );
 };
 
-// Desktop card
 const ArticleCard = ({ article }: { article: ArticleConfig }) => {
   const isInDev = article.status === "in_dev";
 
@@ -105,6 +113,13 @@ const ArticleCard = ({ article }: { article: ArticleConfig }) => {
       <div className={styles.cardDisabled}>
         <span className={styles.devBadge}>Материал в разработке</span>
         <h3 className={styles.cardTitle}>{article.title}</h3>
+        <Image
+          src="/base_arrow_right.svg"
+          alt=""
+          width={24}
+          height={24}
+          className={styles.cardArrow}
+        />
       </div>
     );
   }
@@ -112,11 +127,17 @@ const ArticleCard = ({ article }: { article: ArticleConfig }) => {
   return (
     <Link href={`/articles/${article.slug}`} className={styles.card}>
       <h3 className={styles.cardTitle}>{article.title}</h3>
+      <Image
+        src="/base_arrow_right.svg"
+        alt=""
+        width={24}
+        height={24}
+        className={styles.cardArrow}
+      />
     </Link>
   );
 };
 
-// Mobile card
 const MobileArticleCard = ({ article }: { article: ArticleConfig }) => {
   const isInDev = article.status === "in_dev";
 

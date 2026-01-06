@@ -41,9 +41,12 @@
 
 .description {
   max-width: 480px;
-  font-size: clamp(12px, 1.1vw, 16px);
-  line-height: 1.5;
+  line-height: 18px;
   color: var(--color-text-light);
   opacity: 0.9;
+  text-align: right;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
 }
 

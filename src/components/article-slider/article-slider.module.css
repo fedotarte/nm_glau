@@ -35,36 +35,48 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  width: clamp(160px, 14vw, 200px);
-  height: 88px;
+  align-items: flex-start;
+  gap: 12px;
+  width: clamp(220px, 20vw, 306px);
+  height: 110px;
   padding: 16px;
-  border-radius: var(--radius-card);
+  border-radius: 17px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
 }
 
 .card {
-  background-color: rgba(255, 255, 255, 0.95);
+  background: rgba(19, 93, 108, 0.70);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.2);
 }
 
 .cardDisabled {
-  background: var(--card-highlighted-bg);
-  backdrop-filter: var(--card-highlighted-blur);
-  -webkit-backdrop-filter: var(--card-highlighted-blur);
+  background: rgba(19, 93, 108, 0.7);
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   cursor: default;
 }
 
+.cardDisabled:hover {
+  transform: none;
+}
+
 .cardTitle {
-  font-size: clamp(12px, 1vw, 14px);
+  font-size: clamp(14px, 1.2vw, 16px);
   font-weight: 600;
   line-height: 1.3;
-  color: var(--color-text-dark);
+  color: var(--color-text-light);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
@@ -76,6 +88,16 @@
   color: var(--color-text-light);
 }
 
+.cardArrow {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.4;
+  width: 24px;
+  height: 24px;
+}
+
 .devBadge {
   position: absolute;
   top: -8px;
@@ -83,10 +105,11 @@
   font-size: 10px;
   font-weight: 500;
   color: var(--color-primary-light);
-  background-color: rgba(19, 93, 108, 0.9);
-  padding: 4px 8px;
+  background-color: rgba(19, 93, 108, 0.95);
+  padding: 4px 10px;
   border-radius: 4px;
   white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Fade indicators for scroll */

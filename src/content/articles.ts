@@ -5,7 +5,7 @@ export interface ArticleConfig {
   slug: string;
   title: string;
   status: ArticleStatus;
-  icon?: string; // путь к иконке для мобильной версии
+  icon?: string;
 }
 
 export const ARTICLES: ArticleConfig[] = [
@@ -70,15 +70,14 @@ export const ARTICLES: ArticleConfig[] = [
 // Хелперы для работы со статьями
 export const getAllArticles = (): ArticleConfig[] => ARTICLES;
 
-export const getArticleBySlug = (slug: string): ArticleConfig | undefined =>
-  ARTICLES.find((article) => article.slug === slug);
-
-export const getArticleSlugs = (): string[] =>
-  ARTICLES.map((article) => article.slug);
-
-export const getDoneArticles = (): ArticleConfig[] =>
-  ARTICLES.filter((article) => article.status === "done");
-
-export const getInDevArticles = (): ArticleConfig[] =>
-  ARTICLES.filter((article) => article.status === "in_dev");
-
+// export const getArticleBySlug = (slug: string): ArticleConfig | undefined =>
+//   ARTICLES.find((article) => article.slug === slug);
+//
+// export const getArticleSlugs = (): string[] =>
+//   ARTICLES.map((article) => article.slug);
+//
+// export const getDoneArticles = (): ArticleConfig[] =>
+//   ARTICLES.filter((article) => article.status === "done");
+//
+// export const getInDevArticles = (): ArticleConfig[] =>
+//   ARTICLES.filter((article) => article.status === "in_dev");
