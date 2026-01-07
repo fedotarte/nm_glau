@@ -14,8 +14,6 @@ export default function Home() {
           title="«ТОЧКА ЗРЕНИЯ»"
           subtitle="НА ТЕРАПИЮ ГЛАУКОМЫ"
           description="Проект для врачей офтальмологов, которые хотят не гадать над терапией, а подбирать её с помощью доказательной медицины и накопленного опыта профессионалов"
-          backgroundImage="/eye_hero.png"
-          backgroundAlt="Глаз с пейзажем — точка зрения на терапию глаукомы"
         >
           <ArticleSlider articles={articles} />
         </Hero>

@@ -31,6 +31,7 @@
   /* Радиусы */
   --radius-button: 24px;
   --radius-card: 16px;
+  --radius-login-button: 10px;
   
   /* Тени */
   --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -38,6 +39,8 @@
   /* Z-index */
   --z-header: 100;
   --z-slider: 10;
+  --login-button-bg: rgba(124, 224, 218, 0.6);
+    --login-button-bg-hover: rgba(124, 224, 218, 0.8);
 }
 
 html,

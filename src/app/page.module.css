@@ -1,11 +1,18 @@
 .page {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  background-image: url('/eye_hero.png');
+  background-size: 170%;
+  background-position: -11px -285px;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
 }
 
 .main {
-  height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
