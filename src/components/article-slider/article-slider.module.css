@@ -111,12 +111,12 @@
   position: absolute;
   top: -8px;
   right: -8px;
-  font-size: 10px;
-  font-weight: 500;
-  color: var(--color-primary-light);
-  background-color: rgba(19, 93, 108, 0.95);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-white);
+  background-color:var(--color-primary);
   padding: 4px 10px;
-  border-radius: 4px;
+  border-radius: 12px;
   white-space: nowrap;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
