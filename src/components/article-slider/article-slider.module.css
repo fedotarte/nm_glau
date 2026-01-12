@@ -69,6 +69,19 @@
   width: 24px;
   height: 24px;
 }
+.cardArrowIconDisabled {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+}
+
+.cardArrowIconDisabled path {
+  fill: var(--color-text-muted);
+  stroke: var(--color-text-muted);
+}
 
 .card:hover {
   transform: translateY(-2px);
@@ -79,7 +92,7 @@
   background: rgba(19, 93, 108, 0.7);
   box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(24px);
-  cursor: default;
+  cursor: not-allowed;
 }
 
 .cardDisabled:hover {
@@ -94,7 +107,7 @@
 }
 
 .cardDisabled .cardTitle {
-  color: var(--color-text-light);
+  color: var(--color-text-muted);
 }
 
 .cardArrow {
@@ -200,10 +213,8 @@
 .mobileList {
   display: none;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   padding: 0 var(--container-padding);
-  max-height: 40vh;
-  overflow-y: auto;
 }
 
 .mobileCard,
@@ -211,6 +222,9 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  width: 336px;
+  max-width: 100%;
+  height: 72px;
   padding: 16px;
   background: var(--card-highlighted-bg);
   border-radius: var(--radius-card);
@@ -222,12 +236,21 @@
   transition: transform 0.2s ease;
 }
 
-.mobileCard:hover {
-  transform: translateX(4px);
+.mobileCard:active {
+  transform: scale(0.98);
 }
 
 .mobileCardDisabled {
   opacity: 0.6;
+}
+
+.mobileCardDisabled .mobileTitle {
+  color: var(--color-text-muted);
+}
+
+.mobileCardDisabled .mobileArrow path {
+  fill: var(--color-text-muted);
+  stroke: var(--color-text-muted);
 }
 
 .mobileIcon {
@@ -241,10 +264,10 @@
 
 .mobileTitle {
   flex: 1;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
-  line-height: 1.3;
-  color: var(--color-text-light);
+  line-height: 100%;
+  color: #fff;
 }
 
 .mobileArrow {

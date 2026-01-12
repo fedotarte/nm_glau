@@ -20,5 +20,6 @@ export const Header = () => (
         Войти
       </button>
     </nav>
+    <div className={styles.separator} />
   </header>
 );

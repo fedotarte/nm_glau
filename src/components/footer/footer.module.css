@@ -81,4 +81,13 @@
   .column:last-child {
     padding-bottom: 0;
   }
+
+  .link {
+  color: var(--color-text-mobile-link);
+  transition: opacity 0.2s ease;
+}
+
+  .logoColumn {
+    align-self: flex-start;
+  }
 }

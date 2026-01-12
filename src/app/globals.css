@@ -10,6 +10,7 @@
   --color-text-dark: #1a1a1a;
   --color-text-light: #ffffff;
   --color-text-muted: #666666;
+  --color-text-mobile-link: #18D88B;
   
   /* Футер */
   --footer-gradient: linear-gradient(90deg, rgba(19, 93, 108, 0.70) 0%, rgba(10, 153, 166, 0.70) 100%);

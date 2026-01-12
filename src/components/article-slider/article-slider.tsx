@@ -13,11 +13,17 @@ import styles from "./article-slider.module.css";
 
 import "swiper/css";
 
-const ArrowIcon = ({ className }: { className?: string }) => (
+const ArrowIcon = ({
+  className,
+  fill,
+}: {
+  className?: string;
+  fill?: string;
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    fill="none"
+    fill={fill ? fill : "none"}
     className={className}
   >
     <path
@@ -118,7 +124,7 @@ const ArticleCard = ({ article }: { article: ArticleConfig }) => {
       <div className={styles.cardDisabled}>
         <span className={styles.devBadge}>Материал в разработке</span>
         <h3 className={styles.cardTitle}>{article.title}</h3>
-        <ArrowIcon className={styles.cardArrowIcon} />
+        <ArrowIcon className={styles.cardArrowIconDisabled} />
       </div>
     );
   }
