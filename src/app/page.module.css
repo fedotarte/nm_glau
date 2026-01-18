@@ -12,13 +12,6 @@
     position: relative;
 }
 
-@media (min-width: 1024px) {
-    .page {
-        background-position: -11px -285px;
-        background-size: 170%;
-    }
-}
-
 .globalMobileFide {
     background: linear-gradient(180.07deg, rgba(0, 0, 0, 0.3) 0.06%, rgba(0, 0, 0, 0.3) 63.6%, rgba(102, 102, 102, 0) 99.94%),
     linear-gradient(360deg, rgba(19, 93, 108, 0) 0%, rgba(19, 93, 108, 0.7) 39.33%, rgba(10, 153, 166, 0.7) 100%);
