@@ -1,14 +1,47 @@
 .page {
-  min-height: 100vh;
-  max-width: 100vw;
-  width: 100%;
-  margin: 0 auto;
-  background-image: url('/pictures/eye_hero.png');
-  background-size: 170%;
-  background-position: -11px -285px;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
+    min-height: 100vh;
+    max-width: 100vw;
+    width: 100%;
+    margin: 0 auto;
+    background-image: url('/pictures/eye_hero.png');
+    background-size: cover;
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+@media (min-width: 1024px) {
+    .page {
+        background-position: -11px -285px;
+        background-size: 170%;
+    }
+}
+
+.globalMobileFide {
+    background: linear-gradient(180.07deg, rgba(0, 0, 0, 0.3) 0.06%, rgba(0, 0, 0, 0.3) 63.6%, rgba(102, 102, 102, 0) 99.94%),
+    linear-gradient(360deg, rgba(19, 93, 108, 0) 0%, rgba(19, 93, 108, 0.7) 39.33%, rgba(10, 153, 166, 0.7) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 388px;
+}
+.globalMobileFideBottom {
+    background: linear-gradient(360deg, rgba(10, 153, 166, 0) 0%, #0A99A6 66.35%, #0A99A6 100%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 388px;
+    transform: rotate(180deg);
+}
+
+@media (min-width: 1024px) {
+    .globalMobileFide, .globalMobileFideBottom {
+        display: none;
+    }
 }
 
 .main {
@@ -17,19 +50,18 @@
   flex-direction: column;
 }
 
-/* ===== MOBILE ===== */
-@media (max-width: 768px) {
-  .page {
-    background-image: 
-      linear-gradient(
-        180deg,
-        rgba(19, 93, 108, 1) 0%,
-        rgba(19, 93, 108, 0.6) 15%,
-        transparent 35%
-      ),
-      url('/pictures/eye_hero_mobile.png');
-    background-size: 100%, 130%;
-    background-position: top, center 80px;
-    background-repeat: no-repeat, no-repeat;
-  }
+.articlesContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 6px;
+    height: 338px;
+    margin-top: auto;
+    overflow: auto;
+}
+
+@media (min-width: 1024px) {
+    .articlesContainer {
+        display: none;
+    }
 }

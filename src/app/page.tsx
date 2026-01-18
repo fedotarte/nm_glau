@@ -1,12 +1,15 @@
 import styles from "./page.module.css";
 import { Header, Footer, Hero, ArticleSlider } from "@/components";
 import { getAllArticles } from "@/content";
+import { ArticleCard } from "@/components/article-slider/article-slider";
 
 export default function Home() {
   const articles = getAllArticles();
 
   return (
     <div className={styles.page}>
+      <div className={styles.globalMobileFide}></div>
+      <div className={styles.globalMobileFideBottom}></div>
       <Header />
 
       <main className={styles.main}>
@@ -17,6 +20,11 @@ export default function Home() {
         >
           <ArticleSlider articles={articles} />
         </Hero>
+        <div className={styles.articlesContainer}>
+          {articles.map((article) => {
+            return <ArticleCard article={article} key={article.id} />;
+          })}
+        </div>
       </main>
 
       <Footer />

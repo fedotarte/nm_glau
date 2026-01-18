@@ -9,7 +9,7 @@
   /* Текст */
   --color-text-dark: #1a1a1a;
   --color-text-light: #ffffff;
-  --color-text-muted: #666666;
+  --color-text-muted: rgba(255, 255, 255, 0.3);
   --color-text-mobile-link: #18D88B;
   
   /* Футер */
