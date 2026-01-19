@@ -41,14 +41,14 @@ export const ARTICLES: ArticleConfig[] = [
     id: "5",
     slug: "quality-of-life",
     title: "Как повысить качество жизни у пациентов с глаукомой?",
-    status: "in_dev",
+    status: "done",
     icon: "/icons/article-5.svg",
   },
   {
     id: "6",
     slug: "surface-diseases",
     title: "Заболевания поверхности глаз и приверженность к лечению",
-    status: "in_dev",
+    status: "done",
     icon: "/icons/article-6.svg",
   },
   {

@@ -5,6 +5,7 @@
 @media (min-width: 1024px) {
     .footer {
         display: initial;
+        position: relative;
         z-index: 20;
         background: var(--footer-gradient);
         box-shadow: var(--footer-shadow);

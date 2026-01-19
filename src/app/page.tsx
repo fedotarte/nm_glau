@@ -8,6 +8,16 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+      <video
+        className={styles.backgroundVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="/pictures/eye_hero.png"
+      >
+        <source src="/video/bg_video_mob.mp4" type="video/mp4" />
+      </video>
       <div className={styles.globalMobileFide}></div>
       <div className={styles.globalMobileFideBottom}></div>
       <Header />
@@ -19,6 +29,7 @@ export default function Home() {
           description="Проект для врачей офтальмологов, которые хотят не гадать над терапией, а подбирать её с помощью доказательной медицины и накопленного опыта профессионалов"
         >
           <ArticleSlider articles={articles} />
+          <div className={styles.fadeTop} />
         </Hero>
         <div className={styles.articlesContainer}>
           {articles.map((article) => {
