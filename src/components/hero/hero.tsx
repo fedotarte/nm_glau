@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import styles from "./hero.module.css";
 
 interface HeroProps {
@@ -6,7 +7,7 @@ interface HeroProps {
   description: string;
   backgroundImage?: string;
   backgroundAlt?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 export const Hero = ({ title, subtitle, description, children }: HeroProps) => (
