@@ -70,23 +70,9 @@
   z-index: 1;
 }
 
-.articlesContainer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 6px;
-    height: 350px;
-    margin-top: auto;
-    overflow: auto;
-    position: relative;
-}
 
-@media (min-width: 1024px) {
-    .articlesContainer {
-        display: none;
-    }
-}
-
+<<<<<<< Updated upstream
+=======
 .fadeTop {
     position: absolute;
     width: 100%;
@@ -105,3 +91,4 @@
         rgba(255, 255, 255, 0) 100%
     );
 }
+>>>>>>> Stashed changes
