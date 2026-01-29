@@ -9,7 +9,11 @@
     position: relative;
 }
 
+<<<<<<< Updated upstream
 /* Только верхняя тень (проскроллили вниз, но не до конца) */
+=======
+/* Обе тени (проскроллили, но не до конца) */
+>>>>>>> Stashed changes
 .shadowTop.shadowBottom {
     mask-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #EAEAEA 6.35%, #C9C9C9 53.38%, #B1B1B1 90.05%, rgba(153, 153, 153, 0) 100%);
     -webkit-mask-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #EAEAEA 6.35%, #C9C9C9 53.38%, #B1B1B1 90.05%, rgba(153, 153, 153, 0) 100%);
