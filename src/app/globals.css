@@ -89,3 +89,10 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* Hide main content when mobile drawer is open */
+body.drawer-open main,
+body.drawer-open video,
+body.drawer-open footer {
+  visibility: hidden;
+}

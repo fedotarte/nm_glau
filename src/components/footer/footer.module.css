@@ -9,7 +9,7 @@
         z-index: 20;
         background: var(--footer-gradient);
         box-shadow: var(--footer-shadow);
-        backdrop-filter: blur(24px);
+        backdrop-filter: blur(12px);
         padding: 10px 24px;
         height: 56px;
     }
