@@ -18,14 +18,20 @@ export const Header = () => {
 
   // Handle Escape key press
   useEffect(() => {
+    const controller = new AbortController();
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isMenuOpen) {
         closeMenu();
       }
     };
 
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
+    document.addEventListener("keydown", handleEscape, {
+      signal: controller.signal,
+    });
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      controller.abort();
+    };
   }, [isMenuOpen, closeMenu]);
 
   // Prevent body scroll and add class when menu is open
