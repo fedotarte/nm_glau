@@ -70,38 +70,4 @@
   z-index: 1;
 }
 
-.articlesContainer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 6px;
-    height: 350px;
-    margin-top: auto;
-    overflow: auto;
-    position: relative;
-}
 
-@media (min-width: 1024px) {
-    .articlesContainer {
-        display: none;
-    }
-}
-
-.fadeTop {
-    position: absolute;
-    width: 100%;
-    bottom: -20px;
-    min-height: 70px;
-    z-index: 10;
-    backdrop-filter: blur(1px);
-    pointer-events: none;
-    background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0) 30%,
-        rgba(255, 255, 255, 0.2) 50%,
-        rgba(255, 255, 255, 0.4) 70%,
-        rgba(255, 255, 255, 0.3) 85%,
-        rgba(255, 255, 255, 0) 100%
-    );
-}

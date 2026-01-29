@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import { Header, Footer, Hero, ArticleSlider } from "@/components";
+import { Header, Footer, Hero, ArticleSlider, ScrollShadowList } from "@/components";
 import { getAllArticles } from "@/content";
 import { ArticleCard } from "@/components/article-slider/article-slider";
 
@@ -29,13 +29,12 @@ export default function Home() {
           description="Проект для врачей офтальмологов, которые хотят не гадать над терапией, а подбирать её с помощью доказательной медицины и накопленного опыта профессионалов"
         >
           <ArticleSlider articles={articles} />
-          <div className={styles.fadeTop} />
         </Hero>
-        <div className={styles.articlesContainer}>
+        <ScrollShadowList>
           {articles.map((article) => {
             return <ArticleCard article={article} key={article.id} />;
           })}
-        </div>
+        </ScrollShadowList>
       </main>
 
       <Footer />
