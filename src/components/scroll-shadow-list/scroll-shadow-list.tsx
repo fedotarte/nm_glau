@@ -22,11 +22,6 @@ export const ScrollShadowList = ({
     const container = containerRef.current;
     if (!container) return;
 
-<<<<<<< Updated upstream
-=======
-    const controller = new AbortController();
-
->>>>>>> Stashed changes
     const handleScroll = () => {
       const { scrollTop, scrollHeight, clientHeight } = container;
       const isAtTop = scrollTop <= 0;
@@ -38,16 +33,8 @@ export const ScrollShadowList = ({
     // Проверяем начальное состояние
     handleScroll();
 
-<<<<<<< Updated upstream
     container.addEventListener("scroll", handleScroll);
     return () => container.removeEventListener("scroll", handleScroll);
-=======
-    container.addEventListener("scroll", handleScroll, {
-      signal: controller.signal,
-    });
-
-    return () => controller.abort();
->>>>>>> Stashed changes
   }, []);
 
   const maskClass = [
