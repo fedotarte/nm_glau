@@ -37,8 +37,14 @@ export default function Home() {
           <ArticleSlider articles={articles} />
         </Hero>
         <ScrollShadowList>
-          {articles.map((article) => {
-            return <ArticleCard article={article} key={article.id} />;
+          {articles.map((article, index) => {
+            return (
+              <ArticleCard
+                article={article}
+                key={article.id}
+                isAuthenticated={index === 0}
+              />
+            );
           })}
         </ScrollShadowList>
       </main>
