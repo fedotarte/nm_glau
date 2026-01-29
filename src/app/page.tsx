@@ -1,5 +1,11 @@
 import styles from "./page.module.css";
-import { Header, Footer, Hero, ArticleSlider, ScrollShadowList } from "@/components";
+import {
+  Header,
+  Footer,
+  Hero,
+  ArticleSlider,
+  ScrollShadowList,
+} from "@/components";
 import { getAllArticles } from "@/content";
 import { ArticleCard } from "@/components/article-slider/article-slider";
 
