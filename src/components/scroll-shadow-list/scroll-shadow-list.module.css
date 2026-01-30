@@ -5,6 +5,7 @@
     gap: 6px;
     height: 350px;
     margin-top: auto;
+    padding-bottom: 32px;
     overflow: auto;
     position: relative;
 }

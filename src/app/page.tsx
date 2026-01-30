@@ -5,6 +5,7 @@ import {
   Hero,
   ArticleSlider,
   ScrollShadowList,
+  BackgroundVideo,
 } from "@/components";
 import { getAllArticles } from "@/content";
 import { ArticleCard } from "@/components/article-slider/article-slider";
@@ -14,16 +15,10 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      <video
+      <BackgroundVideo
         className={styles.backgroundVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
         poster="/pictures/eye_hero.png"
-      >
-        <source src="/video/bg_video_mob.mp4" type="video/mp4" />
-      </video>
+      />
       <div className={styles.globalMobileFide}></div>
       <div className={styles.globalMobileFideBottom}></div>
       <Header />
