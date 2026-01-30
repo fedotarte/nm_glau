@@ -284,6 +284,7 @@
     font-size: 22px;
     font-weight: 600;
     line-height: 100%;
+    padding-right: 24px;
   }
 
   .cardLocked:hover .cardDivider {
@@ -434,7 +435,7 @@
 }
 
 .navButtonPrev {
-  left: 8px;
+  left: 24px;
 }
 
 .navButtonPrev svg {
@@ -442,7 +443,7 @@
 }
 
 .navButtonNext {
-  right: 8px;
+  right: 24px;
 }
 
 /* ===== MOBILE LIST ===== */
