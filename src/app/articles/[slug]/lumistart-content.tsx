@@ -82,7 +82,7 @@ export const LumistartContent = () => {
         dividerClassName={styles.clinicalTitleDivider}
         title={
           <>
-            Люмистарт —&nbsp; новый старт* в терапии ПОУГ
+            ЛЮМИСТАРТ —&nbsp; НОВЫЙ СТАРТ* В ТЕРАПИИ ПОУГ
             <sup className={styles.therapySectionHeadingRef}>1, 7</sup>
           </>
         }
@@ -110,9 +110,7 @@ export const LumistartContent = () => {
           supText="2"
           supClassName={styles.therapySectionHeadingRef}
         />
-        <p
-          className={`${styles.clinicalBody} ${styles.clinicalBodySemibold}`}
-        >
+        <p className={`${styles.clinicalBody} ${styles.clinicalBodySemibold}`}>
           На 12-й неделе применения препарата ЛЮМИСТАРТ (биматопрост 0,03 %) без
           консервантов наблюдалось среднее снижение ВГД на 23&nbsp;% по
           сравнению с уровнем ВГД на этапе включения (N&nbsp;=&nbsp;1543;
