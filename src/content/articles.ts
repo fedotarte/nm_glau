@@ -31,7 +31,7 @@ export const ARTICLES: ArticleConfig[] = [
   {
     id: "3",
     slug: "apg-difference",
-    title: "АПГ: В чем разница между молекулами?",
+    title: "АПГ: В чем разница между молекулами",
     description:
       "Сравнительный анализ аналогов простагландинов: особенности молекул и их влияние на эффективность терапии.",
     status: "done",
@@ -70,7 +70,7 @@ export const ARTICLES: ArticleConfig[] = [
     title: "Старт терапии: какой препарат выбрать?",
     description:
       "Руководство по выбору оптимального препарата для начала терапии глаукомы.",
-    status: "in_dev",
+    status: "done",
     icon: "/icons/article-7.svg",
   },
   {

@@ -3,7 +3,11 @@ import { notFound } from "next/navigation";
 import { Footer, Header } from "@/components";
 import { ARTICLES } from "@/content";
 
+import { ApgDifferenceContent } from "./apg-difference-content";
+import { ClinicalRecommendationsContent } from "./clinical-recommendations-content";
+import { LumistartContent } from "./lumistart-content";
 import { NeuroprotectionContent } from "./neuroprotection-content";
+import { TherapyStartContent } from "./therapy-start-content";
 import styles from "./page.module.css";
 
 export const generateStaticParams = () => {
@@ -25,14 +29,33 @@ export default async function ArticlePage(
     <div className={styles.page}>
       <Header />
       <main className={styles.main}>
-        <article className={styles.articleLayout}>
+        <article
+          className={`${styles.articleLayout} ${
+            slug === "clinical-recommendations" ||
+            slug === "therapy-start" ||
+            slug === "apg-difference" ||
+            slug === "lumistart"
+              ? styles.articleLayoutWide
+              : ""
+          }`}
+        >
           {slug === "neuroprotection" ? (
             <NeuroprotectionContent />
+          ) : slug === "clinical-recommendations" ? (
+            <ClinicalRecommendationsContent />
+          ) : slug === "therapy-start" ? (
+            <TherapyStartContent />
+          ) : slug === "apg-difference" ? (
+            <ApgDifferenceContent />
+          ) : slug === "lumistart" ? (
+            <LumistartContent />
           ) : (
             <div className={styles.fallback}>
               <h1 className={styles.fallbackTitle}>{found.title}</h1>
               {found.description ? (
-                <p className={styles.fallbackDescription}>{found.description}</p>
+                <p className={styles.fallbackDescription}>
+                  {found.description}
+                </p>
               ) : null}
             </div>
           )}

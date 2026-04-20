@@ -18,6 +18,980 @@
   width: min(970px, 100%);
 }
 
+.articleLayoutWide {
+  width: min(1215px, 100%);
+}
+
+.clinicalPage {
+  color: #135d6c;
+}
+
+.therapyPage {
+  color: #135d6c;
+}
+
+.therapyTitleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 6px;
+}
+
+.therapyTitle {
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.1;
+}
+
+.apgPageTitle {
+  text-transform: uppercase;
+}
+
+.therapySection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.therapySectionHeading {
+  border-radius: 8px;
+  background: #93ddd9;
+  padding: 12px 16px;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: 0;
+  font-variant: small-caps;
+  color: #135d6c;
+}
+
+.therapySectionHeadingInner {
+  font: inherit;
+  font-variant: small-caps;
+  letter-spacing: inherit;
+}
+
+.therapySectionHeadingRef {
+  font-size: 0.65em;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 0;
+  font-variant: normal;
+  vertical-align: super;
+  position: relative;
+  top: -0.2em;
+}
+
+/* Подзаголовок секции APG: две строки по макету Figma; без рамки */
+.apgSectionHeading {
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: 0;
+  font-variant: normal;
+  text-transform: uppercase;
+  color: #135d6c;
+}
+
+.apgSectionHeading .therapySectionHeadingRef {
+  font-variant: normal;
+  text-transform: none;
+}
+
+/* Коллауты APG: общая рамка/фон; Figma 767-10603 — только первый абзац (про Люмистарт) */
+.apgCallout {
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 8px;
+  background: #f4fcfb;
+  border: 1px solid #73aeb8;
+  padding: 18px 20px;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: #135d6c;
+  text-align: left;
+}
+
+.apgCallout:first-of-type {
+  padding: 20px 24px;
+  font-size: 24px;
+  line-height: 1.2;
+  text-align: left;
+  text-transform: uppercase;
+  background: #93ddd9;
+}
+
+.apgCallout:first-of-type .therapySectionHeadingRef {
+  text-transform: none;
+}
+
+.apgCallout .therapySectionHeadingRef {
+  font-size: 0.65em;
+  font-weight: 600;
+  line-height: 1;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+}
+
+/* Второй коллаут (простамид): та же плашка #93ddd9, типографика 24px / 600 / small-caps */
+.apgCalloutSecondary {
+  background: #93ddd9;
+  border: 1px solid #73aeb8;
+  border-radius: 8px;
+  padding: 20px 24px;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: 0;
+  font-variant: small-caps;
+  color: #135d6c;
+  text-align: left;
+}
+
+.apgCalloutSecondary .therapyGlossarySup {
+  font-variant: normal;
+  font-weight: 600;
+  font-size: 0.65em;
+  line-height: 0;
+  vertical-align: super;
+}
+
+.therapyCards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.therapyCard {
+  border-radius: 24px;
+  border: 4px solid #93ddd9;
+  padding: 28px 16px;
+  background: rgba(226, 247, 246, 0.75);
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+}
+
+.therapyCardLogoWrap {
+  margin-bottom: 22px;
+  flex-shrink: 0;
+}
+
+.therapyCardLogo {
+  width: 100%;
+  max-width: 285px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.therapyCardMeta {
+  margin: 0 0 16px;
+  flex-shrink: 0;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #135d6c;
+}
+
+.therapyCardMeta p {
+  margin: 0;
+}
+
+.therapyCardLead {
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.therapyCardBody {
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.therapyCardRef {
+  font-size: 0.65em;
+  line-height: 1;
+  font-weight: 600;
+  vertical-align: super;
+  position: relative;
+  top: -0.12em;
+}
+
+.therapyImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Блок «риск потери поля зрения»: график уже, по центру; подпись — Figma 767-9753 */
+.therapyChartImage {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 16px;
+}
+
+.therapyChartCaption {
+  margin-top: 12px;
+  text-align: center;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: 0;
+  font-variant: small-caps;
+  color: #135d6c;
+}
+
+/* «Дизайн исследования»: Figma 767-10178 — без обводки контейнера; заголовок: 18px / 700 / 100% */
+.therapyDesignBlock {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+/* Заголовок: Source Sans Pro Bold 18px, line-height 100%, letter-spacing 0 (макет) */
+.therapyDesignBlockTitle {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0 16px 12px;
+  background: none;
+  border: none;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0;
+  font-variant: normal;
+  text-transform: none;
+  color: #135d6c;
+}
+
+.therapyDesignBlockTitle .therapySectionHeadingRef {
+  font-weight: 700;
+}
+
+.therapyDesignTable {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 16px 0;
+}
+
+/* Строка: колонка метки 147px, зазор 10px — Figma 767-10182; текст по центру по вертикали */
+.therapyDesignRow {
+  display: grid;
+  grid-template-columns: 147px minmax(0, 1fr);
+  column-gap: 10px;
+  row-gap: 0;
+  align-items: center;
+}
+
+/* Длинный абзац («Методы»): метка прижата к верху */
+.therapyDesignRow:has(.therapyDesignTextBody) {
+  align-items: start;
+}
+
+/*
+ * Метки строк — у каждой свой вариант (Figma).
+ * База: 147×80. «Цель» — только верхние углы 24px.
+ * «Методы» — зеркало «Цели»: нижние углы 24px; высота по тексту (stretch).
+ * «Пациенты» — .therapyDesignLabelCompact, без скруглений, 40px.
+ */
+.therapyDesignLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: 147px;
+  min-width: 147px;
+  height: 80px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 24px 24px 0 0;
+  background: #a2e2da;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+  color: #135d6c;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* «Методы»: зеркало «Цели» — только нижние углы; высота на весь абзац */
+.therapyDesignLabelMethods {
+  height: auto;
+  min-height: 0;
+  align-self: stretch;
+  border-radius: 0 0 24px 24px;
+}
+
+/* «Пациенты» (767-10187): 147×40; в макете без border-radius */
+.therapyDesignLabelCompact {
+  height: 40px;
+  min-height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.therapyDesignTextStrong {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #135d6c;
+}
+
+/* Абзац «Методы» — Figma: Source Sans Pro Regular 16px, line-height 100% */
+.therapyDesignTextBody {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #135d6c;
+}
+
+.therapyDesignVisits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 24px;
+  padding: 20px 16px 0;
+  margin-top: 8px;
+  border: none;
+}
+
+.therapyDesignVisit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.therapyDesignVisitPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #a2e2da;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.1;
+  color: #135d6c;
+}
+
+.therapyDesignVisitText {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  min-width: 140px;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #135d6c;
+}
+
+.therapyBanner {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+}
+
+.therapyMetaBlock {
+  margin: 0;
+}
+
+/* Figma 767-10232 (Frame 88): фон #93ddd9 @ 30%, radius 8px; без рамки */
+.therapyGlossary {
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: rgba(147, 221, 217, 0.3);
+  padding: 16px 32px;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #135d6c;
+}
+
+.therapyGlossary p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.therapyGlossarySup {
+  font-size: 0.65em;
+  font-weight: 600;
+  line-height: 0;
+  vertical-align: super;
+}
+
+.clinicalGrid {
+  display: grid;
+  grid-template-columns: 970px 221px;
+  gap: 24px;
+  align-items: start;
+}
+
+.clinicalMain {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.clinicalTitleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.clinicalTitle {
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.clinicalTitleDivider {
+  width: 100%;
+  height: 2px;
+  background: #2f7f89;
+}
+
+.clinicalCard {
+  border-left: 2px solid #2f7f89;
+  padding-left: 12px;
+}
+
+.clinicalLeadText {
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+  padding-block: 16px;
+}
+
+.clinicalSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.clinicalSectionHeading {
+  border-radius: 8px;
+  padding: 12px 10px;
+  background: #93ddd9;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.clinicalBody {
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-size: 16px;
+  line-height: 1.12;
+  font-weight: 400;
+}
+
+.clinicalBodySemibold {
+  font-weight: 600;
+}
+
+.clinicalList {
+  list-style: disc;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-size: 16px;
+  line-height: 1.12;
+  font-weight: 400;
+}
+
+.clinicalBodyBulletList {
+  margin: 0;
+  padding-left: 20px;
+  list-style: disc;
+  list-style-position: outside;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-size: 16px;
+  line-height: 1.12;
+  font-weight: 400;
+}
+
+/* Figma: список на apg-difference — Source Sans Pro 24px / 600 / line-height 100% */
+.apgBulletList {
+  margin: 0;
+  box-sizing: border-box;
+  list-style: disc;
+  padding: 0 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+  color: #135d6c;
+  background: transparent;
+  border: none;
+}
+
+.apgBulletList li {
+  margin: 0;
+  padding-left: 2px;
+}
+
+.apgBulletList li::marker {
+  color: #135d6c;
+}
+
+.apgBulletList strong {
+  font-weight: 700;
+}
+
+.changeBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.changeBlock p {
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-size: 16px;
+  line-height: 1.12;
+  font-weight: 400;
+}
+
+.changeHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-block: 16px;
+}
+
+.changeHeader h3 {
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.badgeNew,
+.badgeChanged {
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.badgeNew {
+  background: #135d6c;
+}
+
+.badgeChanged {
+  background: #135d6c;
+}
+
+.comparisonCard {
+  margin-top: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 292px 1fr;
+  min-height: 392px;
+}
+
+.comparisonCol2022 {
+  background: #73aeb8;
+  color: #ffffff;
+  padding: 14px 12px;
+}
+
+.comparisonCol2024 {
+  background: #caeced;
+  color: #135d6c;
+  padding: 14px 16px;
+}
+
+.comparisonCol2022 h4,
+.comparisonCol2024 h4 {
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid currentColor;
+}
+
+.comparisonCol2022 p {
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-size: 16px;
+  line-height: 1.12;
+}
+
+.comparisonCol2024 .clinicalList {
+  font-weight: 400;
+}
+
+.clinicalGlossary {
+  margin-top: 8px;
+  border-radius: 8px;
+  background: #caeced;
+  padding: 12px 14px;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-size: 16px;
+  line-height: 1.12;
+}
+
+.clinicalSidebar {
+  width: 221px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Figma 767-10829: сайдбар страницы apg-difference */
+.apgSidebar {
+  gap: 12px;
+}
+
+.apgSidebar .sidebarNextCard {
+  border-radius: 12px;
+  min-height: 64px;
+  padding: 14px 14px;
+  background: #135d6c;
+  box-shadow: 0 4px 12px rgba(19, 93, 108, 0.22);
+}
+
+.apgSidebar .sidebarNextCard span {
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.apgSidebar .sidebarTitle {
+  margin-top: 4px;
+}
+
+.apgSidebar .sidebarSmallCard {
+  border-radius: 12px;
+  padding: 16px 14px 14px;
+  box-shadow: 0 4px 14px rgba(19, 93, 108, 0.12);
+}
+
+.apgSidebar .sidebarImageCard {
+  border-radius: 16px;
+  height: 360px;
+  box-shadow: 0 6px 18px rgba(19, 93, 108, 0.16);
+}
+
+.sidebarCaption {
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.sidebarNextCard {
+  width: 221px;
+  min-height: 72px;
+  border-radius: 24px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: linear-gradient(124deg, #135d6c 0%, #0a99a6 100%);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+  text-align: left;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+.sidebarNextCard span {
+  color: #ffffff;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.15;
+}
+
+.sidebarArrow {
+  width: 10px;
+  height: 19px;
+  flex: 0 0 auto;
+}
+
+.sidebarTitle {
+  margin-top: 8px;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.sidebarSmallCard {
+  border-radius: 24px;
+  background: #83cbd6;
+  padding: 18px 16px 16px;
+}
+
+.sidebarSmallCard p {
+  color: rgba(255, 255, 255, 0.95);
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.sidebarReadButton {
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  background: #135d6c;
+  color: #ffffff;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.sidebarImageCard {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  display: block;
+  width: 221px;
+  height: 420px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+  text-decoration: none;
+  color: inherit;
+}
+
+.sidebarEyeImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sidebarImageCard::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 45%;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 153, 166, 0) 0%,
+    rgba(10, 153, 166, 0.92) 85%
+  );
+}
+
+.sidebarImageTitle {
+  position: absolute;
+  left: 16px;
+  bottom: 20px;
+  z-index: 1;
+  max-width: calc(100% - 68px);
+  padding-right: 8px;
+  color: #ffffff;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.sidebarImageArrow {
+  position: absolute;
+  right: 18px;
+  bottom: 24px;
+  z-index: 1;
+  width: 10px;
+  height: 19px;
+}
+
+.lumistartPageTitle {
+  text-transform: none;
+}
+
+.lumistartCallout {
+  margin: 0;
+  box-sizing: border-box;
+  border-left: 3px solid #135d6c;
+  padding-left: 12px;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #135d6c;
+}
+
+.lumistartInfoCard {
+  margin: 0;
+  border-radius: 8px;
+  border: 1px solid #73aeb8;
+  background: #caeced;
+  padding: 14px 16px;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #135d6c;
+  text-transform: uppercase;
+}
+
+.lumistartChartImage {
+  width: 100%;
+  height: auto;
+  max-width: 888px;
+  border-radius: 12px;
+}
+
+.lumistartWideImage {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.lumistartFootnote {
+  font-style: italic;
+}
+
+@media (min-width: 1024px) {
+  .page {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .main {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .articleLayoutWide {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .clinicalPage,
+  .therapyPage,
+  .clinicalGrid {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .clinicalMain {
+    height: 100%;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 40px;
+    scrollbar-width: auto;
+    scrollbar-color: #0a99a6 rgba(19, 93, 108, 0.18);
+  }
+
+  .clinicalMain::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .clinicalMain::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background: rgba(19, 93, 108, 0.18);
+  }
+
+  .clinicalMain::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: linear-gradient(180deg, #0a99a6 0%, #135d6c 100%);
+  }
+}
+
 .neuroArticle {
   padding: 16px 18px 20px;
   color: #135d6c;
@@ -166,36 +1140,65 @@
 }
 
 .referencesAccordion {
-  margin-top: 24px;
-  border-top: 1px solid rgba(19, 93, 108, 0.4);
-  border-bottom: 1px solid rgba(19, 93, 108, 0.4);
+  box-sizing: border-box;
   padding: 12px 0;
+  border: none;
+  background: transparent;
 }
 
 .referencesSummary {
   cursor: pointer;
   list-style: none;
   font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.2;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #135d6c;
 }
 
 .referencesSummary::-webkit-details-marker {
   display: none;
 }
 
+.clinicalReferencesSummary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.referencesArrow {
+  width: 10px;
+  height: 18px;
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.referencesAccordion[open] .referencesArrow {
+  transform: rotate(90deg);
+}
+
 .referencesList {
   margin-top: 12px;
-  padding-left: 16px;
-  list-style: disc;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
 }
 
 .referencesItem {
   font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.25;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #135d6c;
+  margin-bottom: 8px;
+}
+
+.referencesItem:last-child {
+  margin-bottom: 0;
 }
 
 .fallback {
@@ -221,6 +1224,225 @@
 @media (max-width: 960px) {
   .main {
     padding: 8px 0 16px;
+  }
+
+  .articleLayoutWide {
+    width: min(970px, 100%);
+  }
+
+  .clinicalGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .clinicalMain {
+    padding: 0 14px;
+  }
+
+  .clinicalTitle {
+    font-size: 24px;
+    line-height: 1.1;
+  }
+
+  .therapyTitle {
+    font-size: 24px;
+    line-height: 1.1;
+  }
+
+  .therapyCards {
+    grid-template-columns: 1fr;
+  }
+
+  .therapyCard {
+    min-height: auto;
+    border-width: 2px;
+    border-radius: 12px;
+    padding: 14px 12px;
+  }
+
+  .therapyCardLogoWrap {
+    margin-bottom: 12px;
+  }
+
+  .therapyCardLogo {
+    max-width: min(285px, 100%);
+  }
+
+  .therapyCardMeta {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .therapyCardLead {
+    font-size: 18px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .therapyCardBody {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+
+  .therapyChartCaption {
+    font-size: 16px;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .therapySectionHeading {
+    font-size: 16px;
+    line-height: 1.1;
+    padding: 10px 12px;
+  }
+
+  .apgSectionHeading {
+    font-size: 16px;
+    line-height: 1.15;
+    padding: 0;
+  }
+
+  .apgCallout {
+    font-size: 16px;
+    line-height: 1.2;
+    padding: 14px 16px;
+  }
+
+  .apgCallout:first-of-type {
+    font-size: 16px;
+    line-height: 1.2;
+    padding: 14px 16px;
+    text-align: left;
+    text-transform: uppercase;
+    background: #93ddd9;
+  }
+
+  .apgCalloutSecondary {
+    font-size: 16px;
+    line-height: 1.2;
+    padding: 14px 16px;
+  }
+
+  .lumistartInfoCard {
+    font-size: 14px;
+    line-height: 1.2;
+    text-transform: none;
+  }
+
+  .lumistartWideImage,
+  .lumistartChartImage {
+    border-radius: 12px;
+  }
+
+  .apgBulletList {
+    font-size: 16px;
+    line-height: 1.2;
+    padding: 0 0 0 22px;
+    gap: 10px;
+  }
+
+  .therapyDesignBlockTitle {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.1;
+    padding: 0 12px 10px;
+  }
+
+  .therapyDesignTable {
+    gap: 10px;
+    padding: 0 12px 0;
+  }
+
+  .therapyDesignRow {
+    grid-template-columns: minmax(88px, 120px) minmax(0, 1fr);
+    column-gap: 8px;
+  }
+
+  .therapyDesignLabel {
+    width: 100%;
+    min-width: 0;
+    max-width: 120px;
+    height: auto;
+    min-height: 64px;
+    padding: 8px;
+    border-radius: 18px 18px 0 0;
+    font-size: 14px;
+  }
+
+  .therapyDesignLabelMethods {
+    border-radius: 0 0 18px 18px;
+    align-self: stretch;
+    height: auto;
+    min-height: 0;
+  }
+
+  /* только «Пациенты» — без скругления */
+  .therapyDesignLabelCompact {
+    min-height: 36px;
+    height: auto;
+    padding: 6px 8px;
+    border-radius: 0;
+    font-size: 13px;
+  }
+
+  .therapyDesignTextStrong {
+    font-size: 14px;
+    padding: 0;
+  }
+
+  .therapyDesignTextBody {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    padding: 0;
+  }
+
+  .therapyDesignVisits {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 20px 12px 16px;
+  }
+
+  .therapyDesignVisitPill {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .therapyDesignVisitText {
+    font-size: 14px;
+    min-width: 0;
+  }
+
+  .clinicalLeadText,
+  .changeHeader h3,
+  .badgeNew,
+  .badgeChanged {
+    font-size: 16px;
+  }
+
+  .clinicalSectionHeading {
+    font-size: 20px;
+  }
+
+  .clinicalBody,
+  .clinicalBodyBulletList,
+  .clinicalList,
+  .changeBlock p,
+  .comparisonCol2022 p,
+  .clinicalGlossary,
+  .therapyGlossary,
+  .referencesItem,
+  .referencesSummary {
+    font-size: 14px;
+  }
+
+  .comparisonCard {
+    grid-template-columns: 1fr;
+  }
+
+  .clinicalSidebar {
+    display: none;
   }
 }
 
@@ -283,24 +1505,5 @@
   .postImageText {
     font-size: 24px;
     line-height: 1.18;
-  }
-
-  .referencesAccordion {
-    margin-top: 24px;
-    padding: 18px 0;
-  }
-
-  .referencesSummary {
-    font-size: 24px;
-  }
-
-  .referencesList {
-    margin-top: 16px;
-    padding-left: 24px;
-  }
-
-  .referencesItem {
-    font-size: 22px;
-    line-height: 1.25;
   }
 }

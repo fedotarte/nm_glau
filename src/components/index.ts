@@ -1,3 +1,4 @@
+export * from "./article";
 export * from "./article-slider";
 export * from "./background-video";
 export * from "./footer";
