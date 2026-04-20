@@ -58,12 +58,12 @@ export const Header = () => {
         <nav className={styles.nav}>
           <ul className={styles.navList}>
             <li>
-              <Link href="/materials" className={styles.navLink}>
+              <Link href="#" className={styles.navLink}>
                 Практические материалы
               </Link>
             </li>
             <li>
-              <Link href="/therapy" className={styles.navLink}>
+              <Link href="#" className={styles.navLink}>
                 Для терапии
               </Link>
             </li>

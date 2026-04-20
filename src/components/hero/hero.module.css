@@ -25,6 +25,10 @@
   text-transform: uppercase;
 }
 
+.subLinkGap {
+  padding-top: 6px;
+}
+
 .description {
   max-width: 347px;
   line-height: 18px;
@@ -33,6 +37,12 @@
   font-weight: 400;
   display: flex;
   margin-left: 0;
+}
+
+.subLink {
+  font-size: 14px;
+  color: var(--color-text-muted-hero);
+  font-weight: 500;
 }
 
 /* ===== MOBILE ===== */
