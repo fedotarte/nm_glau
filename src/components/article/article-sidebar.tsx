@@ -9,13 +9,24 @@ type SidebarLinkAction = {
   href?: string;
 };
 
+type SidebarSmallCardRead = {
+  variant?: "read";
+  title: ReactNode;
+  action: SidebarLinkAction;
+};
+
+type SidebarSmallCardMemo = {
+  variant: "memo";
+  title: ReactNode;
+  subtitle: ReactNode;
+};
+
 type ArticleSidebarProps = {
   asideClassName?: string;
+  /** Подпись над первой карточкой (по умолчанию «Следующий материал:»). */
+  primaryNavCaption?: string;
   nextMaterial: SidebarLinkAction;
-  smallCard: {
-    title: ReactNode;
-    action: SidebarLinkAction;
-  };
+  smallCard?: SidebarSmallCardRead | SidebarSmallCardMemo;
   imageCard?: {
     imageSrc: string;
     imageAlt: string;
@@ -61,6 +72,7 @@ const SidebarActionCard = ({ label, href }: SidebarLinkAction) => {
  */
 export const ArticleSidebar = ({
   asideClassName,
+  primaryNavCaption = "Следующий материал:",
   nextMaterial,
   smallCard,
   imageCard,
@@ -71,7 +83,7 @@ export const ArticleSidebar = ({
 
   return (
     <aside className={asideClass}>
-      <p className={styles.sidebarCaption}>Следующий материал:</p>
+      <p className={styles.sidebarCaption}>{primaryNavCaption}</p>
       <SidebarActionCard {...nextMaterial} />
 
       <h3 className={styles.sidebarTitle}>
@@ -80,21 +92,30 @@ export const ArticleSidebar = ({
         по теме:
       </h3>
 
-      <div className={styles.sidebarSmallCard}>
-        <p>{smallCard.title}</p>
-        {smallCard.action.href ? (
-          <Link
-            href={smallCard.action.href}
-            className={styles.sidebarReadButton}
-          >
-            Читать
-          </Link>
+      {smallCard ? (
+        smallCard.variant === "memo" ? (
+          <div className={styles.sidebarMemoCard}>
+            <p className={styles.sidebarMemoTitle}>{smallCard.title}</p>
+            <p className={styles.sidebarMemoStatus}>{smallCard.subtitle}</p>
+          </div>
         ) : (
-          <button type="button" className={styles.sidebarReadButton}>
-            Читать
-          </button>
-        )}
-      </div>
+          <div className={styles.sidebarSmallCard}>
+            <p>{smallCard.title}</p>
+            {smallCard.action.href ? (
+              <Link
+                href={smallCard.action.href}
+                className={styles.sidebarReadButton}
+              >
+                Читать
+              </Link>
+            ) : (
+              <button type="button" className={styles.sidebarReadButton}>
+                Читать
+              </button>
+            )}
+          </div>
+        )
+      ) : null}
 
       {imageCard ? (
         imageCard.href ? (

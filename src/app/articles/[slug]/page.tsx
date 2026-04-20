@@ -7,6 +7,8 @@ import { ApgDifferenceContent } from "./apg-difference-content";
 import { ClinicalRecommendationsContent } from "./clinical-recommendations-content";
 import { LumistartContent } from "./lumistart-content";
 import { NeuroprotectionContent } from "./neuroprotection-content";
+import { QualityOfLifeContent } from "./quality-of-life-content";
+import { SurfaceDiseasesContent } from "./surface-diseases-content";
 import { TherapyStartContent } from "./therapy-start-content";
 import styles from "./page.module.css";
 
@@ -34,7 +36,9 @@ export default async function ArticlePage(
             slug === "clinical-recommendations" ||
             slug === "therapy-start" ||
             slug === "apg-difference" ||
-            slug === "lumistart"
+            slug === "lumistart" ||
+            slug === "quality-of-life" ||
+            slug === "surface-diseases"
               ? styles.articleLayoutWide
               : ""
           }`}
@@ -49,6 +53,10 @@ export default async function ArticlePage(
             <ApgDifferenceContent />
           ) : slug === "lumistart" ? (
             <LumistartContent />
+          ) : slug === "quality-of-life" ? (
+            <QualityOfLifeContent />
+          ) : slug === "surface-diseases" ? (
+            <SurfaceDiseasesContent />
           ) : (
             <div className={styles.fallback}>
               <h1 className={styles.fallbackTitle}>{found.title}</h1>
