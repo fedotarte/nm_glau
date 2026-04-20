@@ -28,12 +28,8 @@ export const Footer = () => (
 
         <div className={styles.column}>
           <p className={styles.text}>
-            Материал подготовлен при поддержке ООО «ЭббВи»,
-            <br />
-            <Link href="https://yandex.ru/maps/-/CLdZbFNS">
-              125196, Москва, ул. Лесная, д. 7
-            </Link>
-            <br />
+            Материал подготовлен AbbVie. ООО «ЭббВи», 125171, Россия, г. Москва,
+            Ленинградское ш., д.16а, стр. 1, 5 этаж;{" "}
             <Link href="tel:+74952584277" className={styles.link}>
               Тел. +7 (495) 258-42-77
             </Link>

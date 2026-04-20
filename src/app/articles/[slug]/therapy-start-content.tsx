@@ -13,12 +13,12 @@ import styles from "./page.module.css";
 export const TherapyStartContent = () => {
   const sidebar = (
     <ArticleSidebar
-      nextMaterial={{ label: "Старт терапии: какой препарат выбрать?" }}
-      smallCard={{
-        title: "Старт терапии: какой препарат выбрать?",
-        action: { label: "Читать" },
+      nextMaterial={{
+        label: "АПГ: в чем разница между молекулами?",
+        href: "/articles/apg-difference",
       }}
       imageCard={{
+        href: "/articles/lumistart",
         imageSrc:
           "/pictures/articles/clinical-recommendations/sidebar-eye-v2.png",
         imageAlt: "Люмистарт — новый старт в терапии ПОУГ",
@@ -152,6 +152,8 @@ export const TherapyStartContent = () => {
               ГЛАУКОМЫ?
             </>
           }
+          supText="4, 5"
+          supClassName={styles.therapySectionHeadingRef}
         />
         <Image
           src="/pictures/articles/therapy-start/frame-91.png"
@@ -163,7 +165,8 @@ export const TherapyStartContent = () => {
         <p className={styles.therapyChartCaption}>
           Снижение ВГД на один визит в течение первых 3 месяцев лечения связано
           со снижением риска прогрессирования примерно на 10% в течение 6 лет на
-          каждый 1 мм рт. ст. снижения ВГД.
+          каждый 1 мм рт. ст. снижения ВГД
+          <sup className={styles.therapyGlossarySup}>*, 7, 8</sup>.
         </p>
       </section>
 
@@ -173,8 +176,8 @@ export const TherapyStartContent = () => {
           contentClassName={styles.therapySectionHeadingInner}
           title={
             <>
-              КАКОЙ АНАЛОГ ПРОСТАГЛАНДИНОВ ДАЕТ ЛУЧШИЙ БЕЗОПАСНЫЙ КОНТРОЛЬ ВГД
-              НА ПЕРВОМ ВИЗИТЕ?
+              КАКОЙ АНАЛОГ ПРОСТАГЛАНДИНОВ (АПГ) ВЫБРАТЬ В КАЧЕСТВЕ ПРЕПАРАТА
+              ПЕРВОЙ ЛИНИИ?
             </>
           }
         />
@@ -245,7 +248,7 @@ export const TherapyStartContent = () => {
       </section>
 
       <Image
-        src="/pictures/articles/therapy-start/frame-100.png"
+        src="/pictures/articles/therapy-start/frame-100.jpg"
         alt="Промо-блок Люмистарт"
         width={970}
         height={170}
@@ -278,6 +281,7 @@ export const TherapyStartContent = () => {
       </div>
 
       <ArticleReferences
+        numbered
         items={[
           <>
             American Academy of Ophthalmology (AAO). Primary Open-Angle Glaucoma

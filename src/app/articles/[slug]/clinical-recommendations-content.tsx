@@ -11,12 +11,12 @@ import styles from "./page.module.css";
 export const ClinicalRecommendationsContent = () => {
   const sidebar = (
     <ArticleSidebar
-      nextMaterial={{ label: "Старт терапии: какой препарат выбрать?" }}
-      smallCard={{
-        title: "Старт терапии: какой препарат выбрать?",
-        action: { label: "Читать" },
+      nextMaterial={{
+        label: "Старт терапии: какой препарат выбрать?",
+        href: "/articles/therapy-start",
       }}
       imageCard={{
+        href: "/articles/lumistart",
         imageSrc:
           "/pictures/articles/clinical-recommendations/sidebar-eye-v2.png",
         imageAlt: "Люмистарт — новый старт в терапии ПОУГ",

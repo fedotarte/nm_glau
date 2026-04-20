@@ -25,7 +25,7 @@ const LumistartSidebar = () => {
     <aside className={styles.clinicalSidebar}>
       <p className={styles.sidebarCaption}>Следующий материал:</p>
       <Link href="/articles/quality-of-life" className={styles.sidebarNextCard}>
-        <span>Как повысить качество жизни у пациентов с глаукомой?</span>
+        <span>Что может повысить качество жизни у пациентов с глаукомой?</span>
         <Image
           src="/icons/base_arrow_right.svg"
           alt=""
@@ -98,13 +98,13 @@ export const LumistartContent = () => {
 
       <section className={styles.therapySection}>
         <ArticleSectionHeading
-          className={styles.therapySectionHeading}
+          className={`${styles.therapySectionHeading} ${styles.lumistartSectionHeading}`}
           contentClassName={styles.therapySectionHeadingInner}
           title={
             <>
-              ФОКУС НА ЭФФЕКТИВНОСТЬ: БИМАТОПРОСТ согласно результатам
-              исследования обеспечивает дополнительное снижение ВГД при переводе
-              с предшествующей терапии
+              ФОКУС НА ЭФФЕКТИВНОСТЬ: БИМАТОПРОСТ СОГЛАСНО РЕЗУЛЬТАТАМ
+              ИССЛЕДОВАНИЯ ОБЕСПЕЧИВАЕТ ДОПОЛНИТЕЛЬНОЕ СНИЖЕНИЕ ВГД ПРИ ПЕРЕВОДЕ
+              С ПРЕДШЕСТВУЮЩЕЙ ТЕРАПИИ
             </>
           }
           supText="2"
@@ -145,11 +145,11 @@ export const LumistartContent = () => {
 
       <section className={styles.therapySection}>
         <ArticleSectionHeading
-          className={styles.therapySectionHeading}
+          className={`${styles.therapySectionHeading} ${styles.lumistartSectionHeading}`}
           contentClassName={styles.therapySectionHeadingInner}
           title={
             <>
-              ОРИЕНТАЦИЯ НА ПЕРЕНОСИМОСТЬ: ЛЮМИстарт ПРЕДСТАВЛЯЕТ СОБОЙ АПГ ДЛЯ
+              ОРИЕНТАЦИЯ НА ПЕРЕНОСИМОСТЬ: ЛЮМИСТАРТ ПРЕДСТАВЛЯЕТ СОБОЙ АПГ ДЛЯ
               МОНОТЕРАПИИ С БЛАГОПРИЯТНЫМ ПРОФИЛЕМ ПЕРЕНОСИМОСТИ*, †,{" "}
               <sup className={styles.therapySectionHeadingRef}>2</sup>
             </>
@@ -174,13 +174,13 @@ export const LumistartContent = () => {
 
       <section className={styles.therapySection}>
         <ArticleSectionHeading
-          className={styles.therapySectionHeading}
+          className={`${styles.therapySectionHeading} ${styles.lumistartSectionHeading}`}
           contentClassName={styles.therapySectionHeadingInner}
           title={
             <>
-              ориентация на снижение поражений передней поверхности глаза:
-              люмистарт без консервантов может нести дополнительную пользу
-              пациентам, нуждающимся в долгосрочном лечении глаукомы
+              ОРИЕНТАЦИЯ НА СНИЖЕНИЕ ПОРАЖЕНИЙ ПЕРЕДНЕЙ ПОВЕРХНОСТИ ГЛАЗА:
+              ЛЮМИСТАРТ БЕЗ КОНСЕРВАНТОВ МОЖЕТ НЕСТИ ДОПОЛНИТЕЛЬНУЮ ПОЛЬЗУ
+              ПАЦИЕНТАМ, НУЖДАЮЩИМСЯ В ДОЛГОСРОЧНОМ ЛЕЧЕНИИ ГЛАУКОМЫ
               <sup className={styles.therapySectionHeadingRef}>1–5</sup>
             </>
           }

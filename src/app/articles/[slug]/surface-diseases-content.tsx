@@ -65,8 +65,8 @@ export const SurfaceDiseasesContent = () => {
   const sidebar = (
     <ArticleSidebar
       nextMaterial={{
-        label: "Люмистарт — новый старт в терапии ПОУГ",
-        href: "/articles/lumistart",
+        label: "Клинические рекомендации по терапии ПОУГ 2026",
+        href: "/articles/clinical-recommendations",
       }}
       imageCard={{
         href: "/articles/lumistart",

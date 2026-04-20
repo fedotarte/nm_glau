@@ -31,7 +31,15 @@ export const ApgDifferenceContent = () => {
         href: "/articles/lumistart",
       }}
       smallCard={{
-        title: "Как повысить качество жизни у пациентов с глаукомой?",
+        title: (
+          <>
+            Что может повысить качество жизни
+            <br />
+            у пациентов
+            <br />
+            с глаукомой?
+          </>
+        ),
         action: { label: "Читать", href: "/articles/quality-of-life" },
       }}
     />
@@ -56,14 +64,14 @@ export const ApgDifferenceContent = () => {
               биматопроста и других аналогов простагландинов
             </>
           }
-          supText="*1, 2"
+          supText="*, 1, 2"
           supClassName={styles.therapySectionHeadingRef}
         />
         <ArticleCallout className={styles.apgCallout}>
-          Люмистарт (биматопрост 0,03&nbsp;%)&nbsp;— простамид с уникальной
+          Биматопрост (Люмистарт 0,03%)&nbsp;— простамид с уникальной
           молекулярной структурой, который в ряде исследований продемонстрировал
           более выраженное снижение ВГД, чем другие АПГ
-          <sup className={styles.therapySectionHeadingRef}>*1–5</sup>
+          <sup className={styles.therapySectionHeadingRef}>*, 1–5</sup>
         </ArticleCallout>
         <Image
           src="/pictures/articles/apg-difference/structures-comparison.png"
@@ -89,11 +97,12 @@ export const ApgDifferenceContent = () => {
         <ArticleCallout
           className={`${styles.apgCallout} ${styles.apgCalloutSecondary}`}
         >
-          Люмистарт (биматопрост) — это синтетический простамид, который снижает
-          ВГД за счёт увеличения оттока водянистой влаги через трабекулярную
-          сеть и увеличения увеосклерального оттока и не действует через
-          известные рецепторы простагландина
+          Биматопрост (Люмистарт 0,03%)&nbsp;— это синтетический простамид,
+          который снижает ВГД за счет увеличения оттока водянистой влаги через
+          трабекулярную сеть и увеличения увеосклерального оттока, который
+          не&nbsp;действует через&nbsp;известные рецепторы простагландина
           <sup className={styles.therapyGlossarySup}>6, 7</sup>
+          &nbsp;и аппрекейс
         </ArticleCallout>
         <Image
           src="/pictures/articles/apg-difference/dual-mechanism.png"

@@ -24,8 +24,8 @@ export const QualityOfLifeContent = () => {
   const sidebar = (
     <ArticleSidebar
       nextMaterial={{
-        label: "Люмистарт — новый старт в терапии ПОУГ",
-        href: "/articles/lumistart",
+        label: "Заболевания поверхности глаз и приверженность к лечению",
+        href: "/articles/surface-diseases",
       }}
       smallCard={{
         variant: "memo",

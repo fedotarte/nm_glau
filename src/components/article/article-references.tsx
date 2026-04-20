@@ -17,6 +17,8 @@ export const ArticleReferences = ({
   defaultOpen = true,
   numbered = false,
 }: ArticleReferencesProps) => {
+  const ListTag = numbered ? "ol" : "ul";
+
   return (
     <details className={styles.referencesAccordion} open={defaultOpen}>
       <summary
@@ -32,14 +34,13 @@ export const ArticleReferences = ({
           className={styles.referencesArrow}
         />
       </summary>
-      <ul className={styles.referencesList}>
+      <ListTag className={styles.referencesList}>
         {items.map((item, index) => (
           <li key={index} className={styles.referencesItem}>
-            {numbered ? `${index + 1}. ` : null}
             {item}
           </li>
         ))}
-      </ul>
+      </ListTag>
     </details>
   );
 };

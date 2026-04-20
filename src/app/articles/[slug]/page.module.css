@@ -185,6 +185,16 @@
   letter-spacing: inherit;
 }
 
+/* Люмистарт: плашки секций — один кегль (без small-caps у строчных) */
+.lumistartSectionHeading {
+  font-variant: normal;
+  text-transform: uppercase;
+}
+
+.lumistartSectionHeading .therapySectionHeadingInner {
+  font-variant: normal;
+}
+
 /* Figma 767-12233: заголовок только текстом, без подложки #93ddd9 */
 .therapySectionHeadingBare {
   margin: 0;
@@ -279,7 +289,7 @@
   top: -0.15em;
 }
 
-/* Второй коллаут (простамид): та же плашка #93ddd9, типографика 24px / 600 / small-caps */
+/* Второй коллаут (простамид): та же плашка #93ddd9, типографика 24px / 600 */
 .apgCalloutSecondary {
   background: #93ddd9;
   border: 1px solid #73aeb8;
@@ -291,7 +301,6 @@
   font-size: 24px;
   line-height: 1;
   letter-spacing: 0;
-  font-variant: small-caps;
   color: #135d6c;
   text-align: left;
 }
@@ -395,14 +404,14 @@
 
 .therapyChartCaption {
   margin-top: 12px;
-  text-align: center;
-  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  text-align: left;
+  font-family: var(--font-family-base), sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
   line-height: 1;
   letter-spacing: 0;
-  font-variant: small-caps;
+  font-variant: normal;
   color: #135d6c;
 }
 
@@ -1409,8 +1418,17 @@
 .referencesList {
   margin-top: 12px;
   margin-bottom: 0;
+}
+
+ul.referencesList {
   padding-left: 0;
   list-style: none;
+}
+
+ol.referencesList {
+  padding-left: 1.75em;
+  list-style: decimal;
+  list-style-position: outside;
 }
 
 .referencesItem {
@@ -1518,8 +1536,10 @@
 
   .therapyChartCaption {
     font-size: 16px;
-    line-height: 1.2;
+    line-height: 1;
+    letter-spacing: 0;
     text-align: left;
+    font-variant: normal;
   }
 
   .therapySectionHeading {
