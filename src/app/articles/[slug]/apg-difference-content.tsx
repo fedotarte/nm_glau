@@ -67,7 +67,9 @@ export const ApgDifferenceContent = () => {
           supText="*, 1, 2"
           supClassName={styles.therapySectionHeadingRef}
         />
-        <ArticleCallout className={styles.apgCallout}>
+        <ArticleCallout
+          className={`${styles.therapySectionHeading} ${styles.apgCalloutUppercase} ${styles.apgCalloutFromQol}`}
+        >
           Биматопрост (Люмистарт 0,03%)&nbsp;— простамид с уникальной
           молекулярной структурой, который в ряде исследований продемонстрировал
           более выраженное снижение ВГД, чем другие АПГ
@@ -95,7 +97,7 @@ export const ApgDifferenceContent = () => {
           </li>
         </ul>
         <ArticleCallout
-          className={`${styles.apgCallout} ${styles.apgCalloutSecondary}`}
+          className={`${styles.therapySectionHeading} ${styles.apgCalloutUppercase} ${styles.apgCalloutFromQol}`}
         >
           Биматопрост (Люмистарт 0,03%)&nbsp;— это синтетический простамид,
           который снижает ВГД за счет увеличения оттока водянистой влаги через

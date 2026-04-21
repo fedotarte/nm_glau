@@ -52,6 +52,11 @@ body {
   overscroll-behavior: none;
 }
 
+html.articles-page,
+body.articles-page {
+  overflow-x: visible;
+}
+
 html {
   background-color: #135D6C;
 }

@@ -27,6 +27,19 @@
   padding: 0 24px;
 }
 
+.homeLink {
+  margin-right: auto;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeIcon {
+  display: block;
+}
+
 .navList {
   display: flex;
   align-items: center;
@@ -202,8 +215,12 @@
     .header {
         padding: 0;
         background: linear-gradient(90deg, rgba(19, 93, 108, 0.7) 0%, rgba(10, 153, 166, 0.7) 100%);
-        box-shadow: 0 4px 6px 0 rgba(3, 20, 23, 0.3);
+        box-shadow: 0 4px 6px 0 #0314174d;
         backdrop-filter: blur(24px);
+    }
+
+    .headerArticles {
+        box-shadow: 0 4px 6px 0 #0314174d;
     }
 
     .separator {

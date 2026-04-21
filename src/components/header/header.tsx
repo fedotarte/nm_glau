@@ -3,10 +3,13 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import styles from "./header.module.css";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isArticlesSection = pathname.startsWith("/articles");
 
   const closeMenu = useCallback(() => {
     setIsMenuOpen(false);
@@ -38,24 +41,54 @@ export const Header = () => {
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
       document.body.classList.add("drawer-open");
     } else {
-      document.body.style.overflow = "";
+      document.body.style.removeProperty("overflow");
+      document.documentElement.style.removeProperty("overflow");
       document.body.classList.remove("drawer-open");
     }
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.removeProperty("overflow");
+      document.documentElement.style.removeProperty("overflow");
       document.body.classList.remove("drawer-open");
     };
   }, [isMenuOpen]);
 
+  // Articles section requires independent horizontal overflow behavior.
+  useEffect(() => {
+    if (isArticlesSection) {
+      document.body.classList.add("articles-page");
+      document.documentElement.classList.add("articles-page");
+    } else {
+      document.body.classList.remove("articles-page");
+      document.documentElement.classList.remove("articles-page");
+    }
+
+    return () => {
+      document.body.classList.remove("articles-page");
+      document.documentElement.classList.remove("articles-page");
+    };
+  }, [isArticlesSection]);
+
   return (
     <>
       <header
-        className={`${styles.header} ${isMenuOpen ? styles.headerHidden : ""}`}
+        className={`${styles.header} ${isArticlesSection ? styles.headerArticles : ""} ${isMenuOpen ? styles.headerHidden : ""}`}
       >
         <nav className={styles.nav}>
+          {isArticlesSection ? (
+            <Link href="/" className={styles.homeLink} aria-label="На главную">
+              <Image
+                src="/icons/home-icon.svg"
+                alt="На главную"
+                width={40}
+                height={40}
+                className={styles.homeIcon}
+              />
+            </Link>
+          ) : null}
           <ul className={styles.navList}>
             <li>
               <Link href="#" className={styles.navLink}>

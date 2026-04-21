@@ -9,7 +9,7 @@
   flex: 1;
   display: flex;
   justify-content: center;
-  padding: clamp(16px, 2.2vw, 32px) 0 clamp(24px, 3vw, 44px);
+  padding: 16px 0 24px;
   position: relative;
   background: #e2f7f6;
 }
@@ -20,6 +20,10 @@
 
 .articleLayoutWide {
   width: min(1215px, 100%);
+}
+
+.articleLayoutWide:has(.therapyPage) {
+  width: min(1255px, 100%);
 }
 
 .clinicalPage {
@@ -168,11 +172,11 @@
 .therapySectionHeading {
   border-radius: 8px;
   background: #93ddd9;
-  padding: 12px 16px;
+  padding: 12px 10px;
   font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1;
   letter-spacing: 0;
   font-variant: small-caps;
@@ -313,18 +317,36 @@
   vertical-align: super;
 }
 
+.apgCalloutUppercase {
+  font-variant: normal;
+  text-transform: uppercase;
+}
+
+.apgCalloutFromQol {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.qualityOfLifeLeadHeading {
+  font-size: 24px;
+  font-weight: 600;
+}
+
 .therapyCards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  column-gap: 0;
+  row-gap: 8px;
+  align-items: stretch;
 }
 
 .therapyCard {
   border-radius: 24px;
   border: 4px solid #93ddd9;
-  padding: 28px 16px;
+  padding: 28px 12px;
   background: rgba(226, 247, 246, 0.75);
-  min-height: 540px;
+  min-height: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -357,12 +379,50 @@
   margin: 0;
 }
 
+.therapyCardMetaSingleLine {
+  white-space: nowrap;
+}
+
+.therapyCardMetaRegular {
+  font-weight: 400;
+}
+
 .therapyCardLead {
   font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
   font-weight: 600;
   font-size: 24px;
   line-height: 1.2;
-  margin-bottom: 12px;
+  margin-bottom: 0;
+}
+
+.therapyCard:nth-child(2) .therapyCardLead {
+  margin-bottom: 11px;
+}
+
+.therapyCard:nth-child(2) {
+  width: calc(100% - 12px);
+  justify-self: end;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.therapyCard:nth-child(3) .therapyCardLead {
+  margin-bottom: 11px;
+}
+
+.therapyCard:nth-child(3) {
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.therapyCard:nth-child(1) .therapyCardLead {
+  margin-bottom: 22px;
+}
+
+.therapyCard:nth-child(1) {
+  width: 317px;
+  justify-self: start;
 }
 
 .therapyCardBody {
@@ -408,7 +468,7 @@
   font-family: var(--font-family-base), sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1;
   letter-spacing: 0;
   font-variant: normal;
@@ -656,9 +716,13 @@
 
 .clinicalGrid {
   display: grid;
-  grid-template-columns: 970px 221px;
+  grid-template-columns: 1009px 221px;
   gap: 24px;
   align-items: start;
+}
+
+.clinicalGrid:has(.therapyPage) {
+  grid-template-columns: 1009px 221px;
 }
 
 .clinicalMain {
@@ -725,6 +789,10 @@
   font-weight: 400;
 }
 
+.clinicalBodyMedium {
+  font-weight: 600;
+}
+
 /* Заголовок абзаца «Дизайн исследования:» — QOL и др.; 18px Bold, отдельная строка */
 .studyDesignLabel {
   display: block;
@@ -754,7 +822,7 @@
 }
 
 .clinicalBodyBulletList {
-  margin: 0;
+  margin: 5px 0 0;
   padding-left: 20px;
   list-style: disc;
   list-style-position: outside;
@@ -762,6 +830,14 @@
   font-size: 16px;
   line-height: 1.12;
   font-weight: 400;
+}
+
+.clinicalBodyBulletList li + li {
+  margin-top: 5px;
+}
+
+.clinicalBodyBulletList strong {
+  font-weight: 600;
 }
 
 /* Figma: список на apg-difference — Source Sans Pro 24px / 600 / line-height 100% */
@@ -808,6 +884,14 @@
   font-size: 16px;
   line-height: 1.12;
   font-weight: 400;
+}
+
+.changeBlockParagraphs p + p {
+  margin-top: 8px;
+}
+
+.changeBlockParagraphsLarge p + p {
+  margin-top: 12px;
 }
 
 .changeHeader {
@@ -879,6 +963,14 @@
   font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
   font-size: 16px;
   line-height: 1.12;
+}
+
+.comparisonCol2024 > p {
+  margin: 0 0 5px;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-size: 16px;
+  line-height: 1.12;
+  font-weight: 600;
 }
 
 .comparisonCol2024 .clinicalList {
@@ -1183,12 +1275,15 @@
 @media (min-width: 1024px) {
   .page {
     height: 100vh;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .main {
     min-height: 0;
-    overflow: hidden;
+    overflow: visible;
+    padding-top: 0;
+    padding-bottom: 0;
+    background: #e2f7f6;
   }
 
   .articleLayoutWide {
@@ -1203,14 +1298,25 @@
     min-height: 0;
   }
 
+  .clinicalGrid {
+    grid-template-rows: minmax(0, 1fr);
+    align-items: stretch;
+  }
+
   .clinicalMain {
     height: 100%;
     min-height: 0;
     overflow-y: auto;
     overflow-x: hidden;
-    padding-right: 40px;
+    padding: 32px 25px 0 0;
     scrollbar-width: auto;
     scrollbar-color: #0a99a6 rgba(19, 93, 108, 0.18);
+  }
+
+  .clinicalSidebar {
+    padding-top: 32px;
+    min-height: 0;
+    overflow-y: auto;
   }
 
   .clinicalMain::-webkit-scrollbar {
@@ -1467,7 +1573,15 @@ ol.referencesList {
 }
 
 @media (max-width: 960px) {
+  .page {
+    height: auto;
+    overflow: visible;
+  }
+
   .main {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
     padding: 8px 0 16px;
   }
 
@@ -1481,6 +1595,9 @@ ol.referencesList {
   }
 
   .clinicalMain {
+    height: auto;
+    min-height: auto;
+    overflow: visible;
     padding: 0 14px;
   }
 
@@ -1508,6 +1625,16 @@ ol.referencesList {
     border-width: 2px;
     border-radius: 12px;
     padding: 14px 12px;
+  }
+
+  .therapyCard:nth-child(2) {
+    width: auto;
+    justify-self: stretch;
+  }
+
+  .therapyCard:nth-child(1) {
+    width: auto;
+    justify-self: stretch;
   }
 
   .therapyCardLogoWrap {

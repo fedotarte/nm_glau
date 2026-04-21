@@ -58,12 +58,13 @@ export const QualityOfLifeContent = () => {
 
       <section className={styles.therapySection}>
         <ArticleSectionHeading
-          className={styles.therapySectionHeading}
+          className={`${styles.therapySectionHeading} ${styles.qualityOfLifeLeadHeading}`}
           contentClassName={styles.therapySectionHeadingInner}
           title={
             <>
-              сложности, препятствующие приверженности лечению многогранны и
-              различаются у разных людей
+              сложности, препятствующие приверженности
+              <br />
+              лечению многогранны и различаются у разных людей
             </>
           }
           supText="1–3"
