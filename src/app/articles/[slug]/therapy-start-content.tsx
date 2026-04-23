@@ -25,7 +25,7 @@ export const TherapyStartContent = () => {
         title: (
           <>
             Люмистарт — новый старт
-            <br />в терапии ПОУГ
+            <br />в терапии поуг
           </>
         ),
       }}
@@ -35,16 +35,11 @@ export const TherapyStartContent = () => {
   return (
     <ArticleWideLayout pageClassName={styles.therapyPage} sidebar={sidebar}>
       <ArticleTitleBlock
-        containerClassName={styles.therapyTitleBlock}
-        titleClassName={styles.therapyTitle}
-        dividerClassName={styles.clinicalTitleDivider}
-        title="СТАРТ ТЕРАПИИ: КАКОЙ ПРЕПАРАТ ВЫБРАТЬ?"
+        title="старт терапии: какой препарат выбрать?"
       />
 
       <section className={styles.therapySection}>
         <ArticleSectionHeading
-          className={styles.therapySectionHeading}
-          contentClassName={styles.therapySectionHeadingInner}
           title={
             <>
               РОССИЙСКИЕ, ЕВРОПЕЙСКИЕ И АМЕРИКАНСКИЕ РЕКОМЕНДАЦИИ ПРИЗНАЮТ
@@ -55,7 +50,6 @@ export const TherapyStartContent = () => {
             </>
           }
           supText="1, 2, 3"
-          supClassName={styles.therapySectionHeadingRef}
         />
         <div className={styles.therapyCards}>
           <article className={styles.therapyCard}>
@@ -212,8 +206,6 @@ export const TherapyStartContent = () => {
 
       <section className={styles.therapySection}>
         <ArticleSectionHeading
-          className={styles.therapySectionHeading}
-          contentClassName={styles.therapySectionHeadingInner}
           title={
             <>
               КАК МОЖНО СНИЗИТЬ РИСК ПОТЕРИ ПОЛЯ ЗРЕНИЯ НА РАННЕЙ СТАДИИ
@@ -221,7 +213,6 @@ export const TherapyStartContent = () => {
             </>
           }
           supText="4, 7"
-          supClassName={styles.therapySectionHeadingRef}
         />
         <Image
           src="/pictures/articles/therapy-start/frame-91.png"
@@ -240,8 +231,6 @@ export const TherapyStartContent = () => {
 
       <section className={styles.therapySection}>
         <ArticleSectionHeading
-          className={styles.therapySectionHeading}
-          contentClassName={styles.therapySectionHeadingInner}
           title={
             <>
               КАКОЙ АНАЛОГ ПРОСТАГЛАНДИНОВ (АПГ) ВЫБРАТЬ В КАЧЕСТВЕ ПРЕПАРАТА
@@ -341,13 +330,19 @@ export const TherapyStartContent = () => {
         </div>
       </section>
 
-      <Image
-        src="/pictures/articles/therapy-start/frame-100.jpg"
-        alt="Промо-блок Люмистарт"
-        width={970}
-        height={170}
-        className={styles.therapyBanner}
-      />
+      <a
+        href="https://lk.regmed.ru/Register/EAEU_SmPC"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Image
+          src="/pictures/articles/therapy-start/frame-100.jpg"
+          alt="Промо-блок Люмистарт"
+          width={970}
+          height={170}
+          className={styles.therapyBanner}
+        />
+      </a>
 
       <div className={styles.therapyMetaBlock}>
         <div className={styles.therapyGlossary}>

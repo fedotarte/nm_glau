@@ -87,6 +87,7 @@ export const Header = () => {
                 height={40}
                 className={styles.homeIcon}
               />
+              <span className={styles.homeLabel}>На главную</span>
             </Link>
           ) : null}
           <ul className={styles.navList}>

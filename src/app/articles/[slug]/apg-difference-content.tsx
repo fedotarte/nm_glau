@@ -27,7 +27,7 @@ export const ApgDifferenceContent = () => {
     <ArticleSidebar
       asideClassName={styles.apgSidebar}
       nextMaterial={{
-        label: "Люмистарт — новый старт в терапии ПОУГ",
+        label: "Люмистарт — новый старт в терапии поуг",
         href: "/articles/lumistart",
       }}
       smallCard={{
@@ -36,8 +36,7 @@ export const ApgDifferenceContent = () => {
             Что может повысить качество жизни
             <br />
             у пациентов
-            <br />
-            с глаукомой?
+            <br />с глаукомой?
           </>
         ),
         action: { label: "Читать", href: "/articles/quality-of-life" },
@@ -47,16 +46,12 @@ export const ApgDifferenceContent = () => {
 
   return (
     <ArticleWideLayout pageClassName={styles.therapyPage} sidebar={sidebar}>
-      <ArticleTitleBlock
-        containerClassName={styles.therapyTitleBlock}
-        titleClassName={`${styles.therapyTitle} ${styles.apgPageTitle}`}
-        dividerClassName={styles.clinicalTitleDivider}
-        title="АПГ: В чем разница между молекулами"
-      />
+      <ArticleTitleBlock title="апг: в чем разница между молекулами" />
 
       <section className={styles.therapySection}>
         <ArticleSectionHeading
           className={styles.apgSectionHeading}
+          unstyled
           title={
             <>
               Различия химической структуры
@@ -68,11 +63,11 @@ export const ApgDifferenceContent = () => {
           supClassName={styles.therapySectionHeadingRef}
         />
         <ArticleCallout
-          className={`${styles.therapySectionHeading} ${styles.apgCalloutUppercase} ${styles.apgCalloutFromQol}`}
+          className={`${styles.therapySectionHeading} ${styles.apgCalloutFromQol}`}
         >
-          Биматопрост (Люмистарт 0,03%)&nbsp;— простамид с уникальной
+          биматопрост (люмистарт 0,03%)&nbsp;— простамид с уникальной
           молекулярной структурой, который в ряде исследований продемонстрировал
-          более выраженное снижение ВГД, чем другие АПГ
+          более выраженное снижение вгд, чем другие апг
           <sup className={styles.therapySectionHeadingRef}>*, 1–5</sup>
         </ArticleCallout>
         <Image
@@ -97,17 +92,16 @@ export const ApgDifferenceContent = () => {
           </li>
         </ul>
         <ArticleCallout
-          className={`${styles.therapySectionHeading} ${styles.apgCalloutUppercase} ${styles.apgCalloutFromQol}`}
+          className={`${styles.therapySectionHeading} ${styles.apgCalloutFromQol}`}
         >
-          Биматопрост (Люмистарт 0,03%)&nbsp;— это синтетический простамид,
-          который снижает ВГД за счет увеличения оттока водянистой влаги через
+          биматопрост (люмистарт 0,03%)&nbsp;— это синтетический простамид,
+          который снижает вгд за счет увеличения оттока водянистой влаги через
           трабекулярную сеть и увеличения увеосклерального оттока, который
           не&nbsp;действует через&nbsp;известные рецепторы простагландина
           <sup className={styles.therapyGlossarySup}>6, 7</sup>
-          &nbsp;и аппрекейс
         </ArticleCallout>
         <Image
-          src="/pictures/articles/apg-difference/dual-mechanism.png"
+          src="/pictures/articles/apg-difference/dual-mechanism.jpg"
           alt="Двойной механизм действия: отток через трабекулярную сеть и увеосклеральный отток"
           width={969}
           height={480}

@@ -34,32 +34,6 @@
   color: #135d6c;
 }
 
-.therapyTitleBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding-top: 6px;
-}
-
-.therapyTitle {
-  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 1.1;
-}
-
-/* Figma 767-12081: заголовок страницы surface-diseases */
-.surfaceDiseasesPageTitle {
-  font-size: 32px;
-  line-height: 1;
-  letter-spacing: 0;
-  font-variant: small-caps;
-}
-
-.apgPageTitle {
-  text-transform: uppercase;
-}
-
 .therapySection {
   display: flex;
   flex-direction: column;
@@ -73,12 +47,12 @@
 
 /* Плашки-заголовки: в макете полный апперкейс, не small-caps */
 .surfaceDiseasesSection .therapySectionHeading {
-  font-variant: normal;
+  font-variant: small-caps;
 }
 
 .surfaceDiseasesSection .therapySectionHeadingInner {
-  text-transform: uppercase;
-  font-variant: normal;
+  text-transform: none;
+  font-variant: small-caps;
 }
 
 /* Figma 767-12236 Frame 108: карточка с диаграммой и текстом */
@@ -148,7 +122,6 @@
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0;
-  text-transform: uppercase;
   color: #135d6c;
 }
 
@@ -176,7 +149,7 @@
   font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1;
   letter-spacing: 0;
   font-variant: small-caps;
@@ -187,16 +160,6 @@
   font: inherit;
   font-variant: small-caps;
   letter-spacing: inherit;
-}
-
-/* Люмистарт: плашки секций — один кегль (без small-caps у строчных) */
-.lumistartSectionHeading {
-  font-variant: normal;
-  text-transform: uppercase;
-}
-
-.lumistartSectionHeading .therapySectionHeadingInner {
-  font-variant: normal;
 }
 
 /* Figma 767-12233: заголовок только текстом, без подложки #93ddd9 */
@@ -243,8 +206,8 @@
   font-size: 24px;
   line-height: 1.15;
   letter-spacing: 0;
-  font-variant: normal;
-  text-transform: uppercase;
+  font-variant: small-caps;
+  text-transform: none;
   color: #135d6c;
 }
 
@@ -276,7 +239,6 @@
   font-size: 24px;
   line-height: 1.2;
   text-align: left;
-  text-transform: uppercase;
   background: #93ddd9;
 }
 
@@ -317,19 +279,10 @@
   vertical-align: super;
 }
 
-.apgCalloutUppercase {
-  font-variant: normal;
-  text-transform: uppercase;
-}
-
 .apgCalloutFromQol {
   font-size: 24px;
   font-weight: 600;
-}
-
-.qualityOfLifeLeadHeading {
-  font-size: 24px;
-  font-weight: 600;
+  font-variant: small-caps;
 }
 
 .therapyCards {
@@ -732,27 +685,6 @@
   gap: 24px;
 }
 
-.clinicalTitleBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding-top: 8px;
-}
-
-.clinicalTitle {
-  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 1;
-  letter-spacing: 0;
-}
-
-.clinicalTitleDivider {
-  width: 100%;
-  height: 2px;
-  background: #2f7f89;
-}
-
 .clinicalCard {
   border-left: 2px solid #2f7f89;
   padding-left: 12px;
@@ -780,6 +712,9 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 1;
+  font-variant: small-caps;
+  font-variant-caps: all-small-caps;
+  text-transform: none;
 }
 
 .clinicalBody {
@@ -791,6 +726,19 @@
 
 .clinicalBodyMedium {
   font-weight: 600;
+}
+
+.clinicalBodyNoBottomGap {
+  margin-bottom: 0;
+}
+
+.clinicalBodyTopGap {
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.clinicalBodyBottomGap {
+  margin-bottom: 8px;
 }
 
 /* Заголовок абзаца «Дизайн исследования:» — QOL и др.; 18px Bold, отдельная строка */
@@ -886,11 +834,24 @@
   font-weight: 400;
 }
 
+.changeBlockLeadSpacing {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
 .changeBlockParagraphs p + p {
   margin-top: 8px;
 }
 
 .changeBlockParagraphsLarge p + p {
+  margin-top: 12px;
+}
+
+.changeBlockParagraphsLarge .clinicalBodyNoBottomGap + p {
+  margin-top: 0;
+}
+
+.changeBlockParagraphsLarge .clinicalBodyNoBottomGap + .clinicalBodyTopGap {
   margin-top: 12px;
 }
 
@@ -1224,10 +1185,6 @@
   height: 19px;
 }
 
-.lumistartPageTitle {
-  text-transform: none;
-}
-
 .lumistartCallout {
   margin: 0;
   box-sizing: border-box;
@@ -1252,7 +1209,6 @@
   font-size: 16px;
   line-height: 1.2;
   color: #135d6c;
-  text-transform: uppercase;
 }
 
 .lumistartChartImage {
@@ -1272,7 +1228,7 @@
   font-style: italic;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .page {
     height: 100vh;
     overflow: visible;
@@ -1331,6 +1287,58 @@
   .clinicalMain::-webkit-scrollbar-thumb {
     border-radius: 8px;
     background: linear-gradient(180deg, #0a99a6 0%, #135d6c 100%);
+  }
+}
+
+@media (max-width: 1279px) {
+  .clinicalGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .clinicalSidebar {
+    width: 100%;
+    padding: 0 14px;
+  }
+
+  .sidebarNextCard,
+  .sidebarImageCard {
+    width: 100%;
+  }
+
+  .therapyCards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .therapyCard {
+    width: auto;
+    justify-self: stretch;
+    border: 2px solid #93ddd9;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .therapyCard:nth-child(1),
+  .therapyCard:nth-child(2),
+  .therapyCard:nth-child(3) {
+    width: auto;
+    justify-self: stretch;
+    border-left: 2px solid #93ddd9;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+
+  .therapyCardLogo {
+    object-position: center;
+  }
+
+  .therapyCardMeta,
+  .therapyCardLead,
+  .therapyCardBody {
+    text-align: center;
   }
 }
 
@@ -1601,21 +1609,6 @@ ol.referencesList {
     padding: 0 14px;
   }
 
-  .clinicalTitle {
-    font-size: 24px;
-    line-height: 1.1;
-  }
-
-  .therapyTitle {
-    font-size: 24px;
-    line-height: 1.1;
-  }
-
-  .surfaceDiseasesPageTitle {
-    font-size: 24px;
-    line-height: 1.1;
-  }
-
   .therapyCards {
     grid-template-columns: 1fr;
   }
@@ -1698,7 +1691,6 @@ ol.referencesList {
     line-height: 1.2;
     padding: 14px 16px;
     text-align: left;
-    text-transform: uppercase;
     background: #93ddd9;
   }
 
@@ -1827,7 +1819,14 @@ ol.referencesList {
   }
 
   .clinicalSidebar {
-    display: none;
+    display: flex;
+    width: 100%;
+    padding: 0 14px;
+  }
+
+  .sidebarNextCard,
+  .sidebarImageCard {
+    width: 100%;
   }
 
   .surfaceSplitCard {

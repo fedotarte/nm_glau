@@ -12,12 +12,13 @@ import {
 import styles from "./page.module.css";
 
 const REFERENCES: ReactNode[] = [
-  "Tsai J. C. et al. A comprehensive review on the impact of medication adherence in glaucoma // Prog Retin Eye Res. 2021; 83: 100915.",
-  "Schwartz G. F. et al. Patient and physician perspectives on treatment burden and non-adherence in glaucoma // Patient Prefer Adherence. 2018; 12: 169–179.",
-  "Krol M. et al. A cost-effectiveness analysis of bimatoprost versus latanoprost, travoprost and tafluprost in the treatment of primary open-angle glaucoma // Curr Med Res Opin. 2015; 31(3): 511–521.",
-  "Клинические рекомендации МЗ РФ «Глаукома первичная открытоугольная», 2024. https://cr.minzdrav.gov.ru/ (дата доступа: 18.03.2026).",
-  "ЛВ/ОХЛП препарата Люмистарт опубликованы на сайте https://lk.regmed.ru/Register/EAEU_SmPC. (Дата доступа: 19.02.2026).",
-  "ЛВ/ОХЛП препарата Ганфорт опубликованы на сайте https://lk.regmed.ru/Register/EAEU_SmPC. (Дата доступа: 19.02.2026).",
+  "Remo S. et al. Transl Vis Sci Technol. 2015; 4(2): 1.",
+  "Kim C. Y. et al. Br J Ophthalmol. 2017; 101(6): 801–807.",
+  "Tsai J. C. et al. Journal of Glaucoma. 2003; 12: 393–398.",
+  "Brown et al. Journal of Ocular Pharmacology and Therapeutics. 2019; 35: 3, 145–160.",
+  "ЛВ/ОХЛП препарата Люмистарт опубликованы на сайте https://lk.regmed.ru/Register/EAEU_SmPC. (Дата доступа: 18.03.2026).",
+  "ЛВ/ОХЛП препарата Ганфорт® опубликованы на сайте https://lk.regmed.ru/Register/EAEU_SmPC. (Дата доступа: 18.03.2026).",
+  "Клинические рекомендации МЗ РФ \"Глаукома первичная открытоугольная\", 2024. https://cr.minzdrav.gov.ru/preview-cr/96_2",
 ];
 
 export const QualityOfLifeContent = () => {
@@ -40,7 +41,7 @@ export const QualityOfLifeContent = () => {
         title: (
           <>
             Люмистарт — новый старт
-            <br />в терапии ПОУГ
+            <br />в терапии поуг
           </>
         ),
       }}
@@ -50,16 +51,11 @@ export const QualityOfLifeContent = () => {
   return (
     <ArticleWideLayout pageClassName={styles.therapyPage} sidebar={sidebar}>
       <ArticleTitleBlock
-        containerClassName={styles.therapyTitleBlock}
-        titleClassName={`${styles.therapyTitle} ${styles.lumistartPageTitle}`}
-        dividerClassName={styles.clinicalTitleDivider}
-        title="КАК ПОВЫСИТЬ КАЧЕСТВО ЖИЗНИ У ПАЦИЕНТОВ С ГЛАУКОМОЙ?"
+        title="что может повысить качество жизни у пациентов с глаукомой?"
       />
 
       <section className={styles.therapySection}>
         <ArticleSectionHeading
-          className={`${styles.therapySectionHeading} ${styles.qualityOfLifeLeadHeading}`}
-          contentClassName={styles.therapySectionHeadingInner}
           title={
             <>
               сложности, препятствующие приверженности
@@ -68,7 +64,6 @@ export const QualityOfLifeContent = () => {
             </>
           }
           supText="1–3"
-          supClassName={styles.therapySectionHeadingRef}
         />
         <Image
           src="/pictures/articles/quality-of-life/frame-100-barriers.png"
@@ -78,8 +73,6 @@ export const QualityOfLifeContent = () => {
           className={styles.lumistartWideImage}
         />
         <ArticleSectionHeading
-          className={styles.therapySectionHeading}
-          contentClassName={styles.therapySectionHeadingInner}
           title={
             <>
               почти треть пациентов (32&nbsp;%) указала режим лечения в качестве
@@ -87,7 +80,6 @@ export const QualityOfLifeContent = () => {
             </>
           }
           supText="3"
-          supClassName={styles.therapySectionHeadingRef}
         />
         <Image
           src="/pictures/articles/quality-of-life/frame-103-regime.png"
@@ -97,11 +89,8 @@ export const QualityOfLifeContent = () => {
           className={styles.lumistartWideImage}
         />
         <ArticleSectionHeading
-          className={styles.therapySectionHeading}
-          contentClassName={styles.therapySectionHeadingInner}
           title="причины несоблюдения режима лечения, на которые можно повлиять"
           supText="1, 2"
-          supClassName={styles.therapySectionHeadingRef}
         />
         <Image
           src="/pictures/articles/quality-of-life/frame-124-stats.png"
@@ -111,17 +100,16 @@ export const QualityOfLifeContent = () => {
           className={styles.lumistartWideImage}
         />
         <ArticleSectionHeading
-          className={styles.therapySectionHeading}
-          contentClassName={styles.therapySectionHeadingInner}
           title={
             <>
-              применение препаратов биматопроста показало увеличение количества
-              лет с более высоким качеством жизни за счёт возможного более
+              применение препаратов биматопроста показало увеличение
+              <br />
+              количества лет с более высоким качеством жизни за счёт возможного более
+              <br />
               длительного сохранения зрения
             </>
           }
           supText="4"
-          supClassName={styles.therapySectionHeadingRef}
         />
         <Image
           src="/pictures/articles/quality-of-life/frame-105-qaly.png"

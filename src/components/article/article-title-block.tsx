@@ -1,9 +1,10 @@
 import type { ReactNode } from "react";
+import styles from "./article-title-block.module.css";
 
 type ArticleTitleBlockProps = {
-  containerClassName: string;
-  titleClassName: string;
-  dividerClassName: string;
+  containerClassName?: string;
+  titleClassName?: string;
+  dividerClassName?: string;
   title: ReactNode;
 };
 
@@ -16,10 +17,18 @@ export const ArticleTitleBlock = ({
   dividerClassName,
   title,
 }: ArticleTitleBlockProps) => {
+  const containerClass = [styles.container, containerClassName]
+    .filter(Boolean)
+    .join(" ");
+  const titleClass = [styles.title, titleClassName].filter(Boolean).join(" ");
+  const dividerClass = [styles.divider, dividerClassName]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <header className={containerClassName}>
-      <h1 className={titleClassName}>{title}</h1>
-      <div className={dividerClassName} />
+    <header className={containerClass}>
+      <h1 className={titleClass}>{title}</h1>
+      <div className={dividerClass} />
     </header>
   );
 };

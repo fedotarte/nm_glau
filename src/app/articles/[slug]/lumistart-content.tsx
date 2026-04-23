@@ -77,12 +77,9 @@ export const LumistartContent = () => {
       sidebar={<LumistartSidebar />}
     >
       <ArticleTitleBlock
-        containerClassName={styles.therapyTitleBlock}
-        titleClassName={`${styles.therapyTitle} ${styles.lumistartPageTitle}`}
-        dividerClassName={styles.clinicalTitleDivider}
         title={
           <>
-            ЛЮМИСТАРТ —&nbsp; НОВЫЙ СТАРТ* В ТЕРАПИИ ПОУГ
+            люмистарт —&nbsp; новый старт* в терапии поуг
             <sup className={styles.therapySectionHeadingRef}>1, 7</sup>
           </>
         }
@@ -98,8 +95,6 @@ export const LumistartContent = () => {
 
       <section className={styles.therapySection}>
         <ArticleSectionHeading
-          className={`${styles.therapySectionHeading} ${styles.lumistartSectionHeading}`}
-          contentClassName={styles.therapySectionHeadingInner}
           title={
             <>
               ФОКУС НА ЭФФЕКТИВНОСТЬ: БИМАТОПРОСТ СОГЛАСНО РЕЗУЛЬТАТАМ
@@ -108,7 +103,6 @@ export const LumistartContent = () => {
             </>
           }
           supText="2"
-          supClassName={styles.therapySectionHeadingRef}
         />
         <p className={`${styles.clinicalBody} ${styles.clinicalBodySemibold}`}>
           На 12-й неделе применения препарата ЛЮМИСТАРТ (биматопрост 0,03 %) без
@@ -143,8 +137,6 @@ export const LumistartContent = () => {
 
       <section className={styles.therapySection}>
         <ArticleSectionHeading
-          className={`${styles.therapySectionHeading} ${styles.lumistartSectionHeading}`}
-          contentClassName={styles.therapySectionHeadingInner}
           title={
             <>
               ОРИЕНТАЦИЯ НА ПЕРЕНОСИМОСТЬ: ЛЮМИСТАРТ ПРЕДСТАВЛЯЕТ СОБОЙ АПГ ДЛЯ
@@ -172,8 +164,6 @@ export const LumistartContent = () => {
 
       <section className={styles.therapySection}>
         <ArticleSectionHeading
-          className={`${styles.therapySectionHeading} ${styles.lumistartSectionHeading}`}
-          contentClassName={styles.therapySectionHeadingInner}
           title={
             <>
               ОРИЕНТАЦИЯ НА СНИЖЕНИЕ ПОРАЖЕНИЙ ПЕРЕДНЕЙ ПОВЕРХНОСТИ ГЛАЗА:

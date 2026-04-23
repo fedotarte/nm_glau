@@ -65,7 +65,7 @@ export const SurfaceDiseasesContent = () => {
   const sidebar = (
     <ArticleSidebar
       nextMaterial={{
-        label: "Клинические рекомендации по терапии ПОУГ 2026",
+        label: "Клинические рекомендации по терапии поуг 2026",
         href: "/articles/clinical-recommendations",
       }}
       imageCard={{
@@ -76,7 +76,7 @@ export const SurfaceDiseasesContent = () => {
         title: (
           <>
             Люмистарт — новый старт
-            <br />в терапии ПОУГ
+            <br />в терапии поуг
           </>
         ),
       }}
@@ -86,26 +86,21 @@ export const SurfaceDiseasesContent = () => {
   return (
     <ArticleWideLayout pageClassName={styles.therapyPage} sidebar={sidebar}>
       <ArticleTitleBlock
-        containerClassName={styles.therapyTitleBlock}
-        titleClassName={`${styles.therapyTitle} ${styles.surfaceDiseasesPageTitle}`}
-        dividerClassName={styles.clinicalTitleDivider}
-        title="ЗАБОЛЕВАНИЯ ПОВЕРХНОСТИ ГЛАЗ И ПРИВЕРЖЕННОСТЬ К ЛЕЧЕНИЮ"
+        title="заболевания поверхности глаз и приверженность к лечению"
       />
 
       <section
         className={`${styles.therapySection} ${styles.surfaceDiseasesSection}`}
       >
         <ArticleSectionHeading
-          className={styles.therapySectionHeading}
-          contentClassName={styles.therapySectionHeadingInner}
           title="Заболевания поверхности глаз часто встречаются при глаукоме"
           supText="1–3"
-          supClassName={styles.therapySectionHeadingRef}
         />
 
         <ArticleSectionHeading
           className={styles.therapySectionHeadingBare}
           contentClassName={styles.therapySectionHeadingInner}
+          unstyled
           title="СОГЛАСНО РЕЗУЛЬТАТАМ ИССЛЕДОВАНИЯ У БОЛЕЕ ЧЕМ ПОЛОВИНЫ ПАЦИЕНТОВ С ГЛАУКОМОЙ РАЗВИВАЮТСЯ СИМПТОМЫ ЗАБОЛЕВАНИЙ ПЕРЕДНЕЙ ПОВЕРХНОСТИ ГЛАЗ (ЗППГ) ХОТЯ БЫ В ОДНОМ ГЛАЗУ"
           supText="**"
           supClassName={styles.therapySectionHeadingRef}
@@ -120,11 +115,8 @@ export const SurfaceDiseasesContent = () => {
         />
 
         <ArticleSectionHeading
-          className={styles.therapySectionHeading}
-          contentClassName={styles.therapySectionHeadingInner}
           title="ЛЕЧЕНИЕ ГЛАУКОМЫ МОЖЕТ УСУГУБИТЬ ЗАБОЛЕВАНИЕ ПОВЕРХНОСТИ ГЛАЗА"
           supText="3"
-          supClassName={styles.therapySectionHeadingRef}
         />
 
         <div className={styles.surfaceSplitCard}>
@@ -170,8 +162,6 @@ export const SurfaceDiseasesContent = () => {
         </p>
 
         <ArticleSectionHeading
-          className={styles.therapySectionHeading}
-          contentClassName={styles.therapySectionHeadingInner}
           title={
             <>
               Пациенты с глаукомой указывали заболевание поверхности глаза как
@@ -179,7 +169,6 @@ export const SurfaceDiseasesContent = () => {
             </>
           }
           supText="4"
-          supClassName={styles.therapySectionHeadingRef}
         />
 
         <Image
@@ -197,18 +186,12 @@ export const SurfaceDiseasesContent = () => {
         </p>
 
         <ArticleSectionHeading
-          className={styles.therapySectionHeading}
           title={
             <>
-              <span className={styles.therapySectionHeadingInner}>
-                Лечение препаратАМИ без консервантов было связано с лучшей
-                приверженностью лечению{" "}
-              </span>
-              <sup className={styles.therapySectionHeadingRef}>*, †, 6</sup>
-              <span className={styles.therapySectionHeadingInner}>
-                {" "}
-                по сравнению с лечением препаратАМИ с консервантами
-              </span>
+              Лечение препаратАМИ без консервантов было связано с лучшей
+              приверженностью лечению{" "}
+              <sup className={styles.therapySectionHeadingRef}>*, †, 6</sup> по
+              сравнению с лечением препаратАМИ с консервантами
               <sup className={styles.therapySectionHeadingRef}>5</sup>
             </>
           }
