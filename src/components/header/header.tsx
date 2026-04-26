@@ -4,12 +4,29 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+
+import { useAuth } from "@/components/auth";
+
 import styles from "./header.module.css";
+
+/**
+ * Названия для кнопок входа в зависимости от состояния авторизации.
+ * До авторизации показываем «Войти», после — «Личный кабинет»
+ * (одинаково в десктопном хедере и мобильном drawer'е).
+ */
+const LOGIN_BUTTON_LABEL = {
+  unauthenticated: "Войти",
+  authenticated: "Личный кабинет",
+} as const;
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const isArticlesSection = pathname.startsWith("/articles");
+  const { isAuthenticated } = useAuth();
+  const loginLabel = isAuthenticated
+    ? LOGIN_BUTTON_LABEL.authenticated
+    : LOGIN_BUTTON_LABEL.unauthenticated;
 
   const closeMenu = useCallback(() => {
     setIsMenuOpen(false);
@@ -79,31 +96,31 @@ export const Header = () => {
       >
         <nav className={styles.nav}>
           {isArticlesSection ? (
-            <Link href="/" className={styles.homeLink} aria-label="На главную">
+            <Link href="/" className={styles.homeLink} aria-label="На Главную">
               <Image
                 src="/icons/home-icon.svg"
-                alt="На главную"
+                alt="На Главную"
                 width={40}
                 height={40}
                 className={styles.homeIcon}
               />
-              <span className={styles.homeLabel}>На главную</span>
+              <span className={styles.homeLabel}>На Главную</span>
             </Link>
           ) : null}
-          <ul className={styles.navList}>
-            <li>
-              <Link href="#" className={styles.navLink}>
-                Практические материалы
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className={styles.navLink}>
-                Для терапии
-              </Link>
-            </li>
-          </ul>
+          {/*<ul className={styles.navList}>*/}
+          {/*  <li>*/}
+          {/*    <Link href="#" className={styles.navLink}>*/}
+          {/*      Практические материалы*/}
+          {/*    </Link>*/}
+          {/*  </li>*/}
+          {/*  <li>*/}
+          {/*    <Link href="#" className={styles.navLink}>*/}
+          {/*      Для терапии*/}
+          {/*    </Link>*/}
+          {/*  </li>*/}
+          {/*</ul>*/}
           <button type="button" className={styles.loginButton}>
-            Войти
+            {loginLabel}
           </button>
           <button
             type="button"
@@ -167,26 +184,26 @@ export const Header = () => {
             </svg>
           </button>
 
-          <nav className={styles.drawerNav}>
-            <Link
-              href="/materials"
-              className={styles.drawerLink}
-              onClick={closeMenu}
-            >
-              Практические материалы
-            </Link>
-            <Link
-              href="/therapy"
-              className={styles.drawerLink}
-              onClick={closeMenu}
-            >
-              Для терапии
-            </Link>
-          </nav>
+          {/*<nav className={styles.drawerNav}>*/}
+          {/*  <Link*/}
+          {/*    href="/materials"*/}
+          {/*    className={styles.drawerLink}*/}
+          {/*    onClick={closeMenu}*/}
+          {/*  >*/}
+          {/*    Практические материалы*/}
+          {/*  </Link>*/}
+          {/*  <Link*/}
+          {/*    href="/therapy"*/}
+          {/*    className={styles.drawerLink}*/}
+          {/*    onClick={closeMenu}*/}
+          {/*  >*/}
+          {/*    Для терапии*/}
+          {/*  </Link>*/}
+          {/*</nav>*/}
 
-          <button type="button" className={styles.drawerLoginButton}>
-            Личный кабинет
-          </button>
+          {/*<button type="button" className={styles.drawerLoginButton}>*/}
+          {/*  {loginLabel}*/}
+          {/*</button>*/}
 
           <div className={styles.drawerFooter}>
             <Image

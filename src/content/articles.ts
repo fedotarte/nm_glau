@@ -4,8 +4,10 @@ export interface ArticleConfig {
   id: string;
   slug: string;
   title: string;
-  description?: string;
   status: ArticleStatus;
+  descriptionBeforeAuth?: string;
+  description?: string;
+  titleBeforeAuth?: string;
   icon?: string;
 }
 
@@ -40,6 +42,7 @@ export const ARTICLES: ArticleConfig[] = [
   {
     id: "4",
     slug: "lumistart",
+    titleBeforeAuth: "Новый старт в терапии ПОУГ",
     title: "ЛЮМИСТАРТ — новый старт в терапии ПОУГ",
     description:
       "Инновационный подход к лечению первичной открытоугольной глаукомы с применением современных препаратов.",
@@ -73,15 +76,15 @@ export const ARTICLES: ArticleConfig[] = [
     status: "done",
     icon: "/icons/article-7.svg",
   },
-  {
-    id: "8",
-    slug: "patient-memo",
-    title: "Памятка для пациентов",
-    description:
-      "Полезная информация для пациентов о глаукоме и правилах применения препаратов.",
-    status: "in_dev",
-    icon: "/icons/article-8.svg",
-  },
+  // {
+  //   id: "8",
+  //   slug: "patient-memo",
+  //   title: "Памятка для пациентов",
+  //   description:
+  //     "Полезная информация для пациентов о глаукоме и правилах применения препаратов.",
+  //   status: "in_dev",
+  //   icon: "/icons/article-8.svg",
+  // },
 ];
 
 // Хелперы для работы со статьями

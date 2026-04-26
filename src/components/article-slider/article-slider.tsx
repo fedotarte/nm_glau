@@ -8,10 +8,18 @@ import { Navigation } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 
 import type { ArticleConfig } from "@/content";
+import { useAuth } from "@/components/auth";
 
 import styles from "./article-slider.module.css";
 
 import "swiper/css";
+
+/**
+ * Подменяем заголовок карточки до авторизации, чтобы наружу не утекали названия
+ * препаратов и МНН (требование комплаенса). Аналогично переименовываем CTA.
+ */
+const LOCKED_CARD_TITLE = "Материал доступен после авторизации";
+const LOCKED_CARD_BUTTON = "Авторизуйтесь для просмотра";
 
 const ArrowIcon = ({
   className,
@@ -120,9 +128,9 @@ export const ArticleSlider = ({ articles }: ArticleSliderProps) => {
             }}
             className={styles.swiper}
           >
-            {articles.map((article, index) => (
+            {articles.map((article) => (
               <SwiperSlide key={article.id} className={styles.slide}>
-                <ArticleCard article={article} isAuthenticated={index === 0} />
+                <ArticleCard article={article} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -160,16 +168,22 @@ export const ArticleSlider = ({ articles }: ArticleSliderProps) => {
 
 interface ArticleCardProps {
   article: ArticleConfig;
+  /**
+   * Принудительно переопределяет состояние авторизации (например, для превью).
+   * По умолчанию читается из `useAuth()`.
+   */
   isAuthenticated?: boolean;
 }
 
 export const ArticleCard = ({
   article,
-  isAuthenticated = false,
+  isAuthenticated: isAuthenticatedProp,
 }: ArticleCardProps) => {
-  const isInDev = article.status === "in_dev";
+  const { isAuthenticated: isAuthenticatedFromContext } = useAuth();
+  const isAuthenticated = isAuthenticatedProp ?? isAuthenticatedFromContext;
+  const isMaterialsInDev = article.status === "in_dev";
 
-  if (isInDev) {
+  if (isMaterialsInDev) {
     return (
       <div className={styles.cardDisabled}>
         <ArticleIcon className={styles.mobileIcon} />
@@ -181,29 +195,31 @@ export const ArticleCard = ({
   }
 
   const cardClassName = isAuthenticated ? styles.card : styles.cardLocked;
+  const displayTitle =
+    !isAuthenticated && article.titleBeforeAuth
+      ? article.titleBeforeAuth
+      : article.title;
 
   return (
     <Link href={`/articles/${article.slug}`} className={cardClassName}>
       <ArticleIcon className={styles.mobileIcon} />
       {!isAuthenticated && <LockIcon className={styles.lockIcon} />}
       <div className={styles.cardContent}>
-        <h3 className={styles.cardTitle}>{article.title}</h3>
+        <h3 className={styles.cardTitle}>{displayTitle}</h3>
         <div className={styles.cardDivider} />
-        {article.description && (
-          <p
-            className={
-              isAuthenticated
-                ? styles.cardDescription
-                : styles.cardDescriptionBlurred
-            }
-          >
-            {article.description}
-          </p>
-        )}
+        {article.description &&
+          (isAuthenticated ? (
+            <p className={styles.cardDescription}>{article.description}</p>
+          ) : (
+            <p
+              className={styles.cardDescriptionBlurred}
+              // aria-hidden="true"
+            >
+              {article.description}
+            </p>
+          ))}
         <div className={styles.cardButton}>
-          <span>
-            {isAuthenticated ? "Перейти" : "Авторизуйтесь для просмотра"}
-          </span>
+          <span>{isAuthenticated ? "Перейти" : LOCKED_CARD_BUTTON}</span>
           {isAuthenticated && <ArrowIcon className={styles.cardButtonArrow} />}
         </div>
       </div>
@@ -213,7 +229,9 @@ export const ArticleCard = ({
 };
 
 const MobileArticleCard = ({ article }: { article: ArticleConfig }) => {
+  const { isAuthenticated } = useAuth();
   const isInDev = article.status === "in_dev";
+  const displayTitle = article.title;
 
   const content = (
     <>
@@ -222,7 +240,7 @@ const MobileArticleCard = ({ article }: { article: ArticleConfig }) => {
           <Image src={article.icon} alt="" width={32} height={32} />
         </div>
       )}
-      <h3 className={styles.mobileTitle}>{article.title}</h3>
+      <h3 className={styles.mobileTitle}>{displayTitle}</h3>
       <ArrowIcon className={styles.mobileArrow} />
     </>
   );

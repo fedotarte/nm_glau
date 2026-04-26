@@ -10,6 +10,7 @@ import {
 } from "@/components";
 
 import styles from "./page.module.css";
+import Link from "next/link";
 
 const REFERENCES = [
   "Woodward DF, Phelps RL, Krauss AH, et al. Bimatoprost: a novel antiglaucoma agent. Cardiovasc Drug Rev. 2004;22(2):103-120",
@@ -107,13 +108,15 @@ export const ApgDifferenceContent = () => {
           height={480}
           className={styles.therapyImage}
         />
-        <Image
-          src="/pictures/articles/apg-difference/lumistart-banner.png"
-          alt="Люмистарт: биматопрост 0,3 мг/мл, по одной капле раз в сутки вечером, без консерванта"
-          width={969}
-          height={170}
-          className={styles.therapyBanner}
-        />
+        <Link href="https://lk.regmed.ru/Register/EAEU_SmPC">
+          <Image
+            src="/pictures/articles/apg-difference/lumistart-banner.png"
+            alt="Люмистарт: биматопрост 0,3 мг/мл, по одной капле раз в сутки вечером, без консерванта"
+            width={969}
+            height={170}
+            className={styles.therapyBanner}
+          />
+        </Link>
       </section>
 
       <div className={styles.therapyMetaBlock}>

@@ -9,6 +9,7 @@ import {
 } from "@/components";
 
 import styles from "./page.module.css";
+import Link from "next/link";
 
 export const TherapyStartContent = () => {
   const sidebar = (
@@ -34,9 +35,7 @@ export const TherapyStartContent = () => {
 
   return (
     <ArticleWideLayout pageClassName={styles.therapyPage} sidebar={sidebar}>
-      <ArticleTitleBlock
-        title="старт терапии: какой препарат выбрать?"
-      />
+      <ArticleTitleBlock title="старт терапии: какой препарат выбрать?" />
 
       <section className={styles.therapySection}>
         <ArticleSectionHeading
@@ -107,8 +106,7 @@ export const TherapyStartContent = () => {
               <br />
               гипотензивной активностью обладают
               <br />
-              аналоги
-              простагландинов
+              аналоги простагландинов
               <sup className={styles.therapyCardRef}>3</sup>.
             </p>
           </article>
@@ -196,8 +194,7 @@ export const TherapyStartContent = () => {
               <br />
               дозирования составляет всего одну
               <br />
-              каплю
-              один раз в сутки
+              каплю один раз в сутки
               <sup className={styles.therapyCardRef}>1</sup>.
             </p>
           </article>
@@ -290,20 +287,20 @@ export const TherapyStartContent = () => {
                   серии случаев в одном медицинском учреждении. Авторы
                   ретроспективно исследовали
                   <br />
-                  средние показатели снижения ВГД и долю не
-                  ответивших на лечение пациентов с НТГ
+                  средние показатели снижения ВГД и долю не ответивших на
+                  лечение пациентов с НТГ
                   <br />
-                  (209 случаев, 209 глаз),
-                  получавших лечение одним из четырех аналогов
+                  (209 случаев, 209 глаз), получавших лечение одним из четырех
+                  аналогов
                   <br />
-                  простагландинов:
-                  латанопростом (40 пациентов), травопростом (64 пациента),
+                  простагландинов: латанопростом (40 пациентов), травопростом
+                  (64 пациента),
                   <br />
-                  тафлупростом (52 пациента) или биматопростом (53 пациента).
-                  В каждой группе была
+                  тафлупростом (52 пациента) или биматопростом (53 пациента). В
+                  каждой группе была
                   <br />
-                  рассчитана доля пациентов, не ответивших на
-                  лечение, определяемых как пациенты с показателем снижения ВГД
+                  рассчитана доля пациентов, не ответивших на лечение,
+                  определяемых как пациенты с показателем снижения ВГД
                   {" < 10 %"} при оценке во время обоих визитов.
                 </>
               </p>
@@ -330,7 +327,7 @@ export const TherapyStartContent = () => {
         </div>
       </section>
 
-      <a
+      <Link
         href="https://lk.regmed.ru/Register/EAEU_SmPC"
         target="_blank"
         rel="noopener noreferrer"
@@ -342,7 +339,7 @@ export const TherapyStartContent = () => {
           height={170}
           className={styles.therapyBanner}
         />
-      </a>
+      </Link>
 
       <div className={styles.therapyMetaBlock}>
         <div className={styles.therapyGlossary}>

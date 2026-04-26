@@ -84,14 +84,15 @@ export const LumistartContent = () => {
           </>
         }
       />
-
-      <Image
-        src="/pictures/articles/lumistart/top-banner.png"
-        alt="На старте заболевания Люмистарт: биматопрост 0,3 мг/мл по одной капле раз в сутки, без консерванта"
-        width={969}
-        height={170}
-        className={styles.therapyBanner}
-      />
+      <Link href="https://lk.regmed.ru/Register/EAEU_SmPC">
+        <Image
+          src="/pictures/articles/lumistart/top-banner.png"
+          alt="На старте заболевания Люмистарт: биматопрост 0,3 мг/мл по одной капле раз в сутки, без консерванта"
+          width={969}
+          height={170}
+          className={styles.therapyBanner}
+        />
+      </Link>
 
       <section className={styles.therapySection}>
         <ArticleSectionHeading
@@ -206,8 +207,8 @@ export const LumistartContent = () => {
         <br />
         †&nbsp;Сбор доказательств, полученных в условиях реальной клинической
         практики, осуществляется вне контролируемых клинических исследований и
-        имеет неотъемлемые ограничения, в том числе меньшую способность
-        контроля факторов, искажающих результаты.
+        имеет неотъемлемые ограничения, в том числе меньшую способность контроля
+        факторов, искажающих результаты.
         <br />
         <br />
         ‡&nbsp;Основания для перевода пациентов на лечение препаратом ЛЮМИСТАРТ
