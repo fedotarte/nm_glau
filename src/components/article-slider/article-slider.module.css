@@ -354,6 +354,7 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 100%;
+  white-space: pre-line;
   transition: all 0.3s ease;
 }
 
@@ -388,6 +389,31 @@
     border-radius: 12px;
     white-space: nowrap;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1023px) {
+  .cardDisabled {
+    min-height: 92px;
+    height: auto;
+    justify-content: flex-start;
+    padding-top: 14px;
+    padding-bottom: 30px;
+  }
+
+  .cardDisabled .cardTitle {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 8px;
+  }
+
+  .cardDisabled .devBadge {
+    position: absolute;
+    left: 56px;
+    bottom: 10px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -504,6 +530,7 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 100%;
+  white-space: pre-line;
   color: #fff;
 }
 

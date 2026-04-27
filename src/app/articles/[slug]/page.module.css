@@ -1103,6 +1103,7 @@
   line-height: 100%;
   letter-spacing: 0;
   color: #0a99a6;
+  white-space: pre-line;
 }
 
 /* 209×24, radius 6, padding 6/8 — по центру карточки, шире на 6px с каждой стороны */

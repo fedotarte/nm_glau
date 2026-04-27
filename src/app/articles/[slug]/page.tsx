@@ -1,72 +1,106 @@
+import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 
 import { Footer, Header } from "@/components";
-import { ARTICLES } from "@/content";
+import { ArticleSlug, getArticleBySlug, getDoneArticles } from "@/content";
 
-import { ApgDifferenceContent } from "./apg-difference-content";
-import { ClinicalRecommendationsContent } from "./clinical-recommendations-content";
-import { LumistartContent } from "./lumistart-content";
-import { NeuroprotectionContent } from "./neuroprotection-content";
-import { QualityOfLifeContent } from "./quality-of-life-content";
-import { SurfaceDiseasesContent } from "./surface-diseases-content";
-import { TherapyStartContent } from "./therapy-start-content";
 import styles from "./page.module.css";
 
+const ARTICLE_COMPONENTS = {
+  [ArticleSlug.Neuroprotection]: dynamic(() =>
+    import("./neuroprotection-content").then((m) => m.NeuroprotectionContent),
+  ),
+  [ArticleSlug.ClinicalRecommendations]: dynamic(() =>
+    import("./clinical-recommendations-content").then(
+      (m) => m.ClinicalRecommendationsContent,
+    ),
+  ),
+  [ArticleSlug.TherapyStart]: dynamic(() =>
+    import("./therapy-start-content").then((m) => m.TherapyStartContent),
+  ),
+  [ArticleSlug.ApgDifference]: dynamic(() =>
+    import("./apg-difference-content").then((m) => m.ApgDifferenceContent),
+  ),
+  [ArticleSlug.Lumistart]: dynamic(() =>
+    import("./lumistart-content").then((m) => m.LumistartContent),
+  ),
+  [ArticleSlug.QualityOfLife]: dynamic(() =>
+    import("./quality-of-life-content").then((m) => m.QualityOfLifeContent),
+  ),
+  [ArticleSlug.SurfaceDiseases]: dynamic(() =>
+    import("./surface-diseases-content").then((m) => m.SurfaceDiseasesContent),
+  ),
+} as const;
+
+type KnownSlug = keyof typeof ARTICLE_COMPONENTS;
+
+const isKnownSlug = (slug: string): slug is KnownSlug =>
+  Object.prototype.hasOwnProperty.call(ARTICLE_COMPONENTS, slug);
+
 export const generateStaticParams = () => {
-  return ARTICLES.map((article) => ({ slug: article.slug }));
+  return getDoneArticles()
+    .filter((article) => isKnownSlug(article.slug))
+    .map((article) => ({ slug: article.slug }));
 };
+
+export async function generateMetadata(
+  props: PageProps<"/articles/[slug]">,
+): Promise<Metadata> {
+  const { slug } = await props.params;
+  const article = getArticleBySlug(slug);
+
+  if (!article) {
+    return {};
+  }
+
+  const canonical = `/articles/${article.slug}`;
+  const indexable = article.status === "done" && isKnownSlug(article.slug);
+
+  return {
+    title: article.title,
+    description: article.description,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      url: canonical,
+      title: article.title,
+      description: article.description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.description,
+    },
+    robots: {
+      index: indexable,
+      follow: indexable,
+    },
+  };
+}
 
 export default async function ArticlePage(
   props: PageProps<"/articles/[slug]">,
 ) {
   const { slug } = await props.params;
+  const article = getArticleBySlug(slug);
 
-  const found = ARTICLES.find((article) => article.slug === slug);
-
-  if (!found) {
+  if (!article || article.status !== "done" || !isKnownSlug(article.slug)) {
     notFound();
   }
+
+  const Content = ARTICLE_COMPONENTS[article.slug];
+  const layoutClassName =
+    article.layout === "wide"
+      ? `${styles.articleLayout} ${styles.articleLayoutWide}`
+      : styles.articleLayout;
 
   return (
     <div className={styles.page}>
       <Header />
       <main className={styles.main}>
-        <article
-          className={`${styles.articleLayout} ${
-            slug === "clinical-recommendations" ||
-            slug === "therapy-start" ||
-            slug === "apg-difference" ||
-            slug === "lumistart" ||
-            slug === "quality-of-life" ||
-            slug === "surface-diseases"
-              ? styles.articleLayoutWide
-              : ""
-          }`}
-        >
-          {slug === "neuroprotection" ? (
-            <NeuroprotectionContent />
-          ) : slug === "clinical-recommendations" ? (
-            <ClinicalRecommendationsContent />
-          ) : slug === "therapy-start" ? (
-            <TherapyStartContent />
-          ) : slug === "apg-difference" ? (
-            <ApgDifferenceContent />
-          ) : slug === "lumistart" ? (
-            <LumistartContent />
-          ) : slug === "quality-of-life" ? (
-            <QualityOfLifeContent />
-          ) : slug === "surface-diseases" ? (
-            <SurfaceDiseasesContent />
-          ) : (
-            <div className={styles.fallback}>
-              <h1 className={styles.fallbackTitle}>{found.title}</h1>
-              {found.description ? (
-                <p className={styles.fallbackDescription}>
-                  {found.description}
-                </p>
-              ) : null}
-            </div>
-          )}
+        <article className={layoutClassName}>
+          <Content />
         </article>
       </main>
       <Footer />

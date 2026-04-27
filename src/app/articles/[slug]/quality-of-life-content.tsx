@@ -18,7 +18,7 @@ const REFERENCES: ReactNode[] = [
   "Brown et al. Journal of Ocular Pharmacology and Therapeutics. 2019; 35: 3, 145–160.",
   "ЛВ/ОХЛП препарата Люмистарт опубликованы на сайте https://lk.regmed.ru/Register/EAEU_SmPC. (Дата доступа: 18.03.2026).",
   "ЛВ/ОХЛП препарата Ганфорт® опубликованы на сайте https://lk.regmed.ru/Register/EAEU_SmPC. (Дата доступа: 18.03.2026).",
-  "Клинические рекомендации МЗ РФ \"Глаукома первичная открытоугольная\", 2024. https://cr.minzdrav.gov.ru/preview-cr/96_2",
+  'Клинические рекомендации МЗ РФ "Глаукома первичная открытоугольная", 2024. https://cr.minzdrav.gov.ru/preview-cr/96_2',
 ];
 
 export const QualityOfLifeContent = () => {
@@ -30,7 +30,8 @@ export const QualityOfLifeContent = () => {
       }}
       smallCard={{
         variant: "memo",
-        title: "Памятка для передачи пациентам",
+        title:
+          "Карлова Е.В.\n О роли врачебной инертности в выборе стартовой терапии ПОУГ",
         subtitle: "Материал в разработке",
       }}
       imageCard={{
@@ -50,9 +51,7 @@ export const QualityOfLifeContent = () => {
 
   return (
     <ArticleWideLayout pageClassName={styles.therapyPage} sidebar={sidebar}>
-      <ArticleTitleBlock
-        title="что может повысить качество жизни у пациентов с глаукомой?"
-      />
+      <ArticleTitleBlock title="Что может повысить качество жизни у пациентов с глаукомой?" />
 
       <section className={styles.therapySection}>
         <ArticleSectionHeading
@@ -104,7 +103,8 @@ export const QualityOfLifeContent = () => {
             <>
               применение препаратов биматопроста показало увеличение
               <br />
-              количества лет с более высоким качеством жизни за счёт возможного более
+              количества лет с более высоким качеством жизни за счёт возможного
+              более
               <br />
               длительного сохранения зрения
             </>
@@ -128,9 +128,9 @@ export const QualityOfLifeContent = () => {
           <sup className={styles.therapyGlossarySup}>4</sup>.
         </p>
         <p className={styles.lumistartCallout}>
-          Биматопрост позволял сэкономить больше социальных затрат благодаря более
-          сильному эффекту понижения ВГД, который может обеспечить больше лет
-          хорошего зрения
+          Биматопрост позволял сэкономить больше социальных затрат благодаря
+          более сильному эффекту понижения ВГД, который может обеспечить больше
+          лет хорошего зрения
           <sup className={styles.therapyGlossarySup}>4</sup>.
         </p>
         <p className={styles.clinicalBody}>
@@ -166,9 +166,9 @@ export const QualityOfLifeContent = () => {
               пациентами с глаукомой. Ответы участников записывали дословно в
               формы интервью, а также на аудиокассеты. Были выявлены ситуации,
               препятствующие приверженности лечению препаратами. Ситуационные
-              описания были стратифицированы, сгруппированы и проанализированы по
-              распределению частот с использованием иерархического кластерного
-              анализа
+              описания были стратифицированы, сгруппированы и проанализированы
+              по распределению частот с использованием иерархического
+              кластерного анализа
               <sup className={styles.therapyGlossarySup}>3</sup>.
             </p>
             <p>
@@ -188,9 +188,7 @@ export const QualityOfLifeContent = () => {
             Исследования проводились на препарате Люмиган 0,03&nbsp;%, в РФ
             зарегестрирован как Люмистарт 0,03&nbsp;%.
           </p>
-          <p>
-            ДИ&nbsp;— доверительный интервал; ОШ&nbsp;— отношение шансов.
-          </p>
+          <p>ДИ&nbsp;— доверительный интервал; ОШ&nbsp;— отношение шансов.</p>
         </div>
       </div>
 
