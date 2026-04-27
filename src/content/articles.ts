@@ -23,7 +23,6 @@ export interface ArticleConfig {
   description?: string;
   titleBeforeAuth?: string;
   icon?: string;
-  /** Slug следующей рекомендуемой статьи (для sidebar и related-навигации). */
   nextSlug?: string;
 }
 
@@ -34,15 +33,17 @@ export interface ArticleConfig {
 export const ARTICLE_NEXT_MAP: Partial<Record<ArticleSlug, ArticleSlug>> = {
   [ArticleSlug.ClinicalRecommendations]: ArticleSlug.ApgDifference,
   [ArticleSlug.ApgDifference]: ArticleSlug.Lumistart,
-  // [ArticleSlug.ApgDifference]: ArticleSlug.Lumistart,
   [ArticleSlug.Lumistart]: ArticleSlug.QualityOfLife,
   [ArticleSlug.QualityOfLife]: ArticleSlug.SurfaceDiseases,
-  [ArticleSlug.SurfaceDiseases]: ArticleSlug.ClinicalRecommendations,
+  [ArticleSlug.SurfaceDiseases]: ArticleSlug.TherapyStart,
+  [ArticleSlug.TherapyStart]: ArticleSlug.KarlovaVideo,
+  [ArticleSlug.KarlovaVideo]: ArticleSlug.SeleznevVideo,
+  [ArticleSlug.SeleznevVideo]: ArticleSlug.ClinicalRecommendations,
 };
 
 const ARTICLES_BASE: ArticleConfig[] = [
   {
-    id: "1",
+    id: ArticleSlug.ClinicalRecommendations,
     slug: ArticleSlug.ClinicalRecommendations,
     title: "Клинические рекомендации по терапии ПОУГ 2024",
     description:
@@ -53,7 +54,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
     nextSlug: ARTICLE_NEXT_MAP[ArticleSlug.ClinicalRecommendations],
   },
   {
-    id: "3",
+    id: ArticleSlug.ApgDifference,
     slug: ArticleSlug.ApgDifference,
     title: "АПГ: В чем разница между молекулами",
     description:
@@ -64,7 +65,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
     nextSlug: ARTICLE_NEXT_MAP[ArticleSlug.ApgDifference],
   },
   {
-    id: "4",
+    id: ArticleSlug.Lumistart,
     slug: ArticleSlug.Lumistart,
     titleBeforeAuth: "Новый старт в терапии ПОУГ",
     title: "ЛЮМИСТАРТ — новый старт в терапии ПОУГ",
@@ -76,7 +77,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
     nextSlug: ARTICLE_NEXT_MAP[ArticleSlug.Lumistart],
   },
   {
-    id: "5",
+    id: ArticleSlug.QualityOfLife,
     slug: ArticleSlug.QualityOfLife,
     title: "Как повысить качество жизни у пациентов с глаукомой?",
     description:
@@ -87,7 +88,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
     nextSlug: ARTICLE_NEXT_MAP[ArticleSlug.QualityOfLife],
   },
   {
-    id: "6",
+    id: ArticleSlug.SurfaceDiseases,
     slug: ArticleSlug.SurfaceDiseases,
     title: "Заболевания поверхности глаз и приверженность к лечению",
     description:
@@ -98,7 +99,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
     nextSlug: ARTICLE_NEXT_MAP[ArticleSlug.SurfaceDiseases],
   },
   {
-    id: "7",
+    id: ArticleSlug.TherapyStart,
     slug: ArticleSlug.TherapyStart,
     title: "Старт терапии: какой препарат выбрать?",
     description:
@@ -108,7 +109,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
     icon: "/icons/article-7.svg",
   },
   {
-    id: "8",
+    id: ArticleSlug.KarlovaVideo,
     slug: ArticleSlug.KarlovaVideo,
     title:
       "Карлова Е.В.\n О роли врачебной инертности в выборе стартовой терапии ПОУГ",
@@ -119,7 +120,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
     icon: "/icons/article-8.svg",
   },
   {
-    id: "9",
+    id: ArticleSlug.SeleznevVideo,
     slug: ArticleSlug.SeleznevVideo,
     title:
       "Селезнев А.В.\n О проблеме «рестарта» терапии ПОУГ после оперативного лечения",
