@@ -67,14 +67,16 @@
 
 .navList li {
     width: 120px;
-    text-align: center;
+    text-align: left;
 }
 
 .navLink {
+  display: block;
   font-size: 16px;
   font-weight: 700;
   color: var(--color-text-light);
   transition: opacity 0.2s ease;
+  text-align: left;
 
 }
 

@@ -120,14 +120,22 @@ export const LumistartContent = () => {
             <sup className={styles.therapyGlossarySup}>2</sup>.
           </li>
         </ul>
+        <div className={styles.lumistartChartBlock}>
+          <p className={styles.lumistartChartHeading}>
+            Общее среднее значение&nbsp;±&nbsp;SD ВГД у пациентов, перешедших с
+            предшествующей монотерапии, направленной на снижение ВГД, на терапию
+            препаратом ЛЮМИСТАРТ при оценке в контрольной точке 12 недель
+            <sup className={styles.therapyGlossarySup}>*,†,‡,2</sup>
+          </p>
 
-        <Image
-          src="/pictures/articles/lumistart/overall-efficacy.png"
-          alt="Общее среднее значение ± SD ВГД у пациентов, перешедших на терапию Люмистарт"
-          width={888}
-          height={509}
-          className={styles.lumistartChartImage}
-        />
+          <Image
+            src="/pictures/articles/lumistart/overall-efficacy.png"
+            alt="Общее среднее значение ± SD ВГД у пациентов, перешедших на терапию Люмистарт"
+            width={888}
+            height={509}
+            className={styles.lumistartChartImage}
+          />
+        </div>
         <p className={styles.lumistartCallout}>
           Переход на препарат ЛЮМИСТАРТ может обеспечить дополнительное снижение
           ВГД у пациентов, у которых наблюдается недостаточный контроль ВГД при

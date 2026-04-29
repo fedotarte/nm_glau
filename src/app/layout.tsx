@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
 import { AuthProvider } from "@/components/auth";
-import { Source_Sans_3 } from "next/font/google";
+import { Source_Sans_3, Unbounded } from "next/font/google";
 
 import "./globals.css";
 
@@ -19,6 +19,12 @@ const SITE_NAME = "Glau";
 const SITE_TITLE = "Glau — точка зрения на терапию ПОУГ";
 const SITE_DESCRIPTION =
   "Проект для врачей-офтальмологов: рациональный выбор терапии первичной открытоугольной глаукомы на основе клинических данных.";
+
+const unbounded = Unbounded({
+  variable: "--font-unbounded",
+  subsets: ["latin", "cyrillic"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -70,7 +76,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${sourceSans.className} ${sourceSans.variable}`}>
+      <body className={`${sourceSans.className} ${sourceSans.variable} ${unbounded.variable}`}>
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>

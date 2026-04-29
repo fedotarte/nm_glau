@@ -209,7 +209,7 @@ export const TherapyStartContent = () => {
               ГЛАУКОМЫ?
             </>
           }
-          supText="4, 7"
+          supText="4, 5"
         />
         <Image
           src="/pictures/articles/therapy-start/frame-91.png"

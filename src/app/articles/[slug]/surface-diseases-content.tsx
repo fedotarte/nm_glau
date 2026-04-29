@@ -189,7 +189,7 @@ export const SurfaceDiseasesContent = () => {
           title={
             <>
               Лечение препаратАМИ без консервантов было связано с лучшей
-              приверженностью лечению{" "}
+              приверженностью лечению
               <sup className={styles.therapySectionHeadingRef}>*, †, 6</sup> по
               сравнению с лечением препаратАМИ с консервантами
               <sup className={styles.therapySectionHeadingRef}>5</sup>
