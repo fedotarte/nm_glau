@@ -1,51 +1,43 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
+import { AUTH_FORCE_AUTHENTICATED } from "@/lib/auth/config";
 import {
-  AUTH_COOKIE_NAME,
-  getAuthCheckUrl,
-  isAuthDevEnabled,
-} from "@/lib/auth/config";
+  applyAuthCookies,
+  clearAuthCookies,
+  getAuthTokenFromCookies,
+  verifyTokenWithPharmVision,
+} from "@/lib/auth/server";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 const unauthorized = () => new NextResponse(null, { status: 401 });
-const ok = () => new NextResponse(null, { status: 204 });
+const ok = (payload: unknown) => NextResponse.json(payload, { status: 200 });
 
 export async function GET() {
+  if (AUTH_FORCE_AUTHENTICATED) {
+    return ok({ ok: true, user: null });
+  }
+
   const cookieStore = await cookies();
-  const token = cookieStore.get(AUTH_COOKIE_NAME)?.value;
+  const token = getAuthTokenFromCookies(cookieStore);
 
   if (!token) {
     return unauthorized();
   }
 
-  const upstreamUrl = getAuthCheckUrl();
-
-  // В dev-режиме без настроенного апстрима доверяем самому факту наличия
-  // куки — удобно для локальной отладки UI авторизации.
-  if (!upstreamUrl) {
-    return isAuthDevEnabled() ? ok() : unauthorized();
+  const verifyResult = await verifyTokenWithPharmVision(token);
+  if (!verifyResult.ok || !verifyResult.token) {
+    const response = unauthorized();
+    clearAuthCookies(response);
+    return response;
   }
 
-  try {
-    const upstreamResponse = await fetch(upstreamUrl, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: "application/json",
-      },
-      cache: "no-store",
-    });
-
-    if (upstreamResponse.status === 204 || upstreamResponse.ok) {
-      return ok();
-    }
-
-    return unauthorized();
-  } catch (error) {
-    console.error("[auth/check] upstream error", error);
-    return unauthorized();
-  }
+  const response = ok({
+    ok: true,
+    user: verifyResult.user ?? null,
+  });
+  applyAuthCookies(response, verifyResult.token);
+  return response;
 }

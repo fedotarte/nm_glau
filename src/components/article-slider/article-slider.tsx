@@ -182,6 +182,8 @@ export const ArticleCard = ({
   const { isAuthenticated: isAuthenticatedFromContext } = useAuth();
   const isAuthenticated = isAuthenticatedProp ?? isAuthenticatedFromContext;
   const isMaterialsInDev = article.status === "in_dev";
+  const articlePath = `/articles/${article.slug}`;
+  const loginHref = `/api/auth/login?returnTo=${encodeURIComponent(articlePath)}`;
 
   if (isMaterialsInDev) {
     return (
@@ -200,8 +202,8 @@ export const ArticleCard = ({
       ? article.titleBeforeAuth
       : article.title;
 
-  return (
-    <Link href={`/articles/${article.slug}`} className={cardClassName}>
+  const cardContent = (
+    <>
       <ArticleIcon className={styles.mobileIcon} />
       {!isAuthenticated && <LockIcon className={styles.lockIcon} />}
       <div className={styles.cardContent}>
@@ -224,6 +226,20 @@ export const ArticleCard = ({
         </div>
       </div>
       <ArrowIcon className={styles.cardArrowIcon} />
+    </>
+  );
+
+  if (!isAuthenticated) {
+    return (
+      <a href={loginHref} className={cardClassName}>
+        {cardContent}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={articlePath} className={cardClassName}>
+      {cardContent}
     </Link>
   );
 };
@@ -232,6 +248,8 @@ const MobileArticleCard = ({ article }: { article: ArticleConfig }) => {
   const { isAuthenticated } = useAuth();
   const isInDev = article.status === "in_dev";
   const displayTitle = article.title;
+  const articlePath = `/articles/${article.slug}`;
+  const loginHref = `/api/auth/login?returnTo=${encodeURIComponent(articlePath)}`;
 
   const content = (
     <>
@@ -249,8 +267,16 @@ const MobileArticleCard = ({ article }: { article: ArticleConfig }) => {
     return <div className={styles.mobileCardDisabled}>{content}</div>;
   }
 
+  if (!isAuthenticated) {
+    return (
+      <a href={loginHref} className={styles.mobileCard}>
+        {content}
+      </a>
+    );
+  }
+
   return (
-    <Link href={`/articles/${article.slug}`} className={styles.mobileCard}>
+    <Link href={articlePath} className={styles.mobileCard}>
       {content}
     </Link>
   );

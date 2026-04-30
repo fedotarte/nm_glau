@@ -1,34 +1,40 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
-import { notFound } from "next/navigation";
+import { cookies } from "next/headers";
+import dynamicImport from "next/dynamic";
+import { notFound, redirect } from "next/navigation";
 
 import { Footer, Header } from "@/components";
 import { ArticleSlug, getArticleBySlug, getDoneArticles } from "@/content";
+import { AUTH_FORCE_AUTHENTICATED } from "@/lib/auth/config";
+import {
+  getAuthTokenFromCookies,
+  verifyTokenWithPharmVision,
+} from "@/lib/auth/server";
 
 import styles from "./page.module.css";
 
 const ARTICLE_COMPONENTS = {
-  [ArticleSlug.Neuroprotection]: dynamic(() =>
+  [ArticleSlug.Neuroprotection]: dynamicImport(() =>
     import("./neuroprotection-content").then((m) => m.NeuroprotectionContent),
   ),
-  [ArticleSlug.ClinicalRecommendations]: dynamic(() =>
+  [ArticleSlug.ClinicalRecommendations]: dynamicImport(() =>
     import("./clinical-recommendations-content").then(
       (m) => m.ClinicalRecommendationsContent,
     ),
   ),
-  [ArticleSlug.TherapyStart]: dynamic(() =>
+  [ArticleSlug.TherapyStart]: dynamicImport(() =>
     import("./therapy-start-content").then((m) => m.TherapyStartContent),
   ),
-  [ArticleSlug.ApgDifference]: dynamic(() =>
+  [ArticleSlug.ApgDifference]: dynamicImport(() =>
     import("./apg-difference-content").then((m) => m.ApgDifferenceContent),
   ),
-  [ArticleSlug.Lumistart]: dynamic(() =>
+  [ArticleSlug.Lumistart]: dynamicImport(() =>
     import("./lumistart-content").then((m) => m.LumistartContent),
   ),
-  [ArticleSlug.QualityOfLife]: dynamic(() =>
+  [ArticleSlug.QualityOfLife]: dynamicImport(() =>
     import("./quality-of-life-content").then((m) => m.QualityOfLifeContent),
   ),
-  [ArticleSlug.SurfaceDiseases]: dynamic(() =>
+  [ArticleSlug.SurfaceDiseases]: dynamicImport(() =>
     import("./surface-diseases-content").then((m) => m.SurfaceDiseasesContent),
   ),
 } as const;
@@ -37,6 +43,9 @@ type KnownSlug = keyof typeof ARTICLE_COMPONENTS;
 
 const isKnownSlug = (slug: string): slug is KnownSlug =>
   Object.prototype.hasOwnProperty.call(ARTICLE_COMPONENTS, slug);
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const generateStaticParams = () => {
   return getDoneArticles()
@@ -87,6 +96,22 @@ export default async function ArticlePage(
 
   if (!article || article.status !== "done" || !isKnownSlug(article.slug)) {
     notFound();
+  }
+
+  const returnTo = `/articles/${article.slug}`;
+  const loginUrl = `/api/auth/login?returnTo=${encodeURIComponent(returnTo)}`;
+  if (!AUTH_FORCE_AUTHENTICATED) {
+    const cookieStore = await cookies();
+    const token = getAuthTokenFromCookies(cookieStore);
+
+    if (!token) {
+      redirect(loginUrl);
+    }
+
+    const verifyResult = await verifyTokenWithPharmVision(token);
+    if (!verifyResult.ok) {
+      redirect(loginUrl);
+    }
   }
 
   const Content = ARTICLE_COMPONENTS[article.slug];

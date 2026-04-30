@@ -2,7 +2,11 @@ import Image from "next/image";
 import styles from "./footer.module.css";
 import Link from "next/link";
 
-export const Footer = () => (
+type FooterProps = {
+  certificationId?: string;
+};
+
+export const Footer = ({ certificationId = "RU-LUM-260006" }: FooterProps) => (
   <footer className={styles.footer}>
     <div className={styles.container}>
       <div className={styles.logoColumn}>
@@ -47,7 +51,7 @@ export const Footer = () => (
             Информация предназначена исключительно для специалистов
             здравоохранения Российской Федерации.
             <br />
-            RU-LUM-260006: дата одобрения, апрель 2026.
+            {certificationId}: дата одобрения, апрель 2026.
           </p>
         </div>
       </div>
