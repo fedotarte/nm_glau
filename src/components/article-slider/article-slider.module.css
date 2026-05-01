@@ -540,6 +540,11 @@
 
 .mobileCard .mobileIcon,
 .mobileCardDisabled .mobileIcon {
+  position: static;
+  top: auto;
+  right: auto;
+  left: auto;
+  transform: none;
   flex-shrink: 0;
   width: 32px;
   height: 32px;

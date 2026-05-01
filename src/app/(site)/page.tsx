@@ -8,7 +8,7 @@ import {
   BackgroundVideo,
 } from "@/components";
 import { getAllArticles } from "@/content";
-import { ArticleCard } from "@/components/article-slider/article-slider";
+import { MobileArticleCard } from "@/components/article-slider/article-slider";
 
 export default function Home() {
   const articles = getAllArticles();
@@ -34,7 +34,7 @@ export default function Home() {
         </Hero>
         <ScrollShadowList>
           {articles.map((article) => {
-            return <ArticleCard article={article} key={article.id} />;
+            return <MobileArticleCard article={article} key={article.id} />;
           })}
         </ScrollShadowList>
       </main>

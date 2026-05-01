@@ -24,6 +24,7 @@ export const Header = () => {
   const pathname = usePathname();
   const isArticlesSection = pathname.startsWith("/articles");
   const { isAuthenticated } = useAuth();
+
   const loginHref = `/api/auth/login?returnTo=${encodeURIComponent(pathname || "/")}`;
   const loginLabel = isAuthenticated
     ? LOGIN_BUTTON_LABEL.authenticated

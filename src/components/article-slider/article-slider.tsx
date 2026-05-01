@@ -267,7 +267,7 @@ export const ArticleCard = ({
   );
 };
 
-const MobileArticleCard = ({ article }: { article: ArticleConfig }) => {
+export const MobileArticleCard = ({ article }: { article: ArticleConfig }) => {
   const { isAuthenticated } = useAuth();
   const isInDev = article.status === "in_dev";
   const displayTitle = article.title;

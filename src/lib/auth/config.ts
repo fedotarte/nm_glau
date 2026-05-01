@@ -20,7 +20,10 @@ export const PHARM_VISION_FROM = process.env.PHARM_VISION_FROM ?? "";
 export const PHARM_VISION_SECRET =
   process.env.PHARM_VISION_SECRET ?? "8s6wFXdjQRzbGp3BCyZblklJUDchvYjD";
 
-const parseBooleanEnv = (value: string | undefined, fallback: boolean): boolean => {
+const parseBooleanEnv = (
+  value: string | undefined,
+  fallback: boolean,
+): boolean => {
   if (value === undefined) {
     return fallback;
   }
