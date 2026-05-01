@@ -19,6 +19,44 @@ const LOGIN_BUTTON_LABEL = {
   authenticated: "Личный кабинет",
 } as const;
 
+const HeaderDrawerFooter = () => (
+  <div className={styles.drawerFooter}>
+    <Image
+      src="/icons/abbvy_footer_logo_2.svg"
+      alt="AbbVie"
+      width={120}
+      height={40}
+      className={styles.drawerLogo}
+    />
+
+    <div className={styles.drawerFooterText}>
+      <p>
+        Информацию о нежелательных явлениях, связанных с применением препаратов
+        компании «ЭббВи», необходимо направить по адресу:{" "}
+      </p>
+      <Link href="mailto:ruabhvie@abbvie.com">ruabhvie@abbvie.com</Link>
+    </div>
+
+    <div className={styles.drawerFooterText}>
+      <p>
+        Материал подготовлен AbbVie. ООО «ЭббВи», 125171, Россия
+        <br /> г. Москва, Ленинградское ш., д.16а, стр. 1,  5 этаж; Тел. +7
+        (495) 258-42-77
+        <br />
+        Тел: <Link href="tel:+74952584277">+7 (495) 258-42-77</Link>
+      </p>
+    </div>
+
+    <div className={styles.drawerFooterText}>
+      <p>
+        Информация предназначена исключительно для специалистов здравоохранения
+        Российской Федерации.
+      </p>
+      <p>RU-LUM-260006: дата одобрения, апрель 2026.</p>
+    </div>
+  </div>
+);
+
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -207,42 +245,7 @@ export const Header = () => {
           {/*  {loginLabel}*/}
           {/*</button>*/}
 
-          <div className={styles.drawerFooter}>
-            <Image
-              src="/icons/abbvy_footer_logo_2.svg"
-              alt="AbbVie"
-              width={120}
-              height={40}
-              className={styles.drawerLogo}
-            />
-
-            <div className={styles.drawerFooterText}>
-              <p>
-                Информацию о нежелательных явлениях, связанных с применением
-                препаратов компании «ЭббВи», необходимо направить по
-                адресу:{" "}
-              </p>
-              <Link href="mailto:ruabhvie@abbvie.com">ruabhvie@abbvie.com</Link>
-            </div>
-
-            <div className={styles.drawerFooterText}>
-              <p>
-                Материал подготовлен AbbVie. ООО «ЭббВи», 125171, Россия
-                <br /> г. Москва, Ленинградское ш., д.16а, стр. 1,  5 этаж; Тел.
-                +7 (495) 258-42-77
-                <br />
-                Тел: <Link href="tel:+74952584277">+7 (495) 258-42-77</Link>
-              </p>
-            </div>
-
-            <div className={styles.drawerFooterText}>
-              <p>
-                Информация предназначена исключительно для специалистов
-                здравоохранения Российской Федерации.
-              </p>
-              <p>RU-LUM-260006: дата одобрения, апрель 2026.</p>
-            </div>
-          </div>
+          <HeaderDrawerFooter />
         </div>
       </div>
 

@@ -7,7 +7,7 @@ import {
   ArticleSidebar,
   ArticleTitleBlock,
   ArticleWideLayout,
-} from "@/components";
+} from "@/components/article";
 
 import styles from "./page.module.css";
 
@@ -100,7 +100,7 @@ export const SurfaceDiseasesContent = () => {
         <ArticleSectionHeading
           className={styles.therapySectionHeadingBare}
           contentClassName={styles.therapySectionHeadingInner}
-          unstyled
+          variant="plain"
           title="СОГЛАСНО РЕЗУЛЬТАТАМ ИССЛЕДОВАНИЯ У БОЛЕЕ ЧЕМ ПОЛОВИНЫ ПАЦИЕНТОВ С ГЛАУКОМОЙ РАЗВИВАЮТСЯ СИМПТОМЫ ЗАБОЛЕВАНИЙ ПЕРЕДНЕЙ ПОВЕРХНОСТИ ГЛАЗ (ЗППГ) ХОТЯ БЫ В ОДНОМ ГЛАЗУ"
           supText="**"
           supClassName={styles.therapySectionHeadingRef}
@@ -319,7 +319,7 @@ export const SurfaceDiseasesContent = () => {
         </div>
       </div>
 
-      <ArticleReferences items={REFERENCES} numbered />
+      <ArticleReferences items={REFERENCES} listType="ordered" />
     </ArticleWideLayout>
   );
 };

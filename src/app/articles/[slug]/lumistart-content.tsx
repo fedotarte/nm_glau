@@ -6,7 +6,7 @@ import {
   ArticleSectionHeading,
   ArticleTitleBlock,
   ArticleWideLayout,
-} from "@/components";
+} from "@/components/article";
 
 import styles from "./page.module.css";
 
@@ -251,7 +251,7 @@ export const LumistartContent = () => {
         </div>
       </div>
 
-      <ArticleReferences items={REFERENCES} numbered />
+      <ArticleReferences items={REFERENCES} listType="ordered" />
     </ArticleWideLayout>
   );
 };

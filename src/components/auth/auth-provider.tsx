@@ -23,6 +23,22 @@ const AuthContext = createContext<AuthContextValue | null>(null);
 
 const AUTH_CHECK_ENDPOINT = "/api/auth/check";
 
+const checkAuthStatus = async (): Promise<AuthStatus> => {
+  try {
+    const response = await fetch(AUTH_CHECK_ENDPOINT, {
+      method: "GET",
+      credentials: "include",
+      cache: "no-store",
+    });
+
+    return response.status === 204 || response.ok
+      ? "authenticated"
+      : "unauthenticated";
+  } catch {
+    return "unauthenticated";
+  }
+};
+
 interface AuthProviderProps {
   children: ReactNode;
   /**
@@ -39,29 +55,26 @@ export const AuthProvider = ({
   const [status, setStatus] = useState<AuthStatus>(initialStatus);
 
   const refresh = useCallback(async () => {
-    try {
-      const response = await fetch(AUTH_CHECK_ENDPOINT, {
-        method: "GET",
-        credentials: "include",
-        cache: "no-store",
-      });
-
-      if (response.status === 204 || response.ok) {
-        setStatus("authenticated");
-        return;
-      }
-
-      setStatus("unauthenticated");
-    } catch {
-      setStatus("unauthenticated");
-    }
+    setStatus(await checkAuthStatus());
   }, []);
 
   useEffect(() => {
-    if (initialStatus === "loading") {
-      void refresh();
+    if (initialStatus !== "loading") {
+      return;
     }
-  }, [initialStatus, refresh]);
+
+    let ignore = false;
+
+    checkAuthStatus().then((nextStatus) => {
+      if (!ignore) {
+        setStatus(nextStatus);
+      }
+    });
+
+    return () => {
+      ignore = true;
+    };
+  }, [initialStatus]);
 
   const value = useMemo<AuthContextValue>(
     () => ({

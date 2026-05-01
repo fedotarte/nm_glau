@@ -1,12 +1,12 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 
-import styles from "@/app/articles/[slug]/page.module.css";
+import styles from "./article-references.module.css";
 
 type ArticleReferencesProps = {
   items: ReactNode[];
   defaultOpen?: boolean;
-  numbered?: boolean;
+  listType?: "ordered" | "unordered";
 };
 
 /**
@@ -15,15 +15,13 @@ type ArticleReferencesProps = {
 export const ArticleReferences = ({
   items,
   defaultOpen = true,
-  numbered = false,
+  listType = "unordered",
 }: ArticleReferencesProps) => {
-  const ListTag = numbered ? "ol" : "ul";
+  const ListTag = listType === "ordered" ? "ol" : "ul";
 
   return (
-    <details className={styles.referencesAccordion} open={defaultOpen}>
-      <summary
-        className={`${styles.referencesSummary} ${styles.clinicalReferencesSummary}`}
-      >
+    <details className={styles.accordion} open={defaultOpen}>
+      <summary className={styles.summary}>
         <span>Список литературы</span>
         <Image
           src="/icons/base_arrow_right_dark.svg"
@@ -31,12 +29,12 @@ export const ArticleReferences = ({
           aria-hidden="true"
           width={18}
           height={18}
-          className={styles.referencesArrow}
+          className={styles.arrow}
         />
       </summary>
-      <ListTag className={styles.referencesList}>
+      <ListTag className={styles.list}>
         {items.map((item, index) => (
-          <li key={index} className={styles.referencesItem}>
+          <li key={index} className={styles.item}>
             {item}
           </li>
         ))}

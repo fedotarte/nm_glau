@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-import styles from "@/app/articles/[slug]/page.module.css";
+import styles from "./article-sidebar.module.css";
 
 type SidebarLinkAction = {
   label: ReactNode;
@@ -23,6 +23,7 @@ type SidebarSmallCardMemo = {
 
 type ArticleSidebarProps = {
   asideClassName?: string;
+  variant?: "default" | "compact";
   /** Подпись над первой карточкой (по умолчанию «Следующий материал:»). */
   primaryNavCaption?: string;
   nextMaterial: SidebarLinkAction;
@@ -38,7 +39,7 @@ type ArticleSidebarProps = {
 const SidebarActionCard = ({ label, href }: SidebarLinkAction) => {
   if (href) {
     return (
-      <Link href={href} className={styles.sidebarNextCard}>
+      <Link href={href} className={styles.nextCard}>
         <span>{label}</span>
         <Image
           src="/icons/base_arrow_right.svg"
@@ -46,14 +47,14 @@ const SidebarActionCard = ({ label, href }: SidebarLinkAction) => {
           aria-hidden="true"
           width={10}
           height={19}
-          className={styles.sidebarArrow}
+          className={styles.arrow}
         />
       </Link>
     );
   }
 
   return (
-    <button type="button" className={styles.sidebarNextCard}>
+    <button type="button" className={styles.nextCard}>
       <span>{label}</span>
       <Image
         src="/icons/base_arrow_right.svg"
@@ -61,7 +62,7 @@ const SidebarActionCard = ({ label, href }: SidebarLinkAction) => {
         aria-hidden="true"
         width={10}
         height={19}
-        className={styles.sidebarArrow}
+        className={styles.arrow}
       />
     </button>
   );
@@ -72,21 +73,26 @@ const SidebarActionCard = ({ label, href }: SidebarLinkAction) => {
  */
 export const ArticleSidebar = ({
   asideClassName,
+  variant = "default",
   primaryNavCaption = "Следующий материал:",
   nextMaterial,
   smallCard,
   imageCard,
 }: ArticleSidebarProps) => {
-  const asideClass = asideClassName
-    ? `${styles.clinicalSidebar} ${asideClassName}`
-    : styles.clinicalSidebar;
+  const asideClass = [
+    styles.sidebar,
+    variant === "compact" && styles.sidebarCompact,
+    asideClassName,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <aside className={asideClass}>
-      <p className={styles.sidebarCaption}>{primaryNavCaption}</p>
+      <p className={styles.caption}>{primaryNavCaption}</p>
       <SidebarActionCard {...nextMaterial} />
 
-      <h3 className={styles.sidebarTitle}>
+      <h3 className={styles.title}>
         Другие материалы
         <br />
         по теме:
@@ -94,22 +100,22 @@ export const ArticleSidebar = ({
 
       {smallCard ? (
         smallCard.variant === "memo" ? (
-          <div className={styles.sidebarMemoCard}>
-            <p className={styles.sidebarMemoTitle}>{smallCard.title}</p>
-            <p className={styles.sidebarMemoStatus}>{smallCard.subtitle}</p>
+          <div className={styles.memoCard}>
+            <p className={styles.memoTitle}>{smallCard.title}</p>
+            <p className={styles.memoStatus}>{smallCard.subtitle}</p>
           </div>
         ) : (
-          <div className={styles.sidebarSmallCard}>
+          <div className={styles.smallCard}>
             <p>{smallCard.title}</p>
             {smallCard.action.href ? (
               <Link
                 href={smallCard.action.href}
-                className={styles.sidebarReadButton}
+                className={styles.readButton}
               >
                 Читать
               </Link>
             ) : (
-              <button type="button" className={styles.sidebarReadButton}>
+              <button type="button" className={styles.readButton}>
                 Читать
               </button>
             )}
@@ -119,41 +125,41 @@ export const ArticleSidebar = ({
 
       {imageCard ? (
         imageCard.href ? (
-          <Link href={imageCard.href} className={styles.sidebarImageCard}>
+          <Link href={imageCard.href} className={styles.imageCard}>
             <Image
               src={imageCard.imageSrc}
               alt={imageCard.imageAlt}
               width={292}
               height={196}
-              className={styles.sidebarEyeImage}
+              className={styles.eyeImage}
             />
-            <span className={styles.sidebarImageTitle}>{imageCard.title}</span>
+            <span className={styles.imageTitle}>{imageCard.title}</span>
             <Image
               src="/icons/base_arrow_right.svg"
               alt=""
               aria-hidden="true"
               width={10}
               height={19}
-              className={styles.sidebarImageArrow}
+              className={styles.imageArrow}
             />
           </Link>
         ) : (
-          <button type="button" className={styles.sidebarImageCard}>
+          <button type="button" className={styles.imageCard}>
             <Image
               src={imageCard.imageSrc}
               alt={imageCard.imageAlt}
               width={292}
               height={196}
-              className={styles.sidebarEyeImage}
+              className={styles.eyeImage}
             />
-            <span className={styles.sidebarImageTitle}>{imageCard.title}</span>
+            <span className={styles.imageTitle}>{imageCard.title}</span>
             <Image
               src="/icons/base_arrow_right.svg"
               alt=""
               aria-hidden="true"
               width={10}
               height={19}
-              className={styles.sidebarImageArrow}
+              className={styles.imageArrow}
             />
           </button>
         )

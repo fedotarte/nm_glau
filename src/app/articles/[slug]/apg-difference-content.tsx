@@ -7,7 +7,7 @@ import {
   ArticleSidebar,
   ArticleTitleBlock,
   ArticleWideLayout,
-} from "@/components";
+} from "@/components/article";
 
 import styles from "./page.module.css";
 import Link from "next/link";
@@ -26,7 +26,7 @@ const REFERENCES = [
 export const ApgDifferenceContent = () => {
   const sidebar = (
     <ArticleSidebar
-      asideClassName={styles.apgSidebar}
+      variant="compact"
       nextMaterial={{
         label: "Люмистарт — новый старт в терапии поуг",
         href: "/articles/lumistart",
@@ -52,7 +52,7 @@ export const ApgDifferenceContent = () => {
       <section className={styles.therapySection}>
         <ArticleSectionHeading
           className={styles.apgSectionHeading}
-          unstyled
+          variant="plain"
           title={
             <>
               Различия химической структуры
@@ -138,7 +138,7 @@ export const ApgDifferenceContent = () => {
         </div>
       </div>
 
-      <ArticleReferences items={REFERENCES} numbered />
+      <ArticleReferences items={REFERENCES} listType="ordered" />
     </ArticleWideLayout>
   );
 };

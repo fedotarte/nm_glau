@@ -1,35 +1,9 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
 
+import { NeuroprotectionLightbox } from "./neuroprotection-lightbox";
 import styles from "./page.module.css";
 
 export const NeuroprotectionContent = () => {
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-
-  useEffect(() => {
-    if (!isLightboxOpen) {
-      return;
-    }
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsLightboxOpen(false);
-      }
-    };
-
-    document.addEventListener("keydown", handleEscape);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, [isLightboxOpen]);
-
   return (
     <section className={styles.neuroArticle}>
       <div className={styles.titleBlock}>
@@ -58,19 +32,7 @@ export const NeuroprotectionContent = () => {
       </blockquote>
 
       <figure className={styles.diagramFigure}>
-        <button
-          type="button"
-          className={styles.expandButton}
-          aria-label="Открыть изображение во весь экран"
-          onClick={() => setIsLightboxOpen(true)}
-        >
-          <Image
-            src="/icons/maximize-circle.svg"
-            alt="лого"
-            width={52}
-            height={52}
-          />
-        </button>
+        <NeuroprotectionLightbox />
         <Image
           src="/pictures/articles/neuroprotection/diagram-desktop.png"
           alt="Схема факторов развития глаукомной оптиконейропатии"
@@ -147,37 +109,6 @@ export const NeuroprotectionContent = () => {
         </ul>
       </details>
 
-      {isLightboxOpen ? (
-        <div
-          className={styles.lightbox}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Полноэкранное изображение схемы"
-          onClick={() => setIsLightboxOpen(false)}
-        >
-          <div
-            className={styles.lightboxPanel}
-            onClick={(event) => event.stopPropagation()}
-          >
-            <button
-              type="button"
-              className={styles.lightboxClose}
-              onClick={() => setIsLightboxOpen(false)}
-              aria-label="Закрыть полноэкранное изображение"
-            >
-              ×
-            </button>
-            <Image
-              src="/pictures/articles/neuroprotection/diagram-desktop.png"
-              alt="Схема факторов развития глаукомной оптиконейропатии"
-              width={1280}
-              height={969}
-              className={styles.lightboxImage}
-              priority
-            />
-          </div>
-        </div>
-      ) : null}
     </section>
   );
 };

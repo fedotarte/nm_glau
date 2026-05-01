@@ -4,7 +4,7 @@ import {
   ArticleSidebar,
   ArticleTitleBlock,
   ArticleWideLayout,
-} from "@/components";
+} from "@/components/article";
 
 import styles from "./page.module.css";
 
@@ -52,7 +52,7 @@ export const ClinicalRecommendationsContent = () => {
       <section className={styles.clinicalSection}>
         <ArticleSectionHeading
           className={styles.clinicalSectionHeading}
-          unstyled
+          variant="plain"
           title="СОХРАНИЛОСЬ ВАЖНОЕ:"
         />
         <p className={styles.clinicalBody}>
@@ -107,7 +107,7 @@ export const ClinicalRecommendationsContent = () => {
       <section className={styles.clinicalSection}>
         <ArticleSectionHeading
           className={styles.clinicalSectionHeading}
-          unstyled
+          variant="plain"
           title="ОСНОВНЫЕ ИЗМЕНЕНИЯ"
         />
 

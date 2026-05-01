@@ -8,7 +8,7 @@ type ArticleSectionHeadingProps = {
   supText?: ReactNode;
   supClassName?: string;
   level?: "h2" | "h3";
-  unstyled?: boolean;
+  variant?: "default" | "plain";
 };
 
 /**
@@ -21,7 +21,7 @@ export const ArticleSectionHeading = ({
   supText,
   supClassName,
   level = "h2",
-  unstyled = false,
+  variant = "default",
 }: ArticleSectionHeadingProps) => {
   const normalizeCase = (node: ReactNode): ReactNode => {
     if (typeof node === "string") {
@@ -42,12 +42,14 @@ export const ArticleSectionHeading = ({
   };
 
   const HeadingTag = level;
-  const headingClassName = unstyled
-    ? [className].filter(Boolean).join(" ")
-    : [styles.heading, className].filter(Boolean).join(" ");
-  const contentClass = unstyled
-    ? [contentClassName].filter(Boolean).join(" ")
-    : [styles.content, contentClassName].filter(Boolean).join(" ");
+  const headingClassName =
+    variant === "plain"
+      ? [className].filter(Boolean).join(" ")
+      : [styles.heading, className].filter(Boolean).join(" ");
+  const contentClass =
+    variant === "plain"
+      ? [contentClassName].filter(Boolean).join(" ")
+      : [styles.content, contentClassName].filter(Boolean).join(" ");
   const supClass = [styles.sup, supClassName].filter(Boolean).join(" ");
   const normalizedTitle = Children.map(title, normalizeCase);
 

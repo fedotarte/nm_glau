@@ -1,14 +1,23 @@
+import dynamic from "next/dynamic";
+
+import { BackgroundVideo } from "@/components/background-video";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { Hero } from "@/components/hero";
 import styles from "./page.module.css";
-import {
-  Header,
-  Footer,
-  Hero,
-  ArticleSlider,
-  ScrollShadowList,
-  BackgroundVideo,
-} from "@/components";
 import { getAllArticles } from "@/content";
-import { MobileArticleCard } from "@/components/article-slider/article-slider";
+
+const ArticleSlider = dynamic(() =>
+  import("@/components/article-slider/article-slider").then(
+    (mod) => mod.ArticleSlider,
+  ),
+);
+
+const MobileArticleList = dynamic(() =>
+  import("@/components/article-slider/mobile-article-list").then(
+    (mod) => mod.MobileArticleList,
+  ),
+);
 
 export default function Home() {
   const articles = getAllArticles();
@@ -32,11 +41,7 @@ export default function Home() {
         >
           <ArticleSlider articles={articles} />
         </Hero>
-        <ScrollShadowList>
-          {articles.map((article) => {
-            return <MobileArticleCard article={article} key={article.id} />;
-          })}
-        </ScrollShadowList>
+        <MobileArticleList articles={articles} />
       </main>
 
       <Footer />

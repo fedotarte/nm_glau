@@ -6,7 +6,7 @@ import {
   ArticleSidebar,
   ArticleTitleBlock,
   ArticleWideLayout,
-} from "@/components";
+} from "@/components/article";
 
 import styles from "./page.module.css";
 import Link from "next/link";
@@ -367,7 +367,7 @@ export const TherapyStartContent = () => {
       </div>
 
       <ArticleReferences
-        numbered
+        listType="ordered"
         items={[
           <>
             American Academy of Ophthalmology (AAO). Primary Open-Angle Glaucoma

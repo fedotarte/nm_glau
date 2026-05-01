@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-import { Footer, Header } from "@/components";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
 
 import styles from "./not-found.module.css";
 

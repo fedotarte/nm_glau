@@ -3,7 +3,8 @@ import { cookies } from "next/headers";
 import dynamicImport from "next/dynamic";
 import { notFound, redirect } from "next/navigation";
 
-import { Footer, Header } from "@/components";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
 import { ArticleSlug, getArticleBySlug, getDoneArticles } from "@/content";
 import { AUTH_FORCE_AUTHENTICATED } from "@/lib/auth/config";
 import {
