@@ -3,6 +3,8 @@
 import { useState, type ReactNode } from "react";
 
 import styles from "@/app/articles/[slug]/page.module.css";
+import { useAuth } from "@/components";
+import { usePathname } from "next/navigation";
 
 type ArticleWideLayoutProps = {
   pageClassName: string;
@@ -18,7 +20,9 @@ export const ArticleWideLayout = ({
   sidebar,
   children,
 }: ArticleWideLayoutProps) => {
-  const [isAuthOverlayOpen, setIsAuthOverlayOpen] = useState(true);
+  const { isAuthenticated } = useAuth();
+  const pathname = usePathname();
+  const loginHref = `/api/auth/login?returnTo=${encodeURIComponent(pathname || "/")}`;
 
   return (
     <section className={pageClassName}>
@@ -26,23 +30,22 @@ export const ArticleWideLayout = ({
         <div className={styles.clinicalMain}>{children}</div>
         {sidebar}
       </div>
-      {isAuthOverlayOpen ? (
+      {isAuthenticated ? (
         <div className={styles.authOverlay} role="dialog" aria-modal="true">
           <div className={styles.authOverlayCard}>
             <h2 className={styles.authOverlayTitle}>Необходима авторизация</h2>
             <p className={styles.authOverlayText}>
-              Информация на сайте предназначена для сотрудников
-              здравоохранения.
+              Информация на сайте предназначена для сотрудников здравоохранения.
               <br />
               Пожалуйста, авторизуйтесь для просмотра материалов.
             </p>
-            <button
+            <a
               type="button"
               className={styles.authOverlayButton}
-              onClick={() => setIsAuthOverlayOpen(false)}
+              href={loginHref}
             >
               Войти
-            </button>
+            </a>
           </div>
         </div>
       ) : null}
