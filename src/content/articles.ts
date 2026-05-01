@@ -22,7 +22,7 @@ export interface ArticleConfig {
   descriptionBeforeAuth?: string;
   description?: string;
   titleBeforeAuth?: string;
-  icon?: string;
+  icon?: string | null;
   nextSlug?: string;
 }
 
@@ -31,7 +31,8 @@ export interface ArticleConfig {
  * текущий slug -> nextSlug.
  */
 export const ARTICLE_NEXT_MAP: Partial<Record<ArticleSlug, ArticleSlug>> = {
-  [ArticleSlug.ClinicalRecommendations]: ArticleSlug.ApgDifference,
+  [ArticleSlug.ClinicalRecommendations]: ArticleSlug.Neuroprotection,
+  [ArticleSlug.Neuroprotection]: ArticleSlug.ApgDifference,
   [ArticleSlug.ApgDifference]: ArticleSlug.Lumistart,
   [ArticleSlug.Lumistart]: ArticleSlug.QualityOfLife,
   [ArticleSlug.QualityOfLife]: ArticleSlug.SurfaceDiseases,
@@ -50,7 +51,6 @@ const ARTICLES_BASE: ArticleConfig[] = [
       "Цель лечения глаукомы заключается в поддержании у пациента зрительных функций и связанного с ним качества жизни. Уровень ВГД может быть понижен с помощью местной гипотензивной терапии и других методов лечения. Стоит стремиться к использованию минимального количества лекарственных средств.",
     status: "done",
     layout: "wide",
-    icon: "/icons/article-1.svg",
     nextSlug: ARTICLE_NEXT_MAP[ArticleSlug.ClinicalRecommendations],
   },
   {
@@ -61,7 +61,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
       "Сравнительный анализ аналогов простагландинов: особенности молекул и их влияние на эффективность терапии.",
     status: "done",
     layout: "wide",
-    icon: "/icons/article-3.svg",
+    icon: "/icons/story.svg",
     nextSlug: ARTICLE_NEXT_MAP[ArticleSlug.ApgDifference],
   },
   {
@@ -73,7 +73,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
       "Инновационный подход к лечению первичной открытоугольной глаукомы с применением современных препаратов.",
     status: "done",
     layout: "wide",
-    icon: "/icons/article-4.svg",
+    icon: "/icons/shield-tick.svg",
     nextSlug: ARTICLE_NEXT_MAP[ArticleSlug.Lumistart],
   },
   {
@@ -84,7 +84,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
       "Комплексный подход к улучшению качества жизни пациентов: от диагностики до долгосрочной терапии.",
     status: "done",
     layout: "wide",
-    icon: "/icons/article-5.svg",
+    icon: "/icons/ranking.svg",
     nextSlug: ARTICLE_NEXT_MAP[ArticleSlug.QualityOfLife],
   },
   {
@@ -95,7 +95,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
       "Влияние заболеваний поверхности глаз на комплаентность пациентов и стратегии повышения приверженности.",
     status: "done",
     layout: "wide",
-    icon: "/icons/article-6.svg",
+    icon: "/icons/clipboard-tick.svg",
     nextSlug: ARTICLE_NEXT_MAP[ArticleSlug.SurfaceDiseases],
   },
   {
@@ -106,7 +106,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
       "Руководство по выбору оптимального препарата для начала терапии глаукомы.",
     status: "done",
     layout: "wide",
-    icon: "/icons/article-7.svg",
+    icon: "/icons/signpost.svg",
   },
   {
     id: ArticleSlug.KarlovaVideo,
@@ -117,7 +117,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
       "Селезнев А.В. О проблеме «рестарта» терапии ПОУГ после оперативного лечения",
     status: "in_dev",
     layout: "narrow",
-    icon: "/icons/article-8.svg",
+    icon: null,
   },
   {
     id: ArticleSlug.SeleznevVideo,
@@ -128,7 +128,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
       "Селезнев А.В. О проблеме «рестарта» терапии ПОУГ после оперативного лечения",
     status: "in_dev",
     layout: "narrow",
-    icon: "/icons/article-9.svg",
+    icon: null,
   },
 ];
 

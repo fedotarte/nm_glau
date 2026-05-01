@@ -153,6 +153,20 @@
 .mobileIcon {
     left: 16px;
 }
+
+.mobileIcon img {
+  opacity: 1;
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .card > .mobileIcon,
+  .cardLocked > .mobileIcon,
+  .cardDisabled > .mobileIcon {
+    display: none;
+  }
+}
+
 .cardArrowIconDisabled {
   position: absolute;
   top: 50%;
@@ -345,6 +359,10 @@
   cursor: not-allowed;
 }
 
+.cardDisabled:not(:has(.mobileIcon)) {
+  padding-left: 16px;
+}
+
 .cardDisabled:hover {
   transform: none;
 }
@@ -413,6 +431,10 @@
     position: absolute;
     left: 56px;
     bottom: 10px;
+  }
+
+  .cardDisabled:not(:has(.mobileIcon)) .devBadge {
+    left: 16px;
   }
 }
 
@@ -516,7 +538,8 @@
   stroke: var(--color-text-muted);
 }
 
-.mobileIcon {
+.mobileCard .mobileIcon,
+.mobileCardDisabled .mobileIcon {
   flex-shrink: 0;
   width: 32px;
   height: 32px;
@@ -555,10 +578,4 @@
   .mobileList {
     display: flex;
   }
-}
-
-@media (min-width: 1024px) {
-    .mobileIcon {
-        display: none;
-    }
 }

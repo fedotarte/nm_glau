@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -63,7 +62,7 @@ const LockIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const ArticleIcon = ({ className }: { className: string }) => (
+const ArticleIcon = ({ className }: { className?: string }) => (
   <svg
     width="28"
     height="28"
@@ -86,6 +85,23 @@ const ArticleIcon = ({ className }: { className: string }) => (
     />
   </svg>
 );
+
+const ArticleLeadingIcon = ({
+  article,
+  className,
+}: {
+  article: ArticleConfig;
+  className: string;
+}) => {
+  if (article.icon === null) return null;
+  if (article.icon)
+    return (
+      <span className={className}>
+        <img src={article.icon} alt="" width={28} height={28} decoding="async" />
+      </span>
+    );
+  return <ArticleIcon className={className} />;
+};
 
 interface ArticleSliderProps {
   articles: ArticleConfig[];
@@ -130,7 +146,7 @@ export const ArticleSlider = ({ articles }: ArticleSliderProps) => {
           >
             {articles.map((article) => (
               <SwiperSlide key={article.id} className={styles.slide}>
-                <ArticleCard article={article} />
+                <ArticleCard article={article} suppressLeadingIcon />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -173,11 +189,14 @@ interface ArticleCardProps {
    * По умолчанию читается из `useAuth()`.
    */
   isAuthenticated?: boolean;
+  /** Не показывать левую иконку (карусель на десктопе ≥1024px). В списке под hero иконки остаются. */
+  suppressLeadingIcon?: boolean;
 }
 
 export const ArticleCard = ({
   article,
   isAuthenticated: isAuthenticatedProp,
+  suppressLeadingIcon = false,
 }: ArticleCardProps) => {
   const { isAuthenticated: isAuthenticatedFromContext } = useAuth();
   const isAuthenticated = isAuthenticatedProp ?? isAuthenticatedFromContext;
@@ -186,7 +205,9 @@ export const ArticleCard = ({
   if (isMaterialsInDev) {
     return (
       <div className={styles.cardDisabled}>
-        <ArticleIcon className={styles.mobileIcon} />
+        {!suppressLeadingIcon && (
+          <ArticleLeadingIcon article={article} className={styles.mobileIcon} />
+        )}
         <h3 className={styles.cardTitle}>{article.title}</h3>
         <span className={styles.devBadge}>Материал в разработке</span>
         <ArrowIcon className={styles.cardArrowIconDisabled} />
@@ -202,7 +223,9 @@ export const ArticleCard = ({
 
   return (
     <Link href={`/articles/${article.slug}`} className={cardClassName}>
-      <ArticleIcon className={styles.mobileIcon} />
+      {!suppressLeadingIcon && (
+        <ArticleLeadingIcon article={article} className={styles.mobileIcon} />
+      )}
       {!isAuthenticated && <LockIcon className={styles.lockIcon} />}
       <div className={styles.cardContent}>
         <h3 className={styles.cardTitle}>{displayTitle}</h3>
@@ -229,15 +252,17 @@ export const ArticleCard = ({
 };
 
 const MobileArticleCard = ({ article }: { article: ArticleConfig }) => {
-  const { isAuthenticated } = useAuth();
   const isInDev = article.status === "in_dev";
   const displayTitle = article.title;
-
   const content = (
     <>
-      {article.icon && (
+      {article.icon !== null && (
         <div className={styles.mobileIcon}>
-          <Image src={article.icon} alt="" width={32} height={32} />
+          {article.icon ? (
+            <img src={article.icon} alt="" width={32} height={32} decoding="async" />
+          ) : (
+            <ArticleIcon />
+          )}
         </div>
       )}
       <h3 className={styles.mobileTitle}>{displayTitle}</h3>
