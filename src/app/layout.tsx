@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
 import { AuthProvider } from "@/components/auth";
+import { AUTH_FORCE_AUTHENTICATED } from "@/lib/auth/config";
 import { Source_Sans_3, Unbounded } from "next/font/google";
 
 import "./globals.css";
@@ -77,7 +78,11 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={`${sourceSans.className} ${sourceSans.variable} ${unbounded.variable}`}>
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider
+          initialStatus={AUTH_FORCE_AUTHENTICATED ? "authenticated" : "loading"}
+        >
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

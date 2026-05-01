@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { useAuth } from "@/components/auth";
@@ -24,6 +24,7 @@ export const Header = () => {
   const pathname = usePathname();
   const isArticlesSection = pathname.startsWith("/articles");
   const { isAuthenticated } = useAuth();
+  const loginHref = `/api/auth/login?returnTo=${encodeURIComponent(pathname || "/")}`;
   const loginLabel = isAuthenticated
     ? LOGIN_BUTTON_LABEL.authenticated
     : LOGIN_BUTTON_LABEL.unauthenticated;
@@ -119,9 +120,9 @@ export const Header = () => {
           {/*    </Link>*/}
           {/*  </li>*/}
           {/*</ul>*/}
-          <button type="button" className={styles.loginButton}>
+          <a href={loginHref} className={styles.loginButton}>
             {loginLabel}
-          </button>
+          </a>
           <button
             type="button"
             className={styles.burgerButton}
@@ -225,8 +226,9 @@ export const Header = () => {
 
             <div className={styles.drawerFooterText}>
               <p>
-                Материал подготовлен при поддержке ООО «ЭббВи», 125196, Москва,
-                ул. Лесная, д. 7
+                Материал подготовлен AbbVie. ООО «ЭббВи», 125171, Россия
+                <br /> г. Москва, Ленинградское ш., д.16а, стр. 1,  5 этаж; Тел.
+                +7 (495) 258-42-77
                 <br />
                 Тел: <Link href="tel:+74952584277">+7 (495) 258-42-77</Link>
               </p>
@@ -237,7 +239,7 @@ export const Header = () => {
                 Информация предназначена исключительно для специалистов
                 здравоохранения Российской Федерации.
               </p>
-              <p>Номер одобрения: RU-XXX-TEST-250011 Июнь 2025.</p>
+              <p>RU-LUM-260006: дата одобрения, апрель 2026.</p>
             </div>
           </div>
         </div>
