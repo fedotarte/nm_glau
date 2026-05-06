@@ -17,8 +17,7 @@ export const ClinicalRecommendationsContent = () => {
       }}
       imageCard={{
         href: "/articles/lumistart",
-        imageSrc:
-          "/pictures/articles/clinical-recommendations/sidebar-eye-v2.png",
+        imageSrc: "/pictures/articles/@x3.png",
         imageAlt: "Люмистарт — новый старт в терапии ПОУГ",
         title: (
           <>
@@ -56,12 +55,13 @@ export const ClinicalRecommendationsContent = () => {
           title="СОХРАНИЛОСЬ ВАЖНОЕ:"
         />
         <p className={styles.clinicalBody}>
-          <span className={styles.clinicalBodyMedium}>Цель лечения глаукомы</span>{" "}
-          заключается в поддержании у пациента зрительных
-          функций и связанного с ним качества жизни. Уровень ВГД может быть
-          понижен с помощью местной гипотензивной терапии и других методов
-          лечения. Стоит стремиться к использованию минимального количества
-          лекарственных средств.
+          <span className={styles.clinicalBodyMedium}>
+            Цель лечения глаукомы
+          </span>{" "}
+          заключается в поддержании у пациента зрительных функций и связанного с
+          ним качества жизни. Уровень ВГД может быть понижен с помощью местной
+          гипотензивной терапии и других методов лечения. Стоит стремиться к
+          использованию минимального количества лекарственных средств.
         </p>
         <p className={styles.clinicalBody}>
           <strong>Уровень «целевого» давления:</strong>
@@ -145,7 +145,10 @@ export const ClinicalRecommendationsContent = () => {
             к лечению пациентов с глаукомой — от 5 до 80 %.
           </p>
           <p className={styles.clinicalBodyTopGap}>
-            <strong>Факторы, негативно влияющие на соблюдение режима:</strong>
+            <strong>
+              Факторы, негативно влияющие на соблюдение режима, могут быть
+              связаны:
+            </strong>
           </p>
           <ul className={styles.clinicalBodyBulletList}>
             <li>
@@ -276,8 +279,7 @@ export const ClinicalRecommendationsContent = () => {
                 бесконсервантную фиксированную комбинацию аналогов
                 простагландинов и бета-адреноблокаторов
               </strong>{" "}
-              с
-              топическими ингибиторами карбоангидразы;
+              с топическими ингибиторами карбоангидразы;
             </li>
             <li>
               назначение глазных капель, обладающих увлажняющими свойствами и не
@@ -293,15 +295,17 @@ export const ClinicalRecommendationsContent = () => {
           </ul>
         </article>
 
-        <article className={`${styles.changeBlock} ${styles.changeBlockParagraphs}`}>
+        <article
+          className={`${styles.changeBlock} ${styles.changeBlockParagraphs}`}
+        >
           <div className={styles.changeHeader}>
             <span className={styles.badgeNew}>Новое</span>
             <h3>3.4. Другие методы лечения.</h3>
           </div>
           <p className={styles.clinicalBodyMedium}>
             <strong>
-              Добавлена нейроретинопротекция с наивысшим уровнем убедительности и
-              достоверности.
+              Добавлена нейроретинопротекция с наивысшим уровнем убедительности
+              и достоверности.
             </strong>
           </p>
           <p>
@@ -328,8 +332,7 @@ export const ClinicalRecommendationsContent = () => {
               из них оказалась нейроретинопротекция, призванная обеспечить
               защиту нейронов сетчатки и нервных волокон зрительного нерва от
               повреждающего действия различных факторов. В настоящее время
-              принято выделять 2 направления нейропротекции — прямую и
-              непрямую.
+              принято выделять 2 направления нейропротекции — прямую и непрямую.
             </strong>
           </p>
         </article>

@@ -20,8 +20,8 @@ export const TherapyStartContent = () => {
       }}
       imageCard={{
         href: "/articles/lumistart",
-        imageSrc:
-          "/pictures/articles/clinical-recommendations/sidebar-eye-v2.png",
+        imageSrc: "/pictures/articles/@x3.png",
+        imageSrc3x: "/pictures/articles/@x3.png",
         imageAlt: "Люмистарт — новый старт в терапии ПОУГ",
         title: (
           <>

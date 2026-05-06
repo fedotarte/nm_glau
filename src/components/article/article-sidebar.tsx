@@ -21,6 +21,46 @@ type SidebarSmallCardMemo = {
   subtitle: ReactNode;
 };
 
+type ImageCardImageProps = {
+  imageSrc: string;
+  imageAlt: string;
+  /** Вариант для DPR ≈3 (`imageSrc` при этом — базовый файл уровня 2×). */
+  imageSrc3x?: string;
+};
+
+const ImageCardEye = ({
+  imageSrc,
+  imageAlt,
+  imageSrc3x,
+}: ImageCardImageProps) => {
+  if (imageSrc3x) {
+    return (
+      // Пара PNG 2x/3x в /public — next/image не задаёт такой srcSet.
+      // eslint-disable-next-line @next/next/no-img-element -- фиксированные ассеты под DPR
+      <img
+        src={imageSrc}
+        srcSet={`${imageSrc} 2x, ${imageSrc3x} 3x`}
+        alt={imageAlt}
+        width={920}
+        height={470}
+        className={styles.eyeImage}
+        decoding="async"
+      />
+    );
+  }
+
+  return (
+    <Image
+      src={imageSrc}
+      alt={imageAlt}
+      width={920}
+      height={470}
+      sizes="(max-width: 1279px) calc(100vw - 28px), 221px"
+      className={styles.eyeImage}
+    />
+  );
+};
+
 type ArticleSidebarProps = {
   asideClassName?: string;
   variant?: "default" | "compact";
@@ -28,9 +68,7 @@ type ArticleSidebarProps = {
   primaryNavCaption?: string;
   nextMaterial: SidebarLinkAction;
   smallCard?: SidebarSmallCardRead | SidebarSmallCardMemo;
-  imageCard?: {
-    imageSrc: string;
-    imageAlt: string;
+  imageCard?: ImageCardImageProps & {
     title: ReactNode;
     href?: string;
   };
@@ -126,13 +164,10 @@ export const ArticleSidebar = ({
       {imageCard ? (
         imageCard.href ? (
           <Link href={imageCard.href} className={styles.imageCard}>
-            <Image
-              src={imageCard.imageSrc}
-              alt={imageCard.imageAlt}
-              width={920}
-              height={470}
-              sizes="(max-width: 1279px) calc(100vw - 28px), 221px"
-              className={styles.eyeImage}
+            <ImageCardEye
+              imageSrc={imageCard.imageSrc}
+              imageAlt={imageCard.imageAlt}
+              imageSrc3x={imageCard.imageSrc3x}
             />
             <span className={styles.imageTitle}>{imageCard.title}</span>
             <Image
@@ -146,13 +181,10 @@ export const ArticleSidebar = ({
           </Link>
         ) : (
           <button type="button" className={styles.imageCard}>
-            <Image
-              src={imageCard.imageSrc}
-              alt={imageCard.imageAlt}
-              width={920}
-              height={470}
-              sizes="(max-width: 1279px) calc(100vw - 28px), 221px"
-              className={styles.eyeImage}
+            <ImageCardEye
+              imageSrc={imageCard.imageSrc}
+              imageAlt={imageCard.imageAlt}
+              imageSrc3x={imageCard.imageSrc3x}
             />
             <span className={styles.imageTitle}>{imageCard.title}</span>
             <Image
