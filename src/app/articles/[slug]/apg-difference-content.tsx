@@ -35,9 +35,7 @@ export const ApgDifferenceContent = () => {
         title: (
           <>
             Что может повысить качество жизни
-            <br />
-            у пациентов
-            <br />с глаукомой?
+            <br />у пациентов с глаукомой?
           </>
         ),
         action: { label: "Читать", href: "/articles/quality-of-life" },

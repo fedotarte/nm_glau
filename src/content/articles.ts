@@ -117,7 +117,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
       "Селезнев А.В. О проблеме «рестарта» терапии ПОУГ после оперативного лечения",
     status: "in_dev",
     layout: "narrow",
-    icon: null,
+    icon: "/icons/karlova.svg",
   },
   {
     id: ArticleSlug.SeleznevVideo,
@@ -128,7 +128,7 @@ const ARTICLES_BASE: ArticleConfig[] = [
       "Селезнев А.В. О проблеме «рестарта» терапии ПОУГ после оперативного лечения",
     status: "in_dev",
     layout: "narrow",
-    icon: null,
+    icon: "/icons/seleznev.svg",
   },
 ];
 

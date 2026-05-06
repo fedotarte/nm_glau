@@ -1928,6 +1928,10 @@ ol.referencesList {
     grid-template-columns: 1fr;
   }
 
+  .comparisonCol2022 p br {
+    display: none;
+  }
+
   .clinicalSidebar {
     display: flex;
     width: 100%;
@@ -1947,7 +1951,9 @@ ol.referencesList {
 
   .surfaceSplitCardFigure {
     flex: none;
+    width: min(100%, 535px);
     max-width: 100%;
+    margin-inline: auto;
   }
 
   .surfaceCalloutUpper {

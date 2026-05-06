@@ -129,8 +129,9 @@ export const ArticleSidebar = ({
             <Image
               src={imageCard.imageSrc}
               alt={imageCard.imageAlt}
-              width={292}
-              height={196}
+              width={920}
+              height={470}
+              sizes="(max-width: 1279px) calc(100vw - 28px), 221px"
               className={styles.eyeImage}
             />
             <span className={styles.imageTitle}>{imageCard.title}</span>
@@ -148,8 +149,9 @@ export const ArticleSidebar = ({
             <Image
               src={imageCard.imageSrc}
               alt={imageCard.imageAlt}
-              width={292}
-              height={196}
+              width={920}
+              height={470}
+              sizes="(max-width: 1279px) calc(100vw - 28px), 221px"
               className={styles.eyeImage}
             />
             <span className={styles.imageTitle}>{imageCard.title}</span>

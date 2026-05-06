@@ -241,9 +241,9 @@ export const Header = () => {
           {/*  </Link>*/}
           {/*</nav>*/}
 
-          {/*<button type="button" className={styles.drawerLoginButton}>*/}
-          {/*  {loginLabel}*/}
-          {/*</button>*/}
+          <button type="button" className={styles.drawerLoginButton}>
+            {loginLabel}
+          </button>
 
           <HeaderDrawerFooter />
         </div>

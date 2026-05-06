@@ -186,7 +186,9 @@ const DesktopCardContent = ({
             ) : null}
             <div className={styles.cardButton}>
               <span>{isAuthenticated ? "Перейти" : LOCKED_CARD_BUTTON}</span>
-              {isAuthenticated && <ArrowIcon className={styles.cardButtonArrow} />}
+              {isAuthenticated && (
+                <ArrowIcon className={styles.cardButtonArrow} />
+              )}
             </div>
           </div>
           <ArrowIcon className={styles.cardArrowIcon} />
@@ -198,7 +200,11 @@ const DesktopCardContent = ({
 
 const ListCardContent = ({ article }: { article: ArticleConfig }) => (
   <>
-    <ArticleLeadingIcon article={article} className={styles.mobileIcon} size={32} />
+    <ArticleLeadingIcon
+      article={article}
+      className={styles.mobileIcon}
+      size={32}
+    />
     <h3 className={styles.mobileTitle}>{article.title}</h3>
     <ArrowIcon className={styles.mobileArrow} />
   </>
@@ -211,5 +217,3 @@ export const DesktopArticleCard = ({ article }: { article: ArticleConfig }) => (
 export const ArticleListCard = ({ article }: { article: ArticleConfig }) => (
   <ArticleCardFrame article={article} variant="list" />
 );
-
-export const MobileArticleCard = ArticleListCard;

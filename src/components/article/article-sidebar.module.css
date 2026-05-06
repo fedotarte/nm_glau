@@ -252,6 +252,16 @@
     width: 100%;
   }
 
+  .imageCard::after {
+    height: 58%;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 153, 166, 0) 0%,
+      rgba(10, 153, 166, 0.72) 58%,
+      rgba(10, 153, 166, 0.96) 100%
+    );
+  }
+
   .memoCard {
     width: 100%;
     max-width: none;

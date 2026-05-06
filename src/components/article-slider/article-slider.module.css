@@ -384,6 +384,17 @@
     .cardTitle {
         font-size: 22px;
     }
+
+    .cardDisabled .cardTitle {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 20px;
+        line-height: 105%;
+        padding-right: 4px;
+    }
 }
 
 .cardArrow {
