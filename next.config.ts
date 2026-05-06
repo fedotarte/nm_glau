@@ -39,10 +39,6 @@ const nextConfig: NextConfig = {
         headers: SECURITY_HEADERS,
       },
       {
-        source: "/_next/static/:path*",
-        headers: STATIC_ASSET_HEADERS,
-      },
-      {
         source: "/icons/:path*",
         headers: STATIC_ASSET_HEADERS,
       },

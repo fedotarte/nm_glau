@@ -8,7 +8,7 @@ import {
 } from "@/lib/auth/server";
 import { AUTH_STATE_COOKIE_NAME } from "@/lib/auth/config";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const tokenFromUrl = request.nextUrl.searchParams.get("token");
   if (!tokenFromUrl) {
     return NextResponse.next();
