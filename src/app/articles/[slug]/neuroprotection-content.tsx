@@ -107,6 +107,9 @@ export const NeuroprotectionContent = () => {
             1-7.
           </li>
         </ul>
+        <p className={styles.referencesApprovalCode}>
+          RU-LUM-260006: дата одобрения, апрель 2026
+        </p>
       </details>
 
     </section>

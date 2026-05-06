@@ -150,13 +150,21 @@ export const QualityOfLifeContent = () => {
           height={414}
           className={styles.lumistartWideImage}
         />
-        <Image
-          src="/pictures/articles/quality-of-life/frame-107-ganfort.png"
-          alt="Ганфорт: комбинированный препарат с фиксированной дозой, одна капля в сутки"
-          width={969}
-          height={414}
-          className={styles.lumistartWideImage}
-        />
+        <div className={styles.bannerMarkFrame}>
+          <Image
+            src="/pictures/articles/quality-of-life/frame-107-ganfort.png"
+            alt="Ганфорт: комбинированный препарат с фиксированной дозой, одна капля в сутки"
+            width={969}
+            height={414}
+            className={styles.lumistartWideImage}
+          />
+          <span
+            className={`${styles.bannerRegisteredMark} ${styles.qualityGanfortMark}`}
+            aria-hidden="true"
+          >
+            ®
+          </span>
+        </div>
 
         <div className={styles.therapyMetaBlock}>
           <div className={styles.therapyGlossaryPlain}>

@@ -1313,6 +1313,43 @@
   border-radius: 20px;
 }
 
+.bannerMarkFrame {
+  position: relative;
+  width: 100%;
+}
+
+.bannerMarkFrame .lumistartWideImage {
+  display: block;
+}
+
+.bannerRegisteredMark {
+  position: absolute;
+  z-index: 1;
+  color: #ffffff;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.qualityGanfortMark {
+  top: 33.5%;
+  left: 31.3%;
+  font-size: clamp(8px, 1.7vw, 17px);
+}
+
+.surfaceGanfortMark {
+  top: 83.4%;
+  left: 52.5%;
+  font-size: clamp(7px, 1.3vw, 13px);
+}
+
+.surfaceAlphaganMark {
+  top: 83.4%;
+  left: 87.3%;
+  font-size: clamp(7px, 1.3vw, 13px);
+}
+
 .lumistartFootnote {
   font-style: italic;
 }
@@ -1666,6 +1703,17 @@ ol.referencesList {
   margin-bottom: 0;
 }
 
+.referencesApprovalCode {
+  margin: 12px 0 0;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #135d6c;
+}
+
 .fallback {
   padding: clamp(24px, 4vw, 40px);
   border-radius: 24px;
@@ -1817,6 +1865,15 @@ ol.referencesList {
     border-radius: 12px;
   }
 
+  .qualityGanfortMark {
+    font-size: clamp(6px, 1.7vw, 10px);
+  }
+
+  .surfaceGanfortMark,
+  .surfaceAlphaganMark {
+    font-size: clamp(5px, 1.3vw, 8px);
+  }
+
   .therapyBanner {
     border-radius: 16px;
   }
@@ -1920,7 +1977,8 @@ ol.referencesList {
   .clinicalGlossary,
   .therapyGlossary,
   .referencesItem,
-  .referencesSummary {
+  .referencesSummary,
+  .referencesApprovalCode {
     font-size: 14px;
   }
 

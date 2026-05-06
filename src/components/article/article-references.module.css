@@ -66,9 +66,21 @@ ol.list {
   margin-bottom: 0;
 }
 
+.approvalCode {
+  margin: 12px 0 0;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #135d6c;
+}
+
 @media (max-width: 960px) {
   .item,
-  .summary {
+  .summary,
+  .approvalCode {
     font-size: 14px;
   }
 }
