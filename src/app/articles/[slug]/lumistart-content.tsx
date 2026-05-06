@@ -79,7 +79,9 @@ export const LumistartContent = () => {
       <ArticleTitleBlock
         title={
           <>
-            люмистарт —&nbsp; новый старт* в терапии поуг
+            люмистарт —&nbsp; новый старт
+            <sup className={styles.therapySectionHeadingRef}>*</sup> в терапии
+            поуг
             <sup className={styles.therapySectionHeadingRef}>1, 7</sup>
           </>
         }

@@ -39,6 +39,9 @@ export const ArticleReferences = ({
           </li>
         ))}
       </ListTag>
+      <p className={styles.approvalCode}>
+        RU-LUM-260006: дата одобрения, апрель 2026
+      </p>
     </details>
   );
 };
