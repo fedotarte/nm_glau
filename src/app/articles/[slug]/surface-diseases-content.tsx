@@ -49,7 +49,7 @@ const REFERENCES: ReactNode[] = [
     . (Дата доступа: 18.03.2026).
   </>,
   <>
-    ЛВ/ОХЛП препарата Ганфорт® опубликованы на сайте{" "}
+    ЛВ/ОХЛП препарата Ганфорт<sup>®</sup> опубликованы на сайте{" "}
     <a
       href="https://lk.regmed.ru/Register/EAEU_SmPC"
       target="_blank"
