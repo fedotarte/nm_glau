@@ -36,7 +36,7 @@ export const QualityOfLifeContent = () => {
       }}
       imageCard={{
         href: "/articles/lumistart",
-        imageSrc: "/pictures/articles/@x3.png",
+        imageSrc: "/pictures/articles/articles-eye.png",
         imageAlt: "Люмистарт — новый старт в терапии ПОУГ",
         title: (
           <>

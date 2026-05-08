@@ -43,7 +43,7 @@ const ARTICLE_COMPONENTS = {
 type KnownSlug = keyof typeof ARTICLE_COMPONENTS;
 
 const isKnownSlug = (slug: string): slug is KnownSlug =>
-  Object.prototype.hasOwnProperty.call(ARTICLE_COMPONENTS, slug);
+  Object.hasOwn(ARTICLE_COMPONENTS, slug);
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
