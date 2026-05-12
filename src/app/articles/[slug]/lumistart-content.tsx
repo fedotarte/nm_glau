@@ -151,8 +151,12 @@ export const LumistartContent = () => {
           title={
             <>
               ОРИЕНТАЦИЯ НА ПЕРЕНОСИМОСТЬ: ЛЮМИСТАРТ ПРЕДСТАВЛЯЕТ СОБОЙ АПГ ДЛЯ
-              МОНОТЕРАПИИ С БЛАГОПРИЯТНЫМ ПРОФИЛЕМ ПЕРЕНОСИМОСТИ*, †,{" "}
-              <sup className={styles.therapySectionHeadingRef}>2</sup>
+              МОНОТЕРАПИИ С БЛАГОПРИЯТНЫМ ПРОФИЛЕМ ПЕРЕНОСИМОСТИ
+              <sup
+                className={`${styles.therapySectionHeadingRef} ${styles.therapySectionHeadingRefCustom}`}
+              >
+                *, †, 2
+              </sup>
             </>
           }
         />

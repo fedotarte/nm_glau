@@ -158,12 +158,6 @@ export const QualityOfLifeContent = () => {
             height={414}
             className={styles.lumistartWideImage}
           />
-          <span
-            className={`${styles.bannerRegisteredMark} ${styles.qualityGanfortMark}`}
-            aria-hidden="true"
-          >
-            ®
-          </span>
         </div>
 
         <div className={styles.therapyMetaBlock}>

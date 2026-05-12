@@ -236,24 +236,12 @@ export const SurfaceDiseasesContent = () => {
 
         <div className={styles.bannerMarkFrame}>
           <Image
-            src="/pictures/articles/surface-diseases/frame-81-a.png"
+            src="/pictures/articles/surface-diseases/frame-81-a2.png"
             alt="Схема терапии: Люмистарт, Ганфорт, Альфаган Р"
             width={969}
             height={481}
             className={styles.lumistartWideImage}
           />
-          <span
-            className={`${styles.bannerRegisteredMark} ${styles.surfaceGanfortMark}`}
-            aria-hidden="true"
-          >
-            ®
-          </span>
-          <span
-            className={`${styles.bannerRegisteredMark} ${styles.surfaceAlphaganMark}`}
-            aria-hidden="true"
-          >
-            ®
-          </span>
         </div>
       </section>
 
