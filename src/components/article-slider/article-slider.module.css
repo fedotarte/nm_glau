@@ -381,20 +381,23 @@
 }
 
 @media (min-width: 1024px) {
-    .cardTitle {
-        font-size: 22px;
-    }
+  .cardTitle {
+    font-size: 22px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow-wrap: break-word;
+    line-height: 1.05;
+  }
 
-    .cardDisabled .cardTitle {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-size: 20px;
-        line-height: 105%;
-        padding-right: 4px;
-    }
+  .cardDisabled .cardTitle {
+    font-size: 20px;
+    line-height: 105%;
+    padding-right: 4px;
+  }
 }
 
 .cardArrow {

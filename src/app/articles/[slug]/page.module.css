@@ -40,6 +40,13 @@
   gap: 16px;
 }
 
+.karlovaTherapySection {
+  gap: 24px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
 /* Figma 767-12078: вертикальный шаг между блоками основной колонки 24px */
 .surfaceDiseasesSection {
   gap: 24px;
@@ -614,6 +621,190 @@
   height: auto;
   display: block;
   border-radius: 24px;
+}
+
+.karlovaLead {
+  margin: 0;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.35;
+  color: #135d6c;
+}
+
+.karlovaLeadEmphasis {
+  font-weight: 600;
+}
+
+.karlovaAuthor {
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.karlovaAuthorAvatar {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 70px;
+  height: 70px;
+  border-radius: 200px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+/* next/image оборачивает img во span — без фикс. размеров span может занять всю ширину колонки */
+.karlovaAuthorAvatar > span {
+  box-sizing: border-box;
+  display: block !important;
+  width: 70px !important;
+  height: 70px !important;
+}
+
+.karlovaAuthorPhoto {
+  display: block;
+  box-sizing: border-box;
+  width: 70px !important;
+  height: 70px !important;
+  max-width: 70px !important;
+  object-fit: cover;
+}
+
+.karlovaAuthorText {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.karlovaAuthorName {
+  margin: 0;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0;
+  font-variant: small-caps;
+  color: #135d6c;
+}
+
+.karlovaAuthorMeta {
+  margin: 0;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #135d6c;
+}
+
+.karlovaTopic {
+  margin: 0;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.35;
+  color: #135d6c;
+}
+
+.karlovaTelemostPlayer {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border-radius: 20px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.karlovaTelemostPlayer .lumistartWideImage {
+  display: block;
+}
+
+.karlovaTelemostEmbed {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  background: #0d3339;
+}
+
+.karlovaTelemostIframe {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.karlovaTelemostPosterLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: inherit;
+  background: #0d3339;
+}
+
+.karlovaTelemostPosterImageWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.karlovaTelemostPosterImage {
+  object-fit: cover;
+}
+
+.karlovaTelemostOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: rgba(19, 93, 108, 0.16);
+  cursor: pointer;
+  transition: background 0.22s ease;
+}
+
+.karlovaTelemostPlayer:hover .karlovaTelemostOverlay {
+  background: rgba(19, 93, 108, 0.42);
+}
+
+.karlovaTelemostOverlay:focus-visible {
+  outline: 2px solid #0a99a6;
+  outline-offset: 3px;
+}
+
+.karlovaTelemostPlayIcon {
+  width: 176px;
+  height: 176px;
+  display: block;
+  transition: transform 0.22s ease;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.4));
+}
+
+.karlovaTelemostPlayer:hover .karlovaTelemostPlayIcon {
+  transform: scale(1.07);
+}
+
+.karlovaBannerCaption {
+  margin: 0;
+  font-family: "Source Sans Pro", var(--font-family-base), sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #135d6c;
+  margin-bottom: 24px;
 }
 
 .therapyMetaBlock {

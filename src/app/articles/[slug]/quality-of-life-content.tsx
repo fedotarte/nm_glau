@@ -29,10 +29,15 @@ export const QualityOfLifeContent = () => {
         href: "/articles/surface-diseases",
       }}
       smallCard={{
-        variant: "memo",
-        title:
-          "Карлова Е.В.\n О роли врачебной инертности в выборе стартовой терапии ПОУГ",
-        subtitle: "Материал в разработке",
+        variant: "read",
+        title: (
+          <>
+            Карлова Е.В.
+            <br />
+            О роли врачебной инертности в выборе стартовой терапии ПОУГ
+          </>
+        ),
+        action: { label: "Читать", href: "/articles/karlova-video" },
       }}
       imageCard={{
         href: "/articles/lumistart",

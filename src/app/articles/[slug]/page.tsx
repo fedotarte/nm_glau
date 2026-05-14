@@ -38,6 +38,12 @@ const ARTICLE_COMPONENTS = {
   [ArticleSlug.SurfaceDiseases]: dynamicImport(() =>
     import("./surface-diseases-content").then((m) => m.SurfaceDiseasesContent),
   ),
+  [ArticleSlug.KarlovaVideo]: dynamicImport(() =>
+    import("./karlova-video-content").then((m) => m.KarlovaVideoContent),
+  ),
+  [ArticleSlug.SeleznevVideo]: dynamicImport(() =>
+    import("./seleznev-video-content").then((m) => m.SeleznevVideoContent),
+  ),
 } as const;
 
 type KnownSlug = keyof typeof ARTICLE_COMPONENTS;

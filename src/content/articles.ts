@@ -114,10 +114,11 @@ const ARTICLES_BASE: ArticleConfig[] = [
     title:
       "Карлова Е.В.\n О роли врачебной инертности в выборе стартовой терапии ПОУГ",
     description:
-      "Селезнев А.В. О проблеме «рестарта» терапии ПОУГ после оперативного лечения",
-    status: "in_dev",
-    layout: "narrow",
+      "Доклад с 6-го телемоста экспертов-глаукоматологов «Врачебная инертность: проблемы и решения» (Москва, 14 марта 2026 г.).",
+    status: "done",
+    layout: "wide",
     icon: "/icons/karlova.svg",
+    nextSlug: ARTICLE_NEXT_MAP[ArticleSlug.KarlovaVideo],
   },
   {
     id: ArticleSlug.SeleznevVideo,
@@ -125,10 +126,11 @@ const ARTICLES_BASE: ArticleConfig[] = [
     title:
       "Селезнев А.В.\n О проблеме «рестарта» терапии ПОУГ после оперативного лечения",
     description:
-      "Селезнев А.В. О проблеме «рестарта» терапии ПОУГ после оперативного лечения",
-    status: "in_dev",
-    layout: "narrow",
+      "Доклад с 6-го телемоста экспертов-глаукоматологов «Врачебная инертность: проблемы и решения» (Москва, 14 марта 2026 г.).",
+    status: "done",
+    layout: "wide",
     icon: "/icons/seleznev.svg",
+    nextSlug: ARTICLE_NEXT_MAP[ArticleSlug.SeleznevVideo],
   },
 ];
 
