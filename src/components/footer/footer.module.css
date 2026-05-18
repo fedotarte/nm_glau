@@ -37,7 +37,7 @@
 }
 
 .column {
-  padding: 0 16px;
+  padding: 0 15px;
   max-width: 340px;
 }
 .column:not(:last-child) {
@@ -52,6 +52,11 @@
   font-size: 12px;
   line-height: 1;
   color: var(--color-text-light);
+}
+
+.emailInline {
+  display: inline;
+  white-space: nowrap;
 }
 
 .link {

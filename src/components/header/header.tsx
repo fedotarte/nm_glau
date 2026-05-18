@@ -32,9 +32,9 @@ const HeaderDrawerFooter = () => (
     <div className={styles.drawerFooterText}>
       <p>
         Информацию о нежелательных явлениях, связанных с применением препаратов
-        компании «ЭббВи», необходимо направить по адресу:{" "}
+        компании «ЭббВи», необходимо направить по E-mail:{" "}
       </p>
-      <Link href="mailto:ruabhvie@abbvie.com">ruabhvie@abbvie.com</Link>
+      <Link href="mailto:Pv.russia.cis@abbvie.com">Pv.russia.cis@abbvie.com</Link>
     </div>
 
     <div className={styles.drawerFooterText}>
@@ -241,9 +241,9 @@ export const Header = () => {
           {/*  </Link>*/}
           {/*</nav>*/}
 
-          <button type="button" className={styles.drawerLoginButton}>
+          <a href={loginHref} className={styles.drawerLoginButton}>
             {loginLabel}
-          </button>
+          </a>
 
           <HeaderDrawerFooter />
         </div>

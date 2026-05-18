@@ -180,6 +180,7 @@
 }
 
 .drawerLoginButton {
+    display: block;
     margin-top: 24px;
     padding: 16px 32px;
     font-size: 18px;
@@ -189,6 +190,7 @@
     border-radius: var(--radius-login-button);
     transition: background-color 0.2s ease;
     text-align: center;
+    text-decoration: none;
     box-shadow: 0 8px 24px 0 rgba(188, 243, 255, 0.25), 0 2px 4px 0 rgba(0, 0, 0, 0.25);
 }
 

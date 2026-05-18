@@ -29,10 +29,13 @@ export const Footer = ({ certificationId = "RU-LUM-260006" }: FooterProps) => (
         <div className={styles.column}>
           <p className={styles.text}>
             Информацию о нежелательных явлениях, связанных с применением
-            препаратов компании «ЭббВи», необходимо направить по адресу:{" "}
-            <Link href="mailto:ruabhvie@abbvie.com" className={styles.link}>
-              ruabhvie@abbvie.com
-            </Link>
+            препаратов компании «ЭббВи», необходимо направить{" "}
+            <a
+              href="mailto:Pv.russia.cis@abbvie.com"
+              className={`${styles.link} ${styles.emailInline}`}
+            >
+              по&nbsp;E-mail:&nbsp;Pv.russia.cis@abbvie.com
+            </a>
           </p>
         </div>
 
