@@ -32,9 +32,11 @@ const HeaderDrawerFooter = () => (
     <div className={styles.drawerFooterText}>
       <p>
         Информацию о нежелательных явлениях, связанных с применением препаратов
-        компании «ЭббВи», необходимо направить по E-mail:{" "}
+        компании «ЭббВи», необходимо направить по&nbsp;E-mail:{" "}
+        <Link href="mailto:Pv.russia.cis@abbvie.com">
+          Pv.russia.cis@abbvie.com
+        </Link>
       </p>
-      <Link href="mailto:Pv.russia.cis@abbvie.com">Pv.russia.cis@abbvie.com</Link>
     </div>
 
     <div className={styles.drawerFooterText}>
