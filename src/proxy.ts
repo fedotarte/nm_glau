@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 
 import {
   applyAuthCookies,
+  normalizeToken,
   readAuthStateFromCookie,
   sanitizeReturnTo,
 } from "@/lib/auth/server";
@@ -14,7 +15,7 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const token = tokenFromUrl.trim();
+  const token = normalizeToken(tokenFromUrl);
   if (!token) {
     return NextResponse.next();
   }

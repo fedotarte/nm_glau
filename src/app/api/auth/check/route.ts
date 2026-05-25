@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 import { AUTH_FORCE_AUTHENTICATED } from "@/lib/auth/config";
 import {
   applyAuthCookies,
-  clearAuthCookies,
   getAuthTokenFromCookies,
   verifyTokenWithPharmVision,
 } from "@/lib/auth/server";
@@ -29,9 +28,7 @@ export async function GET() {
 
   const verifyResult = await verifyTokenWithPharmVision(token);
   if (!verifyResult.ok || !verifyResult.token) {
-    const response = unauthorized();
-    clearAuthCookies(response);
-    return response;
+    return unauthorized();
   }
 
   const response = ok({
