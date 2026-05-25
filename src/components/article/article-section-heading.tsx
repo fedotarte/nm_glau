@@ -29,7 +29,7 @@ export const ArticleSectionHeading = ({
     }
 
     if (Array.isArray(node)) {
-      return node.map((child) => normalizeCase(child));
+      return Children.map(node, normalizeCase);
     }
 
     if (isValidElement<{ children?: ReactNode }>(node) && node.props.children) {

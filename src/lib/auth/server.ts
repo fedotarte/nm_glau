@@ -19,12 +19,17 @@ interface VerifyResponseUser {
   id: number | string;
   email?: string;
   username?: string;
+  name?: string;
 }
 
 interface VerifyResponseBody {
   ok?: boolean;
   token?: unknown;
   user?: unknown;
+  user_id?: unknown;
+  email?: unknown;
+  name?: unknown;
+  username?: unknown;
 }
 
 interface VerifyAuthResult {
@@ -40,7 +45,9 @@ interface AuthStatePayload {
 
 const isProduction = process.env.NODE_ENV === "production";
 
-export const normalizeToken = (value: string | null | undefined): string | null => {
+export const normalizeToken = (
+  value: string | null | undefined,
+): string | null => {
   const trimmed = value?.trim();
   if (!trimmed) {
     return null;
@@ -56,7 +63,9 @@ export const normalizeToken = (value: string | null | undefined): string | null 
   return normalized ? normalized : null;
 };
 
-export const getAuthTokenFromCookies = (cookieStore: CookieGetter): string | null => {
+export const getAuthTokenFromCookies = (
+  cookieStore: CookieGetter,
+): string | null => {
   const tokenFromPrimary = cookieStore.get(AUTH_COOKIE_NAME)?.value;
   const tokenFromPharmCookie = cookieStore.get(PHARM_TOKEN_COOKIE_NAME)?.value;
   return normalizeToken(tokenFromPrimary ?? tokenFromPharmCookie ?? null);
@@ -68,16 +77,20 @@ const parseVerifyUser = (value: unknown): VerifyResponseUser | undefined => {
   }
 
   const userCandidate = value as Record<string, unknown>;
-  const id = userCandidate.id;
+  const id = userCandidate.id ?? userCandidate.user_id;
   if (typeof id !== "number" && typeof id !== "string") {
     return undefined;
   }
 
   return {
     id,
-    email: typeof userCandidate.email === "string" ? userCandidate.email : undefined,
+    email:
+      typeof userCandidate.email === "string" ? userCandidate.email : undefined,
     username:
-      typeof userCandidate.username === "string" ? userCandidate.username : undefined,
+      typeof userCandidate.username === "string"
+        ? userCandidate.username
+        : undefined,
+    name: typeof userCandidate.name === "string" ? userCandidate.name : undefined,
   };
 };
 
@@ -108,13 +121,15 @@ export const verifyTokenWithPharmVision = async (
     }
 
     const payload = (await response.json()) as VerifyResponseBody;
-    if (payload.ok !== true) {
+    if (payload.ok === false) {
       return { ok: false };
     }
 
     const verifiedToken =
-      typeof payload.token === "string" ? normalizeToken(payload.token) : normalizedToken;
-    const user = parseVerifyUser(payload.user);
+      typeof payload.token === "string"
+        ? normalizeToken(payload.token)
+        : normalizedToken;
+    const user = parseVerifyUser(payload.user ?? payload);
 
     return {
       ok: true,
