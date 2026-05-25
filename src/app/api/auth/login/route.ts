@@ -13,11 +13,10 @@ export async function GET(request: Request) {
   const requestUrl = new URL(request.url);
   const returnTo = sanitizeReturnTo(requestUrl.searchParams.get("returnTo"));
   const statePayload = createAuthState(returnTo);
-  const from = PHARM_VISION_FROM.trim() || requestUrl.host;
 
   const redirectTo = new URL(PHARM_VISION_LOGIN_URL);
   redirectTo.searchParams.set("state", statePayload.state);
-  redirectTo.searchParams.set("from", from);
+  redirectTo.searchParams.set("from", PHARM_VISION_FROM);
   redirectTo.hash = "popup-enter";
 
   const response = NextResponse.redirect(redirectTo);

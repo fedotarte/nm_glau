@@ -16,7 +16,24 @@ export const PHARM_VISION_LOGIN_URL =
 export const PHARM_VISION_VERIFY_URL =
   process.env.PHARM_VISION_VERIFY_URL ??
   "https://pharm-vision.ru/api/auth/verify";
-export const PHARM_VISION_FROM = process.env.PHARM_VISION_FROM ?? "";
+
+const DEFAULT_SITE_HOST = "glau.nmmedia.ru";
+
+const getConfiguredSiteHost = (): string => {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!siteUrl) {
+    return DEFAULT_SITE_HOST;
+  }
+
+  try {
+    return new URL(siteUrl).host;
+  } catch {
+    return siteUrl;
+  }
+};
+
+export const PHARM_VISION_FROM =
+  process.env.PHARM_VISION_FROM?.trim() || getConfiguredSiteHost();
 export const PHARM_VISION_SECRET =
   process.env.PHARM_VISION_SECRET ?? "8s6wFXdjQRzbGp3BCyZblklJUDchvYjD";
 
@@ -40,10 +57,10 @@ const parseBooleanEnv = (
   return fallback;
 };
 
-// Временно считаем пользователя авторизованным по умолчанию.
+// Для локального обхода авторизации можно выставить AUTH_FORCE_AUTHENTICATED=true.
 export const AUTH_FORCE_AUTHENTICATED = parseBooleanEnv(
   process.env.AUTH_FORCE_AUTHENTICATED,
-  true,
+  false,
 );
 
 export const isAuthConfigured = (): boolean =>
