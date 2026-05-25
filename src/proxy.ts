@@ -28,12 +28,12 @@ export function proxy(request: NextRequest) {
   redirectTarget.searchParams.delete("token");
   redirectTarget.searchParams.delete("state");
 
-  if (
-    stateFromUrl &&
+  const shouldRestoreReturnTo =
     authState &&
-    authState.state === stateFromUrl &&
-    authState.returnTo
-  ) {
+    (!stateFromUrl || authState.state === stateFromUrl) &&
+    authState.returnTo;
+
+  if (shouldRestoreReturnTo) {
     const returnTo = sanitizeReturnTo(authState.returnTo);
     redirectTarget.pathname = returnTo;
     redirectTarget.search = "";

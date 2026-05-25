@@ -41,7 +41,18 @@ interface AuthStatePayload {
 const isProduction = process.env.NODE_ENV === "production";
 
 export const normalizeToken = (value: string | null | undefined): string | null => {
-  const normalized = value?.trim();
+  const trimmed = value?.trim();
+  if (!trimmed) {
+    return null;
+  }
+
+  let normalized = trimmed;
+  try {
+    normalized = decodeURIComponent(trimmed);
+  } catch {
+    normalized = trimmed;
+  }
+
   return normalized ? normalized : null;
 };
 
