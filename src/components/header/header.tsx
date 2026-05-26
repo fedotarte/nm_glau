@@ -18,6 +18,7 @@ const LOGIN_BUTTON_LABEL = {
   unauthenticated: "Войти",
   authenticated: "Личный кабинет",
 } as const;
+const PHARM_VISION_PROFILE_URL = "https://pharm-vision.ru/profile";
 
 const HeaderDrawerFooter = () => (
   <div className={styles.drawerFooter}>
@@ -65,7 +66,9 @@ export const Header = () => {
   const isArticlesSection = pathname.startsWith("/articles");
   const { isAuthenticated } = useAuth();
 
-  const loginHref = `/api/auth/login?returnTo=${encodeURIComponent(pathname || "/")}`;
+  const loginHref = isAuthenticated
+    ? PHARM_VISION_PROFILE_URL
+    : `/api/auth/login?returnTo=${encodeURIComponent(pathname || "/")}`;
   const loginLabel = isAuthenticated
     ? LOGIN_BUTTON_LABEL.authenticated
     : LOGIN_BUTTON_LABEL.unauthenticated;
@@ -78,7 +81,6 @@ export const Header = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
-  // Handle Escape key press
   useEffect(() => {
     const controller = new AbortController();
     const handleEscape = (e: KeyboardEvent) => {
@@ -96,7 +98,6 @@ export const Header = () => {
     };
   }, [isMenuOpen, closeMenu]);
 
-  // Prevent body scroll and add class when menu is open
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -115,7 +116,6 @@ export const Header = () => {
     };
   }, [isMenuOpen]);
 
-  // Articles section requires independent horizontal overflow behavior.
   useEffect(() => {
     if (isArticlesSection) {
       document.body.classList.add("articles-page");
@@ -149,18 +149,7 @@ export const Header = () => {
               <span className={styles.homeLabel}>На Главную</span>
             </Link>
           ) : null}
-          {/*<ul className={styles.navList}>*/}
-          {/*  <li>*/}
-          {/*    <Link href="#" className={styles.navLink}>*/}
-          {/*      Практические материалы*/}
-          {/*    </Link>*/}
-          {/*  </li>*/}
-          {/*  <li>*/}
-          {/*    <Link href="#" className={styles.navLink}>*/}
-          {/*      Для терапии*/}
-          {/*    </Link>*/}
-          {/*  </li>*/}
-          {/*</ul>*/}
+
           <a href={loginHref} className={styles.loginButton}>
             {loginLabel}
           </a>
@@ -225,23 +214,6 @@ export const Header = () => {
               />
             </svg>
           </button>
-
-          {/*<nav className={styles.drawerNav}>*/}
-          {/*  <Link*/}
-          {/*    href="/materials"*/}
-          {/*    className={styles.drawerLink}*/}
-          {/*    onClick={closeMenu}*/}
-          {/*  >*/}
-          {/*    Практические материалы*/}
-          {/*  </Link>*/}
-          {/*  <Link*/}
-          {/*    href="/therapy"*/}
-          {/*    className={styles.drawerLink}*/}
-          {/*    onClick={closeMenu}*/}
-          {/*  >*/}
-          {/*    Для терапии*/}
-          {/*  </Link>*/}
-          {/*</nav>*/}
 
           <a href={loginHref} className={styles.drawerLoginButton}>
             {loginLabel}
