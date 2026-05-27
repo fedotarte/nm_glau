@@ -1,0 +1,21 @@
+services:
+  glau-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Берётся из .env в каталоге проекта (docker compose подставляет при build)
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+    image: glau-app:latest
+    container_name: glau_nextjs
+    restart: always
+    ports:
+      # Доступ только с localhost — снаружи ходим через nginx
+      - "127.0.0.1:3000:3000"
+    environment:
+      NODE_ENV: production
+      # Публичный URL сайта (обязательно в проде)
+      # NEXT_PUBLIC_SITE_URL: https://glau.pharm-vision.ru
+    # На сервере создайте .env и раскомментируйте:
+    # env_file:
+    #   - .env

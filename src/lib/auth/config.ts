@@ -17,7 +17,7 @@ export const PHARM_VISION_VERIFY_URL =
   process.env.PHARM_VISION_VERIFY_URL ??
   "https://pharm-vision.ru/api/auth/verify";
 
-const DEFAULT_SITE_HOST = "glau.nmmedia.ru";
+const DEFAULT_SITE_HOST = "glau.pharm-vision.ru";
 
 const getConfiguredSiteHost = (): string => {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
