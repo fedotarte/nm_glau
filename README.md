@@ -17,15 +17,13 @@ npm run dev
 
 Схема: **nginx** (80/443) → **контейнер Next.js** на `127.0.0.1:3000`.
 
-Образ **не тянется из registry** — на сервере лежит клон репозитория, образ собирается локально через `docker compose build`.
-
-При пуше в `main` GitHub Actions по SSH выполняет на сервере: `git pull`, `docker compose build`, `docker compose up -d` (см. [.github/workflows/main.yml](./.github/workflows/main.yml)).
+Образ **не тянется из registry** — на сервер передаётся **архив с исходниками**, образ собирается локально через `docker compose build`. Git на сервере не нужен.
 
 ### 1. Установка Docker (Ubuntu)
 
 ```bash
 sudo apt update
-sudo apt install -y ca-certificates curl gnupg git
+sudo apt install -y ca-certificates curl gnupg
 
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
@@ -46,22 +44,31 @@ sudo systemctl enable --now docker
 docker compose version
 ```
 
-### 2. Клон репозитория на сервер
+### 2. Размещение архива на сервере
+
+Передайте на сервер архив проекта (`.tar.gz` или `.zip`) любым удобным способом (SFTP, scp и т.п.).
+
+Первичная установка:
 
 ```bash
 sudo mkdir -p /opt/glau
 sudo chown "$USER":"$USER" /opt/glau
-git clone https://github.com/fedotarte/nm_glau.git /opt/glau
+
+# Пример: архив уже загружен в /tmp/glau.tar.gz
+tar -xzf /tmp/glau.tar.gz -C /opt/glau --strip-components=1
+# Если в архиве одна вложенная папка — уберите --strip-components=1
+# или распакуйте в /tmp и перенесите содержимое в /opt/glau вручную
+
 cd /opt/glau
 ```
 
-Скопируйте шаблон переменных и отредактируйте под сервер:
+Создайте `.env` из шаблона и отредактируйте под сервер:
 
 ```bash
 cp .env.example .env
 ```
-
-Пример `.env` (файл не в git, только на сервере):
+# НЕ ЗАБУДЬТЕ УСТАНОВИТЬ PHARM_VISION_SECRET в `.env` ФАЙЛЕ!
+Пример `.env` (файл только на сервере):
 
 ```env
 NODE_ENV=production
@@ -91,11 +98,20 @@ docker compose ps
 curl -s -o /dev/null -w "%{http_code}\n" http://127.0.0.1:3000
 ```
 
-Обновление после изменений в коде:
+При Обновлении (новый архив от команды разработки):
 
 ```bash
 cd /opt/glau
-git pull
+docker compose down
+
+# Сохраните текущий .env — в новом архиве его обычно нет
+cp .env /tmp/glau.env.bak
+
+# Распакуйте новый архив поверх каталога (пример)
+tar -xzf /tmp/glau.tar.gz -C /opt/glau --strip-components=1
+
+cp /tmp/glau.env.bak .env
+
 docker compose build
 docker compose up -d --remove-orphans
 docker image prune -f
@@ -161,7 +177,7 @@ sudo certbot renew --dry-run
 | Шаг | Проверка |
 |-----|----------|
 | Docker | `docker compose version` |
-| Репозиторий в `/opt/glau` | есть `Dockerfile`, `docker-compose.yml`, `.env` |
+| Каталог `/opt/glau` | распакован архив: `Dockerfile`, `docker-compose.yml`, `.env` |
 | Образ собран | `docker images glau-app` |
 | Приложение | `curl http://127.0.0.1:3000` → 200 |
 | nginx + TLS | сайт открывается по `https://glau.pharm-vision.ru` |
@@ -169,7 +185,7 @@ sudo certbot renew --dry-run
 ## Частые проблемы
 
 - **502 Bad Gateway** — контейнер не запущен: `docker compose ps`, `docker compose logs -f`.
-- **Старый контент после деплоя** — не хватило `docker compose build` после `git pull`.
+- **Старый контент после обновления** — не распаковали новый архив или не выполнили `docker compose build`.
 - **Неверные URL / auth** — проверьте `NEXT_PUBLIC_SITE_URL` в `.env` и пересоберите образ.
 - **Порт 3000 снаружи** — в compose должен быть `127.0.0.1:3000:3000`.
 
@@ -183,5 +199,21 @@ docker compose up
 
 ---
 
+## Подготовка архива (для команды разработки)
+
+Перед передачей на сервер соберите архив **без** зависимостей и артефактов сборки:
+
+```bash
+tar -czf glau-release.tar.gz \
+  --exclude=node_modules \
+  --exclude=.next \
+  --exclude=.git \
+  --exclude='.env' \
+  -C . .
+```
+
+Передайте `glau-release.tar.gz` администратору сервера вместе с актуальным `.env` (или пусть он создаст его из `.env.example`).
+
+---
+
 - [Документация Next.js](https://nextjs.org/docs)
-- CI/CD: [.github/workflows/main.yml](./.github/workflows/main.yml)
