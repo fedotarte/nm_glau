@@ -72,9 +72,9 @@ cp .env.example .env
 
 ```env
 NODE_ENV=production
-NEXT_PUBLIC_SITE_URL=https://glau.pharm-vision.ru
+NEXT_PUBLIC_SITE_URL=https://focus-glaucoma.pharm-vision.ru
 # PHARM_VISION_SECRET=...
-# PHARM_VISION_FROM=glau.pharm-vision.ru
+# PHARM_VISION_FROM=focus-glaucoma.pharm-vision.ru
 ```
 
 Полный список переменных — в [.env.example](./.env.example).
@@ -130,13 +130,13 @@ sudo apt install -y nginx
 ```
 
 ```bash
-sudo nano /etc/nginx/sites-available/glau.pharm-vision.ru
+sudo nano /etc/nginx/sites-available/focus-glaucoma.pharm-vision.ru
 ```
 
 ```nginx
 server {
     listen 80;
-    server_name glau.pharm-vision.ru;
+    server_name focus-glaucoma.pharm-vision.ru;
 
     location / {
         proxy_pass http://127.0.0.1:3000;
@@ -153,7 +153,7 @@ server {
 ```
 
 ```bash
-sudo ln -sf /etc/nginx/sites-available/glau.pharm-vision.ru /etc/nginx/sites-enabled/
+sudo ln -sf /etc/nginx/sites-available/focus-glaucoma.pharm-vision.ru /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl reload nginx
 ```
@@ -164,7 +164,7 @@ DNS домена должен указывать на IP сервера.
 
 ```bash
 sudo apt install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d glau.pharm-vision.ru
+sudo certbot --nginx -d focus-glaucoma.pharm-vision.ru
 sudo certbot renew --dry-run
 ```
 
@@ -180,7 +180,7 @@ sudo certbot renew --dry-run
 | Каталог `/opt/glau` | распакован архив: `Dockerfile`, `docker-compose.yml`, `.env` |
 | Образ собран | `docker images glau-app` |
 | Приложение | `curl http://127.0.0.1:3000` → 200 |
-| nginx + TLS | сайт открывается по `https://glau.pharm-vision.ru` |
+| nginx + TLS | сайт открывается по `https://focus-glaucoma.pharm-vision.ru` |
 
 ## Частые проблемы
 

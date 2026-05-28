@@ -15,7 +15,7 @@ services:
     environment:
       NODE_ENV: production
       # Публичный URL сайта (обязательно в проде)
-      # NEXT_PUBLIC_SITE_URL: https://glau.pharm-vision.ru
+      # NEXT_PUBLIC_SITE_URL: https://focus-glaucoma.pharm-vision.ru
     # На сервере создайте .env и раскомментируйте:
     # env_file:
     #   - .env
